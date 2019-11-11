@@ -1,0 +1,8 @@
+language: python
+version:
+    - "3.6"
+before_install:
+    - cd project
+install: "pip install -r requirements.txt"
+script:
+    - SECRET_KEY="key" python manage.py test
