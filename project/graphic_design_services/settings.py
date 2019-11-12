@@ -29,7 +29,7 @@ SECRET_KEY = [os.environ.get('SECRET_KEY')]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = [os.environ.get('C9_PREVIEW'), 'my-graphic-design-services.herokuapp.com/']
+ALLOWED_HOSTS = [os.environ.get('C9_PREVIEW'), os.environ.get('HEROKU_DOMAIN')]
 
 # Application definition
 
