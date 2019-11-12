@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/stiofanEimeid/graphic-design-services.svg?branch=master)](https://travis-ci.org/stiofanEimeid/graphic-design-services)
 
+![Python](https://img.shields.io/badge/python-3.6.8-%2333AAFF)
+
+![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
+
 # MILESTONE PROJECT 3
 
 ## Table of Contents
@@ -33,13 +37,15 @@
 
 #### Project Goals
 
-The goal of the project is to build a site to provide graphic design services. 
+The goal of the project is to build a site to provide graphic design services. I will offer to design and build websites or simply logos
+and images at a price.
 
 #### User Goals
 
 #### User Stories
 
 As a user, I want to:
+
 
 As a site owner, I want to:
 
@@ -58,6 +64,10 @@ As a site owner, I want to:
 ## Features
 
 ### Existing Features
+
+Carousel
+
+Calculator
 
 ### Features left to implement 
 
