@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-     # own
+    # own
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     
     # third-party
     'crispy_forms',
-    
 ]
 
 MIDDLEWARE = [
@@ -136,5 +135,8 @@ STATICFILES_DIRS = (
 )
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'homepage'
+LOGIN_URL = 'login'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
