@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/stiofanEimeid/graphic-design-services.svg?branch=master)](https://travis-ci.org/stiofanEimeid/graphic-design-services)
 
-![Python](https://img.shields.io/badge/python-3.6.8-%2333AAFF)
+![Python](https://img.shields.io/badge/python-3.6.9-%2333AAFF)
 
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
 
