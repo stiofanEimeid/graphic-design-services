@@ -168,6 +168,18 @@ Run
 
 #### Deploying the Project to Heroku
 
+Login to Heroku through the CLI
+
+Create an app.
+
+Create a PostgresSQL database.
+
+Add environment variables.
+
+Add the Heroku App Domain name to the list of allowed hosts in settings.py
+
+Upload the project subdirectory using the command ```git subtree push --prefix <name of folder containing project> heroku master``` from the root directory.
+
 ## Credits
 https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/
 
@@ -183,7 +195,7 @@ https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011
 
 The contents of this website are for educational purposes only.
 
-git subtree push --prefix project heroku master
+
 
 [**Jump to top &uarr;**](#table-of-contents)
 
