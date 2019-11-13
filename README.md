@@ -37,17 +37,28 @@
 
 #### Project Goals
 
-The goal of the project is to build a site to provide graphic design services. I will offer to design and build websites or simply logos
-and images at a price.
+The goal of the project is to build a site to provide graphic and web design services. 
 
 #### User Goals
 
+As a user, I want to purchase graphical designs to address my needs.
+
+As an owner, I want to showcase my work and earn money for freelance design work.
+
 #### User Stories
 
-As a user, I want to:
+As a user, I want to be able to:
 
+- view previous work and customer testimonials;
+- use a form to order a design to fit my needs;
+- view how much my request will cost and how long it will take;
+- accept the result or request a round of changes.
 
 As a site owner, I want to:
+
+- showcase prior work to attract potential clients;
+- log in as a special user in order to see a list of all orders;
+- upload completed work.
 
 ### Design Choices
 
@@ -172,7 +183,7 @@ https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011
 
 The contents of this website are for educational purposes only.
 
-kjnfkf
+git subtree push --prefix project heroku master
 
 [**Jump to top &uarr;**](#table-of-contents)
 

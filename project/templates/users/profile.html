@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
     <div class="content-section">
-      <div class="media">
+      <div class="media pt-4">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
@@ -21,4 +22,5 @@
           </fieldset>
       </form>
     </div>
+</div>
 {% endblock content %} 
