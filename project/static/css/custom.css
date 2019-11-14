@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: #ececec;
+    background-color: #F7FFF6;
     font-family: 'Josefin Sans', sans-serif;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@ body {
 
 footer {
   flex-shrink: 0;
-  background-color: #1a1a1a;
-  color: #fafafa;
+  background-color: #1D1E18;
+  color: #F7FFF6;
   text-align: center;
   padding: 20px;
 }
@@ -56,7 +56,8 @@ img {
     width: 100%;
     padding: 10px;
     height: 70px;
-    background-color: #f8f9fa;
+    background-color: #1D1E18;
+    color: #F7FFF6;
     top: 0;
     transition: top 0.3s;
 }
@@ -80,14 +81,14 @@ img {
 .closeBtnContainer {
     height: 70px;
     position: relative;
-    background-color: #f8f9fa;
-    color: #41b3a3;
+    background-color: #1D1E18;
+    color: #F7FFF6;
 }
 
 .sidebar {
   height: 100%;
   width: 100%;
-  background-color: #f8f9fa;
+  background-color: #1D1E18;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -139,14 +140,14 @@ img {
   padding-bottom: 5px;
   display: block;
   transition: 0.3s;
-  color: #41b3a3;
-  border: 2px solid #f8f9fa;
+  color: #F7FFF6;
+  border: 2px solid #F7FFF6;
   margin-bottom: 10px;
 }
 
 .sidebar a:hover {
-  color: #f8f9fa;
-  background-color: #41b3a3;
+  color: #1D1818;
+  background-color: #F7FFF6;
 }
 
 .sidebar .closebtn {
@@ -159,10 +160,10 @@ img {
 }
 
 .openbtn {
-  height: 100%;
+  /*height: 100%;*/
   cursor: pointer;
-  background-color: #f8f9fa;
-  color: #41b3a3;
+  background-color: #1D1E18;
+  color: #F7FFF6;
   border: none;
   font-size: 1.5rem;
   /*restores click functionality disabled by fixed
@@ -170,14 +171,14 @@ img {
   pointer-events: auto; 
 }
 
-.openbtn:hover {
-  background-color: #f8f9fa;
-  color: #41b3a3;
-}
+/*.openbtn:hover {*/
+/*  background-color: #66FCF1;*/
+/*  color: #0B0C10;*/
+/*}*/
 
 .closebtn:hover {
-  color: #f8f9fa;
-  background-color: #41b3a3;
+  color: #1D1818;
+  background-color: #F7FFF6;
 }
 
 .overlay {
@@ -196,8 +197,15 @@ img {
 .hero {
   width: 100vw;
   height: 100vh;
-  background-color: #7dc2af;
+  color: #EF626C;
+  background-color: #8377D1;
   padding-top: 70px;
+  position: relative;
+}
+
+.yellow {
+  color:#E9D758;
+  background-color: #1D1E18;
 }
 
 .myCarousel {
@@ -210,4 +218,85 @@ img {
   background-color: white;
   padding: 1em;
   min-height: 500px;
+}
+
+/*custom cursor styles---------------------------------*/
+
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.cursor--small {
+  width: 5px;
+  height: 5px;
+  left: -2.5px;
+  top: -2.5px;
+  border-radius: 50%;
+  z-index: 11000;
+  /*background: var(--color-text);*/
+}
+.cursor--canvas {
+  width: 100vw;
+  height: 100vh;
+  z-index: 12000;
+}
+
+/*hiding the system cursor*/
+
+/*.page, .page a {*/
+/* cursor: none;*/
+/*}*/
+
+.link {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.settings-icon__line {
+  stroke: #F7FFF6;
+  stroke-width: 5px;
+  transition: all 0.2s ease 0.05s;
+}
+.settings-icon__rect {
+  stroke: #F7FFF6;
+  fill: #1D1E18;
+  stroke-width: 5px;
+  transition: all 0.2s ease 0.05s;
+}
+.link:hover .settings-icon__line,
+.link:hover .settings-icon__rect {
+  stroke: #8ecaf9;
+  transition: all 0.2s ease 0.05s;
+}
+.link:hover .settings-icon__group--1 .settings-icon__rect {
+  transform: translateY(20px);
+}
+.link:hover .settings-icon__group--2 .settings-icon__rect {
+  transform: translateY(-20px);
+}
+.link:hover .settings-icon__group--3 .settings-icon__rect {
+  transform: translateY(25px);
+} 
+
+
+
+/*custom cursor styles---------------------------------*/
+
+.centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
