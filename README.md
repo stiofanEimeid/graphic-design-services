@@ -68,6 +68,13 @@ As a site owner, I want to:
 
 #### Colours
 
+Light Sky Blue #8ECAF9
+Mint Cream #F7FFF6
+Eerie Black #1D1E18
+Light Carmine Pink #EF626C
+Hansa Yellow # E9D758
+Ube #8377D1
+
 #### Format
 
 ### Wireframes
@@ -178,16 +185,18 @@ Add environment variables.
 
 Add the Heroku App Domain name to the list of allowed hosts in settings.py
 
-Upload the project subdirectory using the command ```git subtree push --prefix <name of folder containing project> heroku master``` from the root directory.
+Upload the project subdirectory using the command ```git subtree push --prefix project heroku master``` (where project is the name of the folder containing the app) from the root directory.
 
 ## Credits
-https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/
+Installing psycopg2 with a virtual environment help found at [goshawknest](https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/)
 
 ### Content
 
 ### Media
 
 ### Code
+
+Custom Cursor by Stefan Kaltenegger found at [codrops](https://tympanus.net/codrops/2019/01/31/custom-cursor-effects/)
 
 ### Acknowledgements
 

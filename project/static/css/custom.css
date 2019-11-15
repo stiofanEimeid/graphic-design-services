@@ -29,7 +29,6 @@ footer {
   background-color: #1D1E18;
   color: #F7FFF6;
   text-align: center;
-  padding: 20px;
 }
 
 img {
@@ -67,14 +66,7 @@ img {
     height: 50px;
 }
 
-.nav-brand {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #072c43;
-    font-size: 1.75em;
-}
+
 
 /*sidebar*/
 
@@ -94,11 +86,11 @@ img {
   top: 0;
   left: 0;
   overflow-x: hidden;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .translateMe {
@@ -126,22 +118,21 @@ img {
   -moz-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .sidebar a {
   padding: 8px 8px 8px 35px;
   text-decoration: none;
-  font-size: 4em;
+  font-size: 3em;
   padding-bottom: 5px;
   display: block;
   transition: 0.3s;
   color: #F7FFF6;
-  border: 2px solid #F7FFF6;
   margin-bottom: 10px;
 }
 
@@ -160,15 +151,23 @@ img {
 }
 
 .openbtn {
-  /*height: 100%;*/
   cursor: pointer;
   background-color: #1D1E18;
   color: #F7FFF6;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   /*restores click functionality disabled by fixed
   positioning of parent container element(navbar)*/
   pointer-events: auto; 
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-brand {
+    color: #072c43;
+    font-size: 1.75em;
 }
 
 /*.openbtn:hover {*/
@@ -197,21 +196,16 @@ img {
 .hero {
   width: 100vw;
   height: 100vh;
-  color: #EF626C;
-  background-color: #8377D1;
+  color: #1D1818;
+  background-color: #F7FFF6;
   padding-top: 70px;
   position: relative;
-}
-
-.yellow {
-  color:#E9D758;
-  background-color: #1D1E18;
 }
 
 .myCarousel {
   width: 100%;
   height: 500px;
-  background-color: black;
+  background-color: #1D1818;
 }
 
 .pricePlan {
@@ -221,6 +215,29 @@ img {
 }
 
 /*custom cursor styles---------------------------------*/
+/*basic colours and layout*/
+
+body.tutorial {
+  --color-text: #fff; /*color of cursor*/
+  --color-bg: #171717;
+  --color-link: #ff0000;
+  background-color: var(--color-bg);
+}
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page__inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*Basic cursor styles*/
 
 .cursor {
   position: fixed;
@@ -235,7 +252,7 @@ img {
   top: -2.5px;
   border-radius: 50%;
   z-index: 11000;
-  /*background: var(--color-text);*/
+  background: var(--color-text);
 }
 .cursor--canvas {
   width: 100vw;
@@ -243,40 +260,42 @@ img {
   z-index: 12000;
 }
 
-/*hiding the system cursor*/
+/*Navigation and link styles*/
 
-/*.page, .page a {*/
-/* cursor: none;*/
-/*}*/
-
+.nav {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);  
+}
 .link {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   margin: 0 5px;
   justify-content: center;
   align-items: center;
 }
-
 .settings-icon {
   display: block;
   width: 40px;
   height: 40px;
 }
 .settings-icon__line {
-  stroke: #F7FFF6;
+  stroke: var(--color-text);
   stroke-width: 5px;
   transition: all 0.2s ease 0.05s;
 }
 .settings-icon__rect {
-  stroke: #F7FFF6;
-  fill: #1D1E18;
+  stroke: var(--color-text);
+  fill: var(--color-bg);
   stroke-width: 5px;
   transition: all 0.2s ease 0.05s;
 }
 .link:hover .settings-icon__line,
 .link:hover .settings-icon__rect {
-  stroke: #8ecaf9;
+  stroke: var(--color-link);
   transition: all 0.2s ease 0.05s;
 }
 .link:hover .settings-icon__group--1 .settings-icon__rect {
@@ -289,8 +308,11 @@ img {
   transform: translateY(25px);
 } 
 
+/*hiding the system cursor*/
 
-
+.page, .page a {
+ cursor: none;
+}
 /*custom cursor styles---------------------------------*/
 
 .centered {

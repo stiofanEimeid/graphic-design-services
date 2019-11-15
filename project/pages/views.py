@@ -14,3 +14,8 @@ def pricing(request, *args, **kwargs):
     # print(args, kwargs)
     # print(request.user)
     return render(request, "pricing.html", {})
+    
+def orders(request, *args, **kwargs):
+    # print(args, kwargs)
+    # print(request.user)
+    return render(request, "orders.html", {})
