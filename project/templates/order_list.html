@@ -3,6 +3,18 @@
 <div class="container">
 <h1 class="text-center pt-4">Order List</h1>
 
+    {% for order in orders %}
+    
+    <h2>{{ order.type }}</h2>
+    
+    <p>{{ order.description }}</p>
+    
+    <p>{{ order.time_created }}</p>
+    
+    <a href="{% url 'order-detail' order.id %}">Go to order</a>
+    
+    {% endfor %}
+
 
 </div>
 
