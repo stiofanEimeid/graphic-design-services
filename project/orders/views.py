@@ -14,3 +14,7 @@ def order_create_view(request):
         'form': form
     }
     return render(request, 'create_order.html',  context)
+    
+# def order_list(request):
+    # ...
+    # return render(request, 'order_list.html', {})
