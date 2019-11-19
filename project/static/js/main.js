@@ -1,6 +1,15 @@
-/* global $ */
+/* global $, AOS */
 
 $(document).ready(function(){
+    
+        
+
+        $('.nav-link').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active');
+            }
+        });
+ 
         //   overlay only displayed when sidebar selected
        $(".openbtn" ).click(function(){
         $(".overlay").css("display", "block");
@@ -43,4 +52,6 @@ $(document).ready(function(){
 });
 
 
+
+AOS.init();
 
