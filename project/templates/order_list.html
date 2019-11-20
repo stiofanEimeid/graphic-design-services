@@ -11,6 +11,8 @@
     
     <p>{{ order.time_created }}</p>
     
+    <p> {{ order.customer }}</p>
+    
     <a href="{% url 'order-detail' order.id %}">Go to order</a>
     
     {% endfor %}

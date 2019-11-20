@@ -19,7 +19,7 @@ from django.urls import path
 from pages.views import home, gallery, pricing, orders
 from users import views as user_views
 from orders import views as order_views
-from orders.views import Order, OrderDetailView # , OrderListView
+from orders.views import Order, OrderDetailView, OrderCreateView # , OrderListView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -30,7 +30,8 @@ urlpatterns = [
     path("pricing/", pricing, name="pricing"),
     path("orders/", orders, name="orders"),
     path('register/', user_views.register, name='register'),
-    path('create-order/', order_views.order_create_view, name='create-order'),
+    # path('create-order/', order_views.order_create_view, name='create-order'),
+    path('create_order/', OrderCreateView.as_view(), name='create_order'),
     path('order-list/', order_views.order_list, name='order-list'),
     # path('order_list/', OrderListView.as_view(), name='order_list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
