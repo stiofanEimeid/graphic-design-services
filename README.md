@@ -200,6 +200,14 @@ Custom Cursor by Stefan Kaltenegger found at [codrops](https://tympanus.net/codr
 
 ### Acknowledgements
 
+Heroku fix: https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+
+currently selected page in navbar: https://stackoverflow.com/questions/26819675/navbar-highlight-for-current-page
+
+Preview order modal: https://stackoverflow.com/questions/23775272/bootstrap-modal-before-form-submit
+
+Django Form Dropdown Menu: https://stackoverflow.com/questions/24403075/django-choicefield/24404791
+
 ### Disclaimer 
 
 The contents of this website are for educational purposes only.
