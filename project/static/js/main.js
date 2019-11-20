@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 
 AOS.init();
-
+const slider = document.querySelector('#slider')
 const carouselSlide = document.querySelector(".holder");
 const carouselImages = document.querySelectorAll(".holder img"); 
 const nextBtn = document.getElementById("nextBtn");
@@ -82,12 +82,12 @@ const play = document.getElementById("playpause");
 slider.addEventListener("mouseover", function(){
   prevBtn.classList.remove("hide"); //or toggle x 4// 
   nextBtn.classList.remove("hide");
-})
+});
 
 slider.addEventListener("mouseout", function(){
   prevBtn.classList.add("hide");
   nextBtn.classList.add("hide");
-})
+});
 
 // starting position:
 

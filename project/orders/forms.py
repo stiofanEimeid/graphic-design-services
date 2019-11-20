@@ -4,9 +4,10 @@ from .choices import *
 
 class OrderForm(forms.ModelForm):
     
-    type        = forms.ChoiceField(choices = ORDER_CHOICES, label="", initial='',
+    type        = forms.ChoiceField(choices = ORDER_CHOICES,
                                 widget=forms.Select(attrs={"id": "type"}),
                                 required=True)
+                                # initial='',
     description = forms.CharField(widget=forms.Textarea(attrs={"id": "description"}))
     
     class Meta:
