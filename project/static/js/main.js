@@ -123,7 +123,7 @@ prevBtn.addEventListener("click", function(){
 // transitions:
 
 carouselSlide.addEventListener("transitionend", function(){
-  if(counter === 9){
+  if(counter === 7){
   	carouselSlide.style.transition = "none"; 
   	counter = 1;
   	carouselSlide.style.transform = "translateX(" + (counter * -10) + "%";

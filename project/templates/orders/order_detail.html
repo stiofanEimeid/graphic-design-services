@@ -3,12 +3,13 @@
 <div class="container">
 <h1 class="text-center pt-4">Order List</h1>
 
-    
-    <h2>{{ object.type }}</h2>
+    <div class="order-container mb-5">
+    <h2>{{ object.type }} by {{ object.customer }}</h2>
     
     <p>{{ object.description }}</p>
     
-    <p>{{ object.time_created }}</p>
+    <p class="text-muted">{{ object.time_created }}</p>
+    </div>
     
  
 

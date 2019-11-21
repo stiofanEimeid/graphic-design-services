@@ -2,20 +2,24 @@
 {% block content %}
 <div class="container">
 <h1 class="text-center pt-4">Order List</h1>
+<div class="row">
+    <div class="col">
+            {% for order in orders %}
+            
+            <div class="order-container mb-5">
+        
+                <h2>{{ order.type }} by {{ order.customer }}</h2>
+                
+                <p class="text-muted">{{ order.time_created }}</p>
+                
+                <a href="{% url 'order-detail' order.id %}">Go to order</a>
+            </div>
+            
+            {% endfor %}
+    </div>
+</div>
 
-    {% for order in orders %}
-    
-    <h2>{{ order.type }}</h2>
-    
-    <p>{{ order.description }}</p>
-    
-    <p>{{ order.time_created }}</p>
-    
-    <p> {{ order.customer }}</p>
-    
-    <a href="{% url 'order-detail' order.id %}">Go to order</a>
-    
-    {% endfor %}
+
 
 
 </div>
