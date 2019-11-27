@@ -170,14 +170,14 @@ footer {
 }
 
 .nav-brand {
-    color: #8ECAF9;
+    color: #EF626C;
     font-size: 1.75em;
 }
 
 .nav-title a:link, .nav-title a:visited,
 .nav-title a:hover, .nav-title:active {
     text-decoration: none;
-    color: #8ECAF9;
+    color: #EF626C;
 }
 
 /*.openbtn:hover {*/
@@ -234,7 +234,7 @@ footer {
 #mySidebar .active {
     /*color:            #F8F8F8;*/
     text-decoration-line: underline;
-    text-decoration-color: #4f81bd;
+    text-decoration-color: #EF626C;
 }
 
 /*carousel styles*/
