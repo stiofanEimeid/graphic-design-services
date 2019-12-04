@@ -2,17 +2,20 @@
 
 $(document).ready(function(){
     
-        $('#submitBtn').click(function() {
-             /* when the button in the form, display the entered values in the modal */
-             $('#confirmtype').text($('#type').val());
-             $('#confirmdescription').text($('#description').val());
-        });
+        // $('#submitBtn').click(function() {
+        //      /* when the button in the form, display the entered values in the modal */
+        //      $('#confirmtype').text($('#type').val());
+        //      $('#confirmdescription').text($('#description').val());
+        // });
         
-        $('#submit').click(function(){
-             /* when the submit button in the modal is clicked, submit the form */
-            alert('submitting');
-            $('#formfield').submit();
-        });
+        // $('#submit').click(function(){
+        //      /* when the submit button in the modal is clicked, submit the form */
+        //     alert('submitting');
+        //     $('#formfield').submit();
+        // });
+        
+        
+        
 
         $('.nav-link').each(function(){
             if ($(this).prop('href') == window.location.href) {

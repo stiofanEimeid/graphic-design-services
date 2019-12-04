@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from pages.views import home, gallery, pricing, orders
+from pages.views import home, gallery, pricing, orders, showcase
 from users import views as user_views
 from orders import views as order_views
-from orders.views import Order, OrderDetailView, OrderCreateView # , OrderListView
+from orders.views import Order, OrderDetailView # , OrderListView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,10 +29,12 @@ urlpatterns = [
     path("gallery/", gallery, name="gallery"),
     path("pricing/", pricing, name="pricing"),
     path("orders/", orders, name="orders"),
+    path("showcase/", showcase, name="showcase"),
     path('register/', user_views.register, name='register'),
-    # path('create-order/', order_views.order_create_view, name='create-order'),
-    path('create_order/', OrderCreateView.as_view(), name='create_order'),
+    path('create-order/', order_views.order_create_view, name='create-order'),
+    # path('create-order/', OrderCreateView.as_view(), name='create-order'),
     path('order-list/', order_views.order_list, name='order-list'),
+    path('preview-order/', order_views.preview_order, name='preview-order'),
     # path('order_list/', OrderListView.as_view(), name='order_list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
