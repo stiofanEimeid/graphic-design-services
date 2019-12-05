@@ -5,8 +5,9 @@ from .choices import *
 class OrderForm(forms.ModelForm):
     
     type        = forms.ChoiceField(choices = ORDER_CHOICES,
-                                widget=forms.Select(attrs={"id": "type"}),
+                                widget=forms.RadioSelect(attrs={"id": "type", "onclick":"calculateTotal()"}),
                                 required=True)
+                                
                                 # initial='',
     description = forms.CharField(widget=forms.Textarea(attrs={"id": "description"}))
     

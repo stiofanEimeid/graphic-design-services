@@ -10,6 +10,8 @@
         
                 <h2>{{ order.type }} by {{ order.customer }}</h2>
                 
+                <p>€{{ order.price }}</p>
+                
                 <p class="text-muted">{{ order.time_created }}</p>
                 
                 <a href="{% url 'order-detail' order.id %}">Go to order</a>

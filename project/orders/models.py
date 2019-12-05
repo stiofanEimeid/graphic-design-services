@@ -10,6 +10,7 @@ class Order(models.Model):
     description     = models.TextField(blank=False, null=False)
     time_created    = models.DateTimeField(default=timezone.now)
     customer        = models.ForeignKey(User, on_delete=models.CASCADE)
+    price           = models.DecimalField(decimal_places=2, max_digits=1000)
     
     def __str__(self):
         return self.type

@@ -2,17 +2,19 @@
 
 $(document).ready(function(){
     
-        // $('#submitBtn').click(function() {
-        //      /* when the button in the form, display the entered values in the modal */
-        //      $('#confirmtype').text($('#type').val());
-        //      $('#confirmdescription').text($('#description').val());
-        // });
+        $('#submitBtn').click(function() {
+             /* when the button in the form, display the entered values in the modal */
+            //  $('#confirmType').text($('#type').val());
+             $('#confirmType').text($('input[name=type]:checked', '#formfield').val());
+             $('#confirmDescription').text($('#description').val());
+             $('#confirmPrice').text($('#price').val());
+        });
         
-        // $('#submit').click(function(){
-        //      /* when the submit button in the modal is clicked, submit the form */
-        //     alert('submitting');
-        //     $('#formfield').submit();
-        // });
+        $('#submit').click(function(){
+             /* when the submit button in the modal is clicked, submit the form */
+            alert('submitting');
+            $('#formfield').submit();
+        });
         
         
         
@@ -64,6 +66,39 @@ $(document).ready(function(){
     );
 });
 
+// Quote Calculator
 
+const myForm = document.querySelector("#formfield");
 
+const type_prices = new Array();
+type_prices[0]=20;
+type_prices[1]=25;
+type_prices[2]=35;
+type_prices[3]=75;
+ 
+
+function getTypePrice()
+{  
+    let typePrice=0;
+    const selectedType = myForm.elements["type"];
+    for(let i = 0; i < selectedType.length; i++)
+    { 
+        if(selectedType[i].checked)
+        {
+            typePrice = type_prices[i];
+            break;
+        }
+    }
+    return typePrice;
+}
+
+function calculateTotal()
+{
+    const totalCost = getTypePrice();
+    const divobj = document.querySelector('#price');
+    divobj.style.display='block';
+    divobj.innerHTML = "Total Price For the Request €"+ totalCost;
+}
+
+// Launch AOS styles
 AOS.init();
