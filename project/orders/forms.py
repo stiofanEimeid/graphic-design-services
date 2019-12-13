@@ -5,11 +5,11 @@ from .choices import *
 class OrderForm(forms.ModelForm):
     
     type        = forms.ChoiceField(choices = ORDER_CHOICES,
-                                widget=forms.RadioSelect(attrs={"id": "type", "onclick":"calculateTotal()"}),
+                                widget=forms.RadioSelect(attrs={"id": "type", "name": "description", "onclick":"calculateTotal()"}),
                                 required=True)
                                 
                                 # initial='',
-    description = forms.CharField(widget=forms.Textarea(attrs={"id": "description"}))
+    description = forms.CharField(widget=forms.Textarea(attrs={"id": "description", "name": "description"}))
     
     class Meta:
         model = Order

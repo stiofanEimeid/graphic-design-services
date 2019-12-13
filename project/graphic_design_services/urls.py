@@ -20,7 +20,9 @@ from django.urls import path
 from pages.views import home, gallery, pricing, orders, showcase
 from users import views as user_views
 from orders import views as order_views
-from orders.views import Order, OrderDetailView, OrderCreateView, OrderListView
+from checkout.views import checkout
+from basket.views import view_basket
+from orders.views import Order, OrderDetailView, OrderListView # ,OrderCreateView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,8 +34,10 @@ urlpatterns = [
     path("orders/", orders, name="orders"),
     path("showcase/", showcase, name="showcase"),
     path('register/', user_views.register, name='register'),
-    # path('create-order/', order_views.order_create_view, name='create-order'),
-    path('create-order/', OrderCreateView.as_view(), name='create-order'),
+    path('create-order/', order_views.order_create_view, name='create-order'),
+    path('checkout/', checkout, name='checkout'),
+    path("basket/", view_basket, name="basket"),
+    # path('create-order/', OrderCreateView.as_view(), name='create-order'),
     # path('order-list/', order_views.order_list, name='order-list'),
     path('order-list/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),

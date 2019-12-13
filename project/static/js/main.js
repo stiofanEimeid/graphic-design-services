@@ -98,7 +98,10 @@ function calculateTotal()
     const divobj = document.querySelector('#price');
     divobj.style.display='block';
     divobj.innerHTML = "Total Price For the Request €"+ totalCost;
+    
+    
 }
+
 
 // Launch AOS styles
 AOS.init();

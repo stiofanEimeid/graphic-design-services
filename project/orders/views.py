@@ -8,15 +8,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
 
-class OrderCreateView(LoginRequiredMixin, CreateView):
-    template_name = "orders/create_order.html"
+# class OrderCreateView(LoginRequiredMixin, CreateView):
+#     template_name = "orders/create_order.html"
     
-    form_class = OrderForm
+#     form_class = OrderForm
         
-    def form_valid(self, form):
-        form.instance.customer = self.request.user
-        form.instance.price = 100
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.customer = self.request.user
+#         form.instance.price = 100
+#         return super().form_valid(form)
         
  
         
@@ -25,6 +25,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
 #     form = OrderForm(request.POST or None)
 #     if form.is_valid():
 #         form.instance.customer = request.user
+#         # form.instance.customer = price
 #         form.save()
 #         form = OrderForm()
         
@@ -39,6 +40,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
 #     form = OrderForm(request.POST or None)
 #     if form.is_valid():
 #         form.instance.customer = request.user
+#         form.instance.price = 100
 #         content = form.save(commit=False)
         
 #         context = {
@@ -50,6 +52,43 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
 #         'form': form
 #     }
 #     return render(request, 'orders/create_order.html',  context)
+    
+@login_required
+def order_create_view(request):
+    form = OrderForm(request.POST or None)
+    if form.is_valid():
+        """Create a dictionary 'basket' that stores order info"""
+        my_basket = request.session.get('my_basket', {})
+        request.session['my_basket'] = my_basket
+        request.session['my_basket']['type'] = request.POST.get('type')
+        request.session['my_basket']['description'] = request.POST.get('description')
+        
+        """Calculate cost of order"""
+        request.session['my_basket']['price'] = 100
+        
+        # request.session.modified = True
+        """add dictionary to session variable 'basket'"""
+        # request.session['basket'] = basket
+       
+        context = {
+            'type': request.session['my_basket']['type'],
+            'description': request.session['my_basket']['description'],
+            'price': request.session['my_basket']['price']
+        }
+       
+        return render(request, 'basket.html', context)
+        
+    context = {
+        'form': form
+    }
+    return render(request, 'orders/create_order.html',  context)
+    
+
+def save_order(request):
+    
+    return render(request, 'home.html')
+    
+    
 
 
 # @staff_member_required    
