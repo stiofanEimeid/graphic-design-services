@@ -5,8 +5,9 @@
 
 
 {% block head_js %}
-<script src="https://js.stripe.com/v2"></script>
-<script>
+
+<script type="text/javascript" src="https://js.stripe.com/v2"></script>
+<script type="text/javascript">
 
     Stripe.publishableKey = '{{ publishable }}';
 
@@ -41,7 +42,7 @@
              </div>
              
              <div class="form-group col-md-6">
-             {{ payment_form  }}
+             {{ payment_form }}
              </div>
              
              {% csrf_token %}
