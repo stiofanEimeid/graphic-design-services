@@ -14,13 +14,10 @@ $(function() {
         if(status === 200) {
             $("#credit-card-errors").hide();
             $("#id_stripe_id").val(response.id);
-            
             $("#id_credit_card_number").removeAttr('name');
             $("#id_cvv").removeAttr('name');
             $("#id_expiry_month").removeAttr('name');
             $("#id_expiry_year").removeAttr('name');
-            
-            
             form.submit(); 
             
         } else {

@@ -12,4 +12,4 @@ class Customer(models.Model):
     date = models.DateField()
     
     def __str__(self):
-        return self.full_name
+        return self.full_name, self.id, self.date

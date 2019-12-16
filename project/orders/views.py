@@ -64,7 +64,7 @@ def order_create_view(request):
         request.session['my_basket']['description'] = request.POST.get('description')
         
         """Calculate cost of order"""
-        request.session['my_basket']['price'] = 100
+        request.session['my_basket']['price'] = '100'
         
         # request.session.modified = True
         """add dictionary to session variable 'basket'"""
