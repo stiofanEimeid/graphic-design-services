@@ -36,7 +36,7 @@ def profile(request, *args, **kwargs):
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        # 'orders': Order.objects.all()
+        'orders': Order.objects.filter(customer=request.user)
         # filter by username
         
     }

@@ -205,13 +205,36 @@ footer {
 }
 
 .hero {
-  /*width: 100vw;*/
-  /*height: 100vh;*/
+  width: 100vw;
+  height: calc(100vh - 70px);
   color: #1D1E18;
   background-color: #F7FFF6;
   padding-top: 70px;
+  position: relative;
 
 }
+
+.heroimage {
+  height: 90%;
+  width: 60%;
+  border-radius: 20px;
+  background-color: red;
+    -ms-transform: rotate(-10deg); /* IE 9 */
+  -webkit-transform: rotate(-10deg); /* Safari prior 9.0 */
+  transform: rotate(-10deg); /* Standard syntax */
+}
+
+.heroimagecontainer {
+  padding: 20px;
+}
+.title {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-size: 90px;
+}
+
+
 
 .pricePlan {
   background-color: white;

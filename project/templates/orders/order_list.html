@@ -12,6 +12,12 @@
                 
                 <p>€{{ order.price }}</p>
                 
+                
+                <p>Stage: {{ order.order_stage }}</p>
+                {% if order.order_stage == 'Change/s requested' %}
+                <a href="#/">View Changes</a>
+                {% endif %}
+                
                 <p class="text-muted">{{ order.time_created }}</p>
                 
                 <a href="{% url 'order-detail' order.id %}">Go to order</a>
