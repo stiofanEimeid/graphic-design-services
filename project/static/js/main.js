@@ -2,6 +2,24 @@
 
 $(document).ready(function(){
     
+       const swiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+	  mousewheel: {
+            releaseOnEdges: true
+        },
+	  effect: 'cube',
+	  keyboard: {
+	    enabled: true,
+	    onlyInViewport: false
+	  },
+
+      grabCursor: true
+   
+	});
+
+    
+      
+
         $('#submitBtn').click(function() {
              /* when the button in the form, display the entered values in the modal */
             //  $('#confirmType').text($('#type').val());
@@ -15,6 +33,7 @@ $(document).ready(function(){
             alert('submitting');
             $('#formfield').submit();
         });
+        
         
         
         
@@ -100,8 +119,55 @@ function calculateTotal()
     divobj.innerHTML = "Total Price For the Request €"+ totalCost;
     
     
-}
+};
 
+
+var path = anime.path('.path1');
+
+var easings = ['linear'];
+
+var motionPath = anime({
+  targets: '.ball',
+  translateX: path('x'),
+  translateY: path('y'),
+  rotate: path('angle'),
+  easing: function (el, i) {
+    return easings[i];
+  },
+  duration: 10000,
+  loop: true
+});
+
+var path2 = anime.path('.path2');
+
+var motionPath2 = anime({
+  targets: '.ball2',
+  translateX: path2('x'),
+  translateY: path2('y'),
+  rotate: path2('angle'),
+  easing: function (el, i) {
+    return easings[i];
+  },
+  duration: 12500,
+  loop: true
+});
+
+var path3 = anime.path('.path3');
+
+var motionPath3 = anime({
+  targets: '.ball3',
+  translateX: path3('x'),
+  translateY: path3('y'),
+  rotate: path3('angle'),
+  easing: function (el, i) {
+    return easings[i];
+  },
+  duration: 15000,
+  loop: true
+});
+
+
+        
 
 // Launch AOS styles
 AOS.init();
