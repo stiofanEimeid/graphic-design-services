@@ -116,3 +116,12 @@ class OrderListView(LoginRequiredMixin, ListView):
 # Must make accessible to respective owners and admin only
 class OrderDetailView(LoginRequiredMixin, DetailView):
     model = Order
+
+@login_required
+def testimonial(request, parameter):
+    # make this a form
+    context={
+        'myvariable': parameter
+    }
+    return render(request, 'orders/testimonial.html', context)
+    

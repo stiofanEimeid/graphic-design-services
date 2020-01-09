@@ -38,7 +38,7 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
     path("basket/", view_basket, name="basket"),
     # path('create-order/', OrderCreateView.as_view(), name='create-order'),
-    # path('order-list/', order_views.order_list, name='order-list'),
+    path('testimonial/<int:parameter>/', order_views.testimonial, name='testimonial'),
     path('order-list/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
