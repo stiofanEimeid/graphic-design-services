@@ -38,6 +38,7 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
     path("basket/", view_basket, name="basket"),
     # path('create-order/', OrderCreateView.as_view(), name='create-order'),
+    path('submit-design/<int:parameter>/', order_views.submit_design, name='submit-design'),
     path('testimonial/<int:parameter>/', order_views.testimonial, name='testimonial'),
     path('order-list/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),

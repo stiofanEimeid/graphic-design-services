@@ -196,7 +196,7 @@ Installing psycopg2 with a virtual environment help found at [goshawknest](https
 
 ### Code
 
-Custom Cursor by Stefan Kaltenegger found at [codrops](https://tympanus.net/codrops/2019/01/31/custom-cursor-effects/)
+<!--Custom Cursor by Stefan Kaltenegger found at [codrops](https://tympanus.net/codrops/2019/01/31/custom-cursor-effects/)-->
 
 ### Acknowledgements
 

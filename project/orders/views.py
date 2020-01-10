@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from .forms import OrderForm
+from django.shortcuts import render, redirect
+from .forms import OrderForm, DesignSubmissionForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Order
+from .models import Order, Design
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -116,10 +116,45 @@ class OrderListView(LoginRequiredMixin, ListView):
 # Must make accessible to respective owners and admin only
 class OrderDetailView(LoginRequiredMixin, DetailView):
     model = Order
+    
+@login_required
+def submit_design(request, parameter):
+    getOrder = Order.objects.get(pk=parameter)
+    if request.method == 'POST':
+        
+        form = DesignSubmissionForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.customer = getOrder.customer
+            instance.order_number = getOrder
+            instance.save()
+            # change order_status of order object
+            return redirect('order-list')
+    else:
+        form = DesignSubmissionForm()
+        
+    return render(request, 'orders/submit_design.html', {"order": getOrder,'form': form})
+    # getOrder = Order.objects.get(pk=parameter)
+    # form = DesignSubmissionForm(request.POST or None)
+    # if form.is_valid():
+    #     instance = form.save(commit=False)
+    #     instance.customer = getOrder.customer
+    #     instance.order_number = parameter
+    #     instance.save()
+    #     # change order_status of order object
+    #     return redirect('order-list')
+        
+    # context = {
+    #     "order": getOrder,
+    #     'form': form
+    # }
+    # return render(request, 'orders/submit_design.html', context)
 
 @login_required
 def testimonial(request, parameter):
     # make this a form
+    
+    
     context={
         'myvariable': parameter
     }
