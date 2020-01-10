@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from orders.models import Order
+from orders.models import Order, Design
 
 def register(request):
     if request.method == "POST":
@@ -36,7 +36,8 @@ def profile(request, *args, **kwargs):
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        'orders': Order.objects.filter(customer=request.user)
+        'orders': Order.objects.filter(customer=request.user),
+        'designs': Design.objects.filter(customer=request.user)
         # filter by username
         
     }
