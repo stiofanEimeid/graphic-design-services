@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import OrderForm, DesignSubmissionForm
+from .forms import OrderForm, DesignSubmissionForm, RevisionsForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Order, Design
+from .models import Order, Design, Revision
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -150,11 +150,30 @@ def submit_design(request, parameter):
     # }
     # return render(request, 'orders/submit_design.html', context)
 
+@login_required    
+def request_changes(request, parameter):
+    form = RevisionsForm(request.POST or None)
+    if form.is_valid():
+        """Create a dictionary 'basket' that stores order info"""
+        my_basket = request.session.get('my_basket', {})
+        request.session['my_basket'] = my_basket
+        request.session['my_basket']['type'] = "Design Revisions"
+        request.session['my_basket']['description'] = request.POST.get('revisions')
+        
+        #set design id with parameter using form instance
+        
+        # cost if flat fee plus percentage of total cost for certain pieces
+        # must get type from order (or from design which takes from order) to calculate price
+        
+        # request.session['my_basket']['cost']
+        
+        return render(request, 'home.html', {})
+
+    return render(request, 'orders/request_changes.html', {"form": form, 'DesignNumber': parameter})
+
 @login_required
 def testimonial(request, parameter):
     # make this a form
-    
-    
     context={
         'myvariable': parameter
     }

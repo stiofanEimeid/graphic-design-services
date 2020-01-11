@@ -31,17 +31,17 @@ class Design(models.Model):
     def __str__(self):
         return self.customer
         
-# class Changes(models.Model):
+class Revision(models.Model):
 
-#     design_id       = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
-#     customer        = models.CharField(max_length=120)
-#     changes         = models.TextField(blank=False, null=False)
-#     time_created    = models.DateTimeField(default=timezone.now)
-#     order_number    = models.CharField(max_length=120) #format? Switch to Foreign Key
-#     price           = models.DecimalField(decimal_places=2, max_digits=1000)
+    design_id       = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
+    type            = models.CharField(max_length=120, default="Design Revisions")
+    customer        = models.CharField(max_length=120)
+    revisions       = models.TextField(blank=False, null=False)
+    time_created    = models.DateTimeField(default=timezone.now)
+    price           = models.DecimalField(decimal_places=2, max_digits=1000)
    
-#     def __str__(self):
-#         return self.type
+    def __str__(self):
+        return self.customer
         
     
     

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Request Changes to Order No. {{ DesignNumber }}</h1>
+    
+    <form id="formfield" method="POST">
+    {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Revision Form</legend>
+            {{ form|crispy }}
+            <div class="form-group text-center">
+                <button class="btn btn-outline-info" type="button">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+    
+    
+</div>
+
+
+{% endblock content %} 

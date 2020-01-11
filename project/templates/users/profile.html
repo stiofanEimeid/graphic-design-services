@@ -42,6 +42,12 @@
        
        <a href="{{ design.source_code.url }}" download> Download source code </a>
        <img src="{{ design.preview_image.url}}">
+       <div class="row">
+         <div class="col"><a href="#">Accept</a></div>
+         <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
+       </div>
+       
+       
        {% endfor %}
        {% else %}
        <p>No orders made yet!</p>
