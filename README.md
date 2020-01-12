@@ -190,6 +190,8 @@ Upload the project subdirectory using the command ```git subtree push --prefix p
 ## Credits
 Installing psycopg2 with a virtual environment help found at [goshawknest](https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/)
 
+https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template
+
 ### Content
 
 ### Media

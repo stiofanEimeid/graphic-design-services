@@ -24,6 +24,7 @@ class Design(models.Model):
     source_code     = models.FileField(upload_to='designs') 
     preview_image   = models.ImageField(upload_to='preview_images')
     customer        = models.CharField(max_length=120)
+    type            = models.CharField(max_length=120)
     time_created    = models.DateTimeField(default=timezone.now)
     order_stage     = models.CharField(max_length=120, choices=ORDER_STAGES, default="Design pending approval")
     order_number    = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
@@ -33,9 +34,9 @@ class Design(models.Model):
         
 class Revision(models.Model):
 
-    design_id       = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
-    type            = models.CharField(max_length=120, default="Design Revisions")
+    design_id       = models.ForeignKey(Design, on_delete=models.CASCADE) #from where and what happens when deleted?
     customer        = models.CharField(max_length=120)
+    type            = models.CharField(max_length=120)
     revisions       = models.TextField(blank=False, null=False)
     time_created    = models.DateTimeField(default=timezone.now)
     price           = models.DecimalField(decimal_places=2, max_digits=1000)

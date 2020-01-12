@@ -62,6 +62,7 @@ def order_create_view(request):
         request.session['my_basket'] = my_basket
         request.session['my_basket']['type'] = request.POST.get('type')
         request.session['my_basket']['description'] = request.POST.get('description')
+        request.session['my_basket']['revision'] = False
         
         """Calculate cost of order"""
         
@@ -111,11 +112,28 @@ class OrderListView(LoginRequiredMixin, ListView):
     template_name = "order_list.html"
     context_object_name = 'orders'
     ordering = ['-time_created']
+    
+    def get_context_data(self, **kwargs):
+        context = super(OrderListView, self).get_context_data(**kwargs)
+        context.update({
+            'revisions': Revision.objects.order_by('-time_created'),
+        })
+        return context
+
+    def get_queryset(self):
+        return Order.objects.order_by('-time_created')
+    
+    
+    
+    
 
 
 # Must make accessible to respective owners and admin only
 class OrderDetailView(LoginRequiredMixin, DetailView):
     model = Order
+    
+class RevisionDetailView(LoginRequiredMixin, DetailView):
+    model = Revision
     
 @login_required
 def submit_design(request, parameter):
@@ -126,6 +144,7 @@ def submit_design(request, parameter):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.customer = getOrder.customer
+            instance.type = getOrder.type
             instance.order_number = getOrder
             instance.save()
             # change order_status of order object
@@ -155,9 +174,10 @@ def request_changes(request, parameter):
     form = RevisionsForm(request.POST or None)
     if form.is_valid():
         """Create a dictionary 'basket' that stores order info"""
+        design = Design.objects.get(pk=parameter)
         my_basket = request.session.get('my_basket', {})
         request.session['my_basket'] = my_basket
-        request.session['my_basket']['type'] = "Design Revisions"
+        request.session['my_basket']['type'] = design.type
         request.session['my_basket']['description'] = request.POST.get('revisions')
         
         #set design id with parameter using form instance
@@ -165,9 +185,18 @@ def request_changes(request, parameter):
         # cost if flat fee plus percentage of total cost for certain pieces
         # must get type from order (or from design which takes from order) to calculate price
         
-        # request.session['my_basket']['cost']
+        # placeholder
+        request.session['my_basket']['price'] = 30
+        request.session['my_basket']['design_id'] = parameter
+        request.session['my_basket']['revision'] = True
         
-        return render(request, 'home.html', {})
+        context = {
+            'type': request.session['my_basket']['type'],
+            'description': request.session['my_basket']['description'],
+            'price': request.session['my_basket']['price']
+        }
+       
+        return render(request, 'basket.html', context)
 
     return render(request, 'orders/request_changes.html', {"form": form, 'DesignNumber': parameter})
 

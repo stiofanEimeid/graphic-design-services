@@ -22,7 +22,7 @@ from users import views as user_views
 from orders import views as order_views
 from checkout.views import checkout
 from basket.views import view_basket
-from orders.views import Order, OrderDetailView, OrderListView # ,OrderCreateView
+from orders.views import Order, OrderDetailView, OrderListView, RevisionDetailView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -43,6 +43,7 @@ urlpatterns = [
     path('testimonial/<int:parameter>/', order_views.testimonial, name='testimonial'),
     path('order-list/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
+    path('revision/<int:pk>/', RevisionDetailView.as_view(), name='revision-detail'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),

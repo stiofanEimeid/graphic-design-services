@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, CustomerDetailForm
-from orders.models import Order
+from orders.models import Order, Revision, Design
 from django.conf import settings
 from django.utils import timezone
 import stripe
@@ -22,18 +22,6 @@ def checkout(request):
             customer_details.date = timezone.now()
             customer_details.save()
             
-            """get session variables for order"""
-            # is this the right place for this? only add when payment is successful?
-            order = Order(
-                type = request.session['my_basket']['type'],
-                description = request.session['my_basket']['description'],
-                customer = request.user,
-                price = request.session['my_basket']['price'],
-                time_created = timezone.now()
-                )
-        
-            order.save()
-            
             try:
                     customer = stripe.Charge.create(
                     amount = int(request.session['my_basket']['price'] * 100),
@@ -46,6 +34,32 @@ def checkout(request):
                 
             if customer.paid:
                 messages.error(request, "You have successfully paid")
+                
+                # Determine the nature of the order and save
+                
+                if request.session['my_basket']['revision'] is True:
+                    revision = Revision(
+                        # How to get design_id here?
+                        design_id = Design.objects.get(id=request.session['my_basket']['design_id']),
+                        revisions = request.session['my_basket']['description'],
+                        customer  = request.user,
+                        price     = request.session['my_basket']['price'],
+                        type      = request.session['my_basket']['type'],
+                        time_created = timezone.now()
+                        )
+                    revision.save()
+                   
+                else:
+                    """get session variables for order"""
+                    order = Order(
+                        type = request.session['my_basket']['type'],
+                        description = request.session['my_basket']['description'],
+                        customer = request.user,
+                        price = request.session['my_basket']['price'],
+                        time_created = timezone.now()
+                        )
+                    order.save()
+            
                 request.session['basket'] = {}
                 return redirect(reverse('homepage'))
             else:
