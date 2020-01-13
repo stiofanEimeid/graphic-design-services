@@ -147,7 +147,7 @@ def submit_design(request, parameter):
             instance.type = getOrder.type
             instance.order_number = getOrder
             instance.save()
-            # change order_status of order object
+            Order.objects.filter(pk=parameter).update(open=False)
             return redirect('order-list')
     else:
         form = DesignSubmissionForm()
@@ -169,6 +169,27 @@ def submit_design(request, parameter):
     # }
     # return render(request, 'orders/submit_design.html', context)
 
+
+@login_required
+def submit_revision(request, parameter):
+    getOrder = Order.objects.get(pk=parameter)
+    if request.method == 'POST':
+        
+        form = DesignSubmissionForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            # replace old files
+            instance.customer = getOrder.customer
+            instance.type = getOrder.type
+            instance.order_number = getOrder
+            instance.save()
+            Revision.objects.filter(pk=parameter).update(open=False)
+            return redirect('order-list')
+    else:
+        form = DesignSubmissionForm()
+        
+    return render(request, 'orders/submit_revision.html', {"order": getOrder,'form': form})
+    
 @login_required    
 def request_changes(request, parameter):
     form = RevisionsForm(request.POST or None)

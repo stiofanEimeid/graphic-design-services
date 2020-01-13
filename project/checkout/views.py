@@ -38,8 +38,8 @@ def checkout(request):
                 # Determine the nature of the order and save
                 
                 if request.session['my_basket']['revision'] is True:
+                    Design.objects.filter(id=request.session['my_basket']['design_id']).update(order_stage='Revisions requested'),
                     revision = Revision(
-                        # How to get design_id here?
                         design_id = Design.objects.get(id=request.session['my_basket']['design_id']),
                         revisions = request.session['my_basket']['description'],
                         customer  = request.user,

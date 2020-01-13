@@ -40,12 +40,33 @@
        <h3>Completed Designs</h3>
        {% for design in designs %}
        
-       <a href="{{ design.source_code.url }}" download> Download source code </a>
-       <img src="{{ design.preview_image.url}}">
-       <div class="row">
-         <div class="col"><a href="#">Accept</a></div>
-         <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
-       </div>
+        {% if design.order_stage == "Design pending approval" %} 
+        
+        <!--Designs-->
+       
+         <a href="{{ design.source_code.url }}" download> Download source code </a>
+         <img src="{{ design.preview_image.url}}">
+         <div class="row">
+           <div class="col"><a href="#">Accept</a></div>
+           <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
+         </div>
+         
+        {% elif design.order_stage == "Revisions requested" %}
+        
+         <a href="{{ design.source_code.url }}" download> Download source code </a>
+         <img src="{{ design.preview_image.url}}">
+         <div class="row">
+           <div class="col"><a href="#">Revisions requested</a></div>
+         </div>
+         
+         {% else %}
+         
+         <!--Completed Orders-->
+         
+          <a href="{{ design.source_code.url }}" download> Download source code </a>
+         <img src="{{ design.preview_image.url}}">
+         
+        {% endif %}
        
        
        {% endfor %}

@@ -4,7 +4,7 @@
 
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
 
-# SHARED CROWN - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
+# Phantistry - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
 
 ## Table of Contents
 1. [**UX**](#ux)

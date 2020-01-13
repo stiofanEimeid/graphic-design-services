@@ -5,9 +5,8 @@ ORDER_CHOICES =(
     ('Website', 'Website')
     )
     
-ORDER_STAGES =(
-    ('Design requested', 'Design requested'),
+DESIGN_STAGES =(
     ('Design pending approval', 'Design pending approval'),
-    ('Change/s requested', 'Change/s requested'),
-    ('Design approved', 'Design approved')
+    ('Revisions requested', 'Revisions requested'),
+    ('Design accepted', 'Design accepted')
     )
