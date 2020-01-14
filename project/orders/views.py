@@ -17,41 +17,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 #         form.instance.customer = self.request.user
 #         form.instance.price = 100
 #         return super().form_valid(form)
-        
- 
-        
-# @login_required
-# def order_create_view(request):
-#     form = OrderForm(request.POST or None)
-#     if form.is_valid():
-#         form.instance.customer = request.user
-#         # form.instance.customer = price
-#         form.save()
-#         form = OrderForm()
-        
-        
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'orders/create_order.html',  context)
-
-# @login_required
-# def order_create_view(request):
-#     form = OrderForm(request.POST or None)
-#     if form.is_valid():
-#         form.instance.customer = request.user
-#         form.instance.price = 100
-#         content = form.save(commit=False)
-        
-#         context = {
-#             'content' : content
-#         }
-#         return render(request, 'orders/preview_order.html', context)
-        
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'orders/create_order.html',  context)
     
 @login_required
 def order_create_view(request):
@@ -87,14 +52,12 @@ def order_create_view(request):
             'price': request.session['my_basket']['price']
         }
        
-        return render(request, 'basket.html', context)
+        return render(request, 'checkout.html', context)
         
     context = {
         'form': form
     }
     return render(request, 'orders/create_order.html',  context)
-    
-
 
 # @staff_member_required    
 # def order_list(request):
@@ -116,11 +79,6 @@ class OrderListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Order.objects.order_by('-time_created')
-    
-    
-    
-    
-
 
 # Must make accessible to respective owners and admin only
 class OrderDetailView(LoginRequiredMixin, DetailView):
@@ -138,7 +96,9 @@ def submit_design(request, parameter):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.customer = getOrder.customer
+            # may not actually be necessary
             instance.type = getOrder.type
+            instance.description = getOrder.description
             instance.order_number = getOrder
             instance.save()
             Order.objects.filter(pk=parameter).update(open=False)
@@ -187,30 +147,24 @@ def submit_design(request, parameter):
 
 @login_required
 def submit_revision(request, parameter):
-    
-    getDesign = Design.objects.get(pk=parameter)
-    # getDesign = parameter
-    # key = getRevision.design_id.pk
-    # getDesign = Design.objects.get(pk=key)
+
+    getRevision = Revision.objects.get(pk=parameter)
+    getDesign = getRevision.design_id
     if request.method == 'POST':
         
         form = DesignUpdateForm(request.POST, request.FILES, instance = getDesign)
         if form.is_valid():
-            # form.save(commit=False)
-            # getDesign.source_code=request.POST.get('source_code')
-            # getDesign.preview_image=request.POST.get('preview_image')
-            # getDesign.source_code = request.POST.get('source_code')
-            # getDesign.preview_image = request.POST.get('preview_image')
-            # getDesign.source_code = request.POST.get('source_code')
-            # getDesign.preview_image = request.POST.get('preview_image')
+            form.save(commit=False)
             # Revision.objects.filter(pk=parameter).update(open=False)
+            # Add revision.revisions to design array
+            Design.objects.filter(pk=getDesign).update(order_status="Design pending approval")
             form.save()
             
             return redirect('order-list')
     else:
         form = DesignUpdateForm()
         
-    return render(request, 'orders/submit_revision.html', {'design': getDesign, 'form':form})
+    return render(request, 'orders/submit_revision.html', {'design': getDesign, 'revision': getRevision,  'form':form})
     
 @login_required    
 def request_changes(request, parameter):
@@ -250,4 +204,18 @@ def testimonial(request, parameter):
         'myvariable': parameter
     }
     return render(request, 'orders/testimonial.html', context)
+
+# @login_required 
+# def accept_design(request, parameter):
+#     getDesign = Design.objects.get(pk=parameter)
+#     form = DesignAcceptanceForm(request.POST)
+#     if form.is_valid():
+
+#         form.save()
+            
+#         return redirect('order-list')
+        
+#     else:
+#         form = DesignAcceptanceForm()
+#     return render(request, 'orders/accept-design.html', {'form': form})
     

@@ -4,13 +4,12 @@
 <div class="container">
     <div class="content-section">
       <div class="media pt-4">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
       </div>
-      
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
@@ -22,102 +21,87 @@
               </div>
           </fieldset>
       </form>
-      
       <div class="row">
-        <div class="col-6">
-        {% if orders %}
-        <h3>Designs Requested</h3>
-          {% for order in orders %}
-          <p>{{ order.type }}</p>
-          <p>{{ order.time_created }}</p>
-         {% endfor %}
-        {% else %}
-        <p>No orders made yet!</p>
-        {% endif %}</div>
-
-      <div class="col-6">
-      {% if designs %}
-       <h3>Completed Designs</h3>
-       {% for design in designs %}
-       
-        {% if design.order_stage == "Design pending approval" %} 
-        
-        <!--Designs-->
-       
-         <a href="{{ design.source_code.url }}" download> Download source code </a>
-         <img src="{{ design.preview_image.url}}">
-         <div class="row">
-           <div class="col"><a href="#">Accept</a></div>
-           <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
-         </div>
-         
-        {% elif design.order_stage == "Revisions requested" %}
-        
-         <a href="{{ design.source_code.url }}" download> Download source code </a>
-         <img src="{{ design.preview_image.url}}">
-         <div class="row">
-           <div class="col"><a href="#">Revisions requested</a></div>
-         </div>
-         
-         {% else %}
-         
-         <!--Completed Orders-->
-         
-          <a href="{{ design.source_code.url }}" download> Download source code </a>
-         <img src="{{ design.preview_image.url}}">
-         <div class="row">
-           <div class="col"><a href="#">Write Testimonial</a></div>
-         </div>
-         
-        {% endif %}
-       
-       
-       {% endfor %}
-       {% else %}
-       <p>No orders made yet!</p>
-      
-      {% endif %}
+        <div class="col-12">
+            {% if orders %}
+            <h3 class="text-center"><u>Designs Requested</u></h3>
+              {% for order in orders %}
+              <p>{{ order.type }}</p>
+              <p>{{ order.time_created }}</p>
+             {% endfor %}
+            {% else %}
+              <p>No orders made yet!</p>
+            {% endif %}
         </div>
       </div>
+
+          
+      <!--Design Section   -->
+      <div class="row">
+       <div class="col-12 text-center"><h2><u>Design Section</h2></u></div>
+       <div class="col-6">
+           <h4>Submitted Designs</h4>
+           {% if designs %}
+               {% for design in designs %}
+                   {% if design.order_stage == "Design pending approval"  %} 
+
+                        <h4>Pending... Order no. {{ design.order_number }}</h4>
+                        <p>Desc {{ design.order_number.description }}</p>
+                        <a href="{{ design.source_code.url }}" download> Download source code </a>
+                        <img src="{{ design.preview_image.url}}">
+                        <div class="row">
+                           <div class="col"><a href="#/">Accept</a></div>
+                           <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
+                        </div>
+         
+                   {% elif design.order_stage == "Revisions requested" %}
+        
+                        <h4>Revisions... Order no. {{ design.order_number }}</h4>
+                        <p>Desc: {{ design.description }}</p>
+                        <a href="{{ design.source_code.url }}" download> Download source code </a>
+                        <img src="{{ design.preview_image.url}}">
+                        <div class="row">
+                           <div class="col"><a href="#">Revisions requested</a></div>
+                        </div>
+                    {% else %}
+                     <p>No designs pending approval</p>
+         
+                    {% endif %}
+                {% endfor %}
+           {% else %}
+           <p>No designs pending approval</p>
+           {% endif %}
+       </div>
+    
+      <div class="col-6">
+      <!--Completed Orders-->
+      <h4>Approved Designs</h4>
+      {% if designs %}
+      {% for design in designs %}
+                   {% if design.order_stage == "Design accepted"  %} 
+                      <h4>Completed... Order no. {{ design.order_number }}</h4>
+                      <p>Desc {{ design.order_number.description }}</p>
+                         
+                      <a href="{{ design.source_code.url }}" download> Download source code </a>
+                      <img src="{{ design.preview_image.url}}">
+                      <div class="row">
+                          <div class="col"><a href="#">Write Testimonial</a></div>
+                      </div>
+                      
+                     {% else %}
+                     
+                      <p>No completed designs available</p>
+           
+         
+                     {% endif %}
+       {% endfor %}
+       {% else %}
+          <div class="col"><p>No completed designs</p></div>
       
-      
-      
-     
-       
-       
-      <!--<div class="row">-->
-      <!--  <div class="col"><h3>My Submitted Orders</h3></div>-->
-      <!--</div>-->
-      
-      
-      <!--<div class="row">-->
-      <!--  <div class="col">-->
-      <!--    <h3>My Orders Pending Approval</h3>-->
-      <!--    <button>Approve</button>-->
-      <!--    <button>Request Changes</button>-->
-      <!--  </div>-->
-      <!--</div>-->
-      
-      
-      
-      <!--<div class="row">-->
-      <!--  <div class="col">-->
-      <!--    <h3>My Accepted Orders</h3>-->
-      <!--    <button>Write Testimonial</button>-->
-      <!--  </div>-->
-      <!--</div>-->
-      
-      
-      <!--<div class="userOrders">-->
-      <!--    <h2>My Orders</h2>-->
-      <!--    {% for order in orders %}-->
-      <!--      <h3>{{ order.type }}</h3>-->
-      <!--      <a href="{% url 'order-detail' order.id %}">Go to order</a>-->
-      <!--    {% endfor %}-->
-      <!--    <a href="{% url 'create-order' %}">Make an order</a>-->
-      <!--</div>-->
-      
-      
+       {% endif %}
+        
+        </div>
+        </div>
     </div>
 </div>
 {% endblock content %} 

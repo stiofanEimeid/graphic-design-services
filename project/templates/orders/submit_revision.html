@@ -4,6 +4,7 @@
 <div class="container">
 <h1 class="text-center pt-4">Submit Revision</h1>
 <p>{{ design }}</p>
+<p>{{ revision.revisions }}</p>
  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset class="form-group">

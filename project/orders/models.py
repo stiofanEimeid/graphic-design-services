@@ -25,6 +25,7 @@ class Design(models.Model):
     preview_image   = models.ImageField(upload_to='preview_images')
     customer        = models.CharField(max_length=120)
     type            = models.CharField(max_length=120)
+    description     = models.TextField(blank=False, null=False)
     time_created    = models.DateTimeField(default=timezone.now)
     order_stage     = models.CharField(max_length=120, choices=DESIGN_STAGES, default="Design pending approval")
     order_number    = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
