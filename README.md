@@ -37,30 +37,53 @@
 
 #### Project Goals
 
-The goal of the project is to build a site to provide graphic and web design services. 
+Phantistry is an e-commerce site that provides graphic design services. It provides hand-drawn illustrations as well as hand drawn assets for websites to add a dose of creativity and authenticity to a brand. 
+
+This site serves as my submission for the fourth and final milestone of the Code Institutes Full Stack Software Development Diploma, as part the Full Stack Frameworks module.
 
 #### User Goals
 
-As a user, I want to purchase graphical designs to address my needs.
+This site is targeted at businesses who are in the market for art assets for their website along with users who are interested in purchasing art for their own personal enjoyment. 
 
-As an owner, I want to showcase my work and earn money for freelance design work.
+User Goals are:
+
+Order a design to their specifications and be able to request revisions to a design if necessary. 
+
+View previous work of the artist. 
+
+Phantistry is the perfect way to meet these needs as it provides the functionality and ease-of-use to request and purchase the right design, while providing a straightforward process was requesting changes should they be necessary.
+
+Users are view the site gallery to see the artist’s previous work to determine whether they would be interested in purchasing a design.
+
 
 #### User Stories
 
 As a user, I want to be able to:
 
-- view previous work and customer testimonials;
+- view previous work and customer testimonials without having to log in;
+- Create a password protected profile with associated username and image;
+- Update profile details;
 - use a form to order a design to fit my needs;
-- view how much my request will cost and how long it will take;
+- view how much my request will cost;
+- pay using a secure checkout process;
+- Keep track of my purchases and order history from my profile;
 - accept the result or request a round of changes.
+- write a testimonial for the design. 
 
 As a site owner, I want to:
 
 - showcase prior work to attract potential clients;
-- log in as a special user in order to see a list of all orders;
+- log in as a special user in order to see a list of all orders submitted by customers;
 - upload completed work.
+- View requested changes to designs submitted by users;
+- Upload an updated design to the site viewable by users;
+- receive payment for orders and designs. 
+
 
 ### Design Choices
+
+### Name
+
 
 #### Fonts
 
@@ -83,11 +106,60 @@ Ube #8377D1
 
 ### Existing Features
 
-Carousel
+#### Users
 
-Calculator
+Users may register a profile on the site by providing a username, email and password. Upon successfully creating an account they will be able to set a profile picture and update their account details. 
+
+In addition, registered user’s purchase history and associated designs will be available to view from their profile. 
+
+
+#### Orders
+
+With an account, users may submit a request for an order, revisions to that order, accept a design and write a testimonial for that design. 
+
+In order to submit a request for a design, users must fill out a form. This includes specifying the type of the design they want as well as a description of what it would feature. 
+
+A Javascript calculator displays a quote based on user input using an AJAX call. Once users are happy with their order, they may submit the form and proceed to checkout. Payment functionality has been implemented using the Stripe API. 
+
+#### Design Submission
+
+A list of open orders is available to view by the admin only. From this list, the admin may select an item and be taken to a detailed view of that item. From that detailed view, the admin may then submit a design to fulfil the order, including source code and a preview image. Once these have been submitted, the user may view this submission from their profile. They may either accept the design, in which case the process is considered finished, or they may request a round of changes. 
+
+#### Revisions
+
+If the user is not satisfied with the design, they may fill out a revision form specifying their requested changes to the design. They will be brought to a payment page similar to the payment page for the initial order and charged a small fee that is a fraction of the original cost of the design in order to receive a design with their requested changes.
+
+The admin may view a list revisions requested by users under orders on the order list. Similarly, they may select an individual detail page, from which they may submit an updated version of the design. 
+
+Once this updated design has been submitted, users may view it from their profile. They may accept the design, ending the process, or request another round of changes, restarting the revision process.  
+
+#### Gallery
+
+Once the user has accepted the design, the process ends. A snapshot of the work is then made viewable by everyone in the website gallery and users are given the option of writing a testimonial to be displayed alongside the work. 
+
+The carousel was built using the JS library, Swiper.js. Each slide takes the form of a side of a block. The block may be rotated to view more sides or slides. Each slide represents a different type of work, icon, logo or illustration. Each side is comprised of three images laid alongside one another that may be clicked on viewed on a individual detail page, along with details of the image and a testimonial if a user has made one available. 
+
+
+#### Navigation
+
+The navbar is accessible from every page of the site although its contents change depending on whether the user is registered and logged into their account. 
+
+If the user is not registered or logged in, the navbar options will be the following:
+
+…
+
+If they are logged in, these options will be supplemented by the following with the option to login/register removed:
+
+…
+
+It will also indicate who the user is logged in as along with a visual identifier or which page the user is currently viewing on the site. 
+
 
 ### Features left to implement 
+
+I would like to implement a reward system for users who write testimonials for completed works in order to incentivise engagement with this aspect of the site. 
+
+This reward will take the form of a discount on the next purchase of a user who completes a testimonial on a purchased design. 
 
 ## Technologies Used
 
