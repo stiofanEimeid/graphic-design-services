@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import OrderForm, DesignSubmissionForm, RevisionsForm
+from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Order, Design, Revision
@@ -95,12 +95,6 @@ def order_create_view(request):
     return render(request, 'orders/create_order.html',  context)
     
 
-def save_order(request):
-    
-    return render(request, 'home.html')
-    
-    
-
 
 # @staff_member_required    
 # def order_list(request):
@@ -169,26 +163,54 @@ def submit_design(request, parameter):
     # }
     # return render(request, 'orders/submit_design.html', context)
 
+# Need to update rather than create new object!!! Update time, SC, PI and stage
+# @login_required
+# def submit_revision(request, parameter):
+#     getOrder = Order.objects.get(pk=parameter)
+#     if request.method == 'POST':
+        
+#         form = DesignSubmissionForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             instance = form.save(commit=False)
+#             # replace old files
+#             instance.customer = getOrder.customer
+#             instance.type = getOrder.type
+#             instance.order_number = getOrder
+#             instance.save()
+#             Revision.objects.filter(pk=parameter).update(open=False)
+            
+#             return redirect('order-list')
+#     else:
+#         form = DesignSubmissionForm()
+        
+#     return render(request, 'orders/submit_revision.html', {"order": getOrder,'form': form})
 
 @login_required
 def submit_revision(request, parameter):
-    getOrder = Order.objects.get(pk=parameter)
+    
+    getDesign = Design.objects.get(pk=parameter)
+    # getDesign = parameter
+    # key = getRevision.design_id.pk
+    # getDesign = Design.objects.get(pk=key)
     if request.method == 'POST':
         
-        form = DesignSubmissionForm(request.POST, request.FILES)
+        form = DesignUpdateForm(request.POST, request.FILES, instance = getDesign)
         if form.is_valid():
-            instance = form.save(commit=False)
-            # replace old files
-            instance.customer = getOrder.customer
-            instance.type = getOrder.type
-            instance.order_number = getOrder
-            instance.save()
-            Revision.objects.filter(pk=parameter).update(open=False)
+            # form.save(commit=False)
+            # getDesign.source_code=request.POST.get('source_code')
+            # getDesign.preview_image=request.POST.get('preview_image')
+            # getDesign.source_code = request.POST.get('source_code')
+            # getDesign.preview_image = request.POST.get('preview_image')
+            # getDesign.source_code = request.POST.get('source_code')
+            # getDesign.preview_image = request.POST.get('preview_image')
+            # Revision.objects.filter(pk=parameter).update(open=False)
+            form.save()
+            
             return redirect('order-list')
     else:
-        form = DesignSubmissionForm()
+        form = DesignUpdateForm()
         
-    return render(request, 'orders/submit_revision.html', {"order": getOrder,'form': form})
+    return render(request, 'orders/submit_revision.html', {'design': getDesign, 'form':form})
     
 @login_required    
 def request_changes(request, parameter):

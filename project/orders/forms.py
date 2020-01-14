@@ -27,6 +27,15 @@ class DesignSubmissionForm(forms.ModelForm):
             'preview_image',
             ]
             
+class DesignUpdateForm(forms.ModelForm):
+    
+    class Meta:
+        model = Design
+        fields = [
+            'source_code',
+            'preview_image',
+            ]
+            
 class RevisionsForm(forms.ModelForm):
     
     class Meta:
