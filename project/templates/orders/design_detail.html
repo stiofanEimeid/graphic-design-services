@@ -1,63 +1,40 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-<h1 class="text-center pt-4">View Design</h1></h1>
+    <h1 class="text-center pt-4">View Design</h1></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-8"><img src="{{ design.preview_image.url}}"></div>
+        </div>
+        <div class="row">
+            <div class="col"><a href="{{ design.source_code.url }}" download> Download source code </a></div>
+        </div>
+        <div class="row">
+            <h2>Order Details</h2>
+            <div class="col-12">{{ design.type }} </div>
+            <div class="col-12">{{ design.description }} </div>
+            <div class="col-12">{{ design.time_created }} </div>
+        </div>
+        {% if designrevisions %}
+        <div class="row">
+            <h2>Revisions to Design</h2>
+            {% for revision in designrevisions %}
+            <div class="col-12">
+                {{ revision.revisions }} 
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-8"><img src="{{ design.preview_image.url}}"></div>
-    </div>
-    <div class="row">
-        <div class="col"><a href="{{ design.source_code.url }}" download> Download source code </a></div>
-    </div>
-        
-
-
-
-<div class="row">
-    <h2>Order Details</h2>
-    <div class="col-12">{{ design.type }} </div>
-    <div class="col-12">{{ design.description }} </div>
-    <div class="col-12">{{ design.time_created }} </div>
-</div>
-{% if designrevisions %}
-<div class="row">
-    <h2>Revisions to Design</h2>
-    {% for revision in designrevisions %}
-    <div class="col-12">
-        {{ revision.revisions }} 
-    </div>
-    {% endfor %}
-</div>
+{% if design.order_stage != "Design accepted" %}
+<form method="POST">
+    {% csrf_token %}
+        <div class="form-group text-center">
+            <button class="btn btn-outline-info" value="accept" type="submit" name="status">Accept Design</button>
+        </div>
+</form>
 {% endif %}
-
-<div class="row">
-    <div class="col"><button>Accept Design</button></div>
-</div>
-
-
-
-
-
-    
-    
-  
-
-
-
-<!--<p>Are you sure you want to accept this design? Note: once this design is accepted, you will no longer be able to request changes. </p>-->
-
-<!--<form method="POST">-->
-<!--    {% csrf_token %}-->
-<!--    <fieldset class="form-group">-->
-<!--        {{ form|crispy }}-->
-<!--        <div class="form-group text-center">-->
-<!--            <button class="btn btn-outline-info" value="accept" type="submit">Accept Design</button>-->
-<!--        </div>-->
-<!--</form>-->
 <!--Modal to write testimonial-->
-<!--<p>Write a testimonial?</p>-->
 
 </div>
 

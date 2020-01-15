@@ -164,9 +164,9 @@ def design_detail(request, parameter):
     
     if request.method == 'POST':
         if request.POST.get('status') == 'accept':
-            Design.objects.filter(pk=getDesign.id).update(order_status="Design accepted")
-            
+            Design.objects.filter(pk=parameter).update(order_stage="Design accepted")
         return redirect('profile')
+
         
     context={
         'design': getDesign,
