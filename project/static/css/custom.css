@@ -418,6 +418,13 @@ img {
 
 }
 
+.box-styles {
+  color: black;
+  background-color: white;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
 /*mouse svg*/
 
