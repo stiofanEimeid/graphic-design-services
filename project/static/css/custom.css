@@ -8,8 +8,9 @@ html {
 }
 
 body {
-    background-color: #F7FFF6;
-    font-family: 'Josefin Sans', sans-serif;
+    background-color: #1D1E18;
+    font-family: 'Cabin';
+    color: #F7FFF6;
     display: flex;
     flex-direction: column;
 }
@@ -34,7 +35,7 @@ body {
 
 footer {
   flex-shrink: 0;
-  background-color: #1D1E18;
+
   color: #F7FFF6;
   text-align: center;
 }
@@ -80,14 +81,14 @@ footer {
 .closeBtnContainer {
     height: 70px;
     position: relative;
-    background-color: #1D1E18;
+    background-color: #990033;
     color: #F7FFF6;
 }
 
 .sidebar {
   height: 100%;
   width: 100%;
-  background-color: #1D1E18;
+  background-color: #990033;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -171,7 +172,7 @@ footer {
 }
 
 .nav-brand {
-    color: #EF626C;
+    color: #990033;
     font-size: 1.75em;
      position: absolute;
   right: 0;
@@ -182,7 +183,7 @@ footer {
 .nav-title a:link, .nav-title a:visited,
 .nav-title a:hover, .nav-title:active {
     text-decoration: none;
-    color: #EF626C;
+    color: #990033;
 }
 
 /*.openbtn:hover {*/
@@ -226,13 +227,19 @@ footer {
 .box {
   height: 250px;
   width: 100%;
-  background-color: #8377D1;
+  background-color: #990033;
 }
 
 #mySidebar .active {
     /*color:            #F8F8F8;*/
     text-decoration-line: underline;
-    text-decoration-color: #EF626C;
+    text-decoration-color: #fff;
+}
+
+#mySidebar .active:hover {
+    /*color:            #F8F8F8;*/
+    text-decoration-line: underline;
+    text-decoration-color: #1D1E18;
 }
 
 .order-container {
@@ -386,7 +393,7 @@ img {
   padding-top: 20px;
   height: 25%;
    text-align: center;
-   background-color: white;
+   background-color: #1D1E18;
 }
 
 .ball {
