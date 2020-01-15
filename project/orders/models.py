@@ -48,5 +48,13 @@ class Revision(models.Model):
     def get_absolute_url(self):
         return reverse('revision-detail', kwargs={'pk': self.pk})
         
+class Testimonial(models.Model):
+    design_id           = models.ForeignKey(Design, on_delete=models.CASCADE)
+    customer            = models.CharField(max_length=120)
+    time_created        = models.DateTimeField(default=timezone.now)
+    testimonial_text    = models.TextField(blank=False, null=False)
+    
+    def __str__(self):
+        return self.customer
     
     

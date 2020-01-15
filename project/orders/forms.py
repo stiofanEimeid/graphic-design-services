@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order, Design, Revision
+from .models import Order, Design, Revision, Testimonial
 from .choices import *
 
 class OrderForm(forms.ModelForm):
@@ -50,4 +50,12 @@ class RevisionsForm(forms.ModelForm):
         model = Revision
         fields = [
             'revisions',
+            ]
+
+class TestimonialForm(forms.ModelForm):
+    
+    class Meta:
+        model = Testimonial
+        fields = [
+            'testimonial_text'
             ]

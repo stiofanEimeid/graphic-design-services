@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm
+from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm, TestimonialForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Order, Design, Revision
@@ -150,14 +150,6 @@ def request_changes(request, parameter):
 
     return render(request, 'orders/request_changes.html', {"form": form, 'DesignNumber': parameter})
 
-@login_required
-def testimonial(request, parameter):
-    # make this a form
-    context={
-        'myvariable': parameter
-    }
-    return render(request, 'orders/testimonial.html', context)
-
 @login_required 
 def design_detail(request, parameter):
     getDesign = Design.objects.get(pk=parameter)
@@ -174,4 +166,21 @@ def design_detail(request, parameter):
 
     }
     return render(request, 'orders/design_detail.html', context)
+    
+@login_required
+def testimonial(request, parameter):
+    form = TestimonialForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=False)
+        # Must return instance
+        form.design = parameter
+        form.customer = request.user
+        form.save()
+        
+        return redirect('profile')
+    context={
+        'form': form,
+        'design': parameter
+    }
+    return render(request, 'orders/testimonial.html', context)
     
