@@ -5,26 +5,21 @@
 <div class="row">
     <div class="col">
         
-            <h2>Orders</h2>
+            <h2 class="text-center">Orders</h2>
             {% if orders %}
             
                 {% for order in orders %}
                 
-                <div class="order-container mb-5">
-            
-                    <h2>{{ order.type }} by {{ order.customer }}</h2>
-                    
-                    <p>€{{ order.price }}</p>
-                    
-                    
-                    <p>Stage: {{ order.order_stage }}</p>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Order No. {{ order.id }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ order.time_created }}</h6>
+                    <p class="card-text">{{ order.type }} requested by {{ order.customer }}</p>
+                    <a href="{% url 'order-detail' order.id %}">Go to order</a>
                     {% if order.order_stage == 'Change/s requested' %}
                     <a href="#/">View Changes</a>
                     {% endif %}
-                    
-                    <p class="text-muted">{{ order.time_created }}</p>
-                    
-                    <a href="{% url 'order-detail' order.id %}">Go to order</a>
+                  </div>
                 </div>
                 
                 {% endfor %}
@@ -35,21 +30,18 @@
             
              
             {% endif%}
-            <h2>Revisions</h2>
+            <h2 class="text-center">Revisions</h2>
             
             {% if revisions %}
                 {% for revision in revisions %}
                 
-                <div class="order-container mb-5">
-                    
-                    <h2>{{ revision.type }} by {{ revision.customer }}</h2>
-                    
-                    <p>{{ revision.revisions }}</p>
-                
-                    <p>€{{ revision.price }}</p>
-                    
-                    <a href="{% url 'revision-detail' revision.id %}">Go to order</a>
-                    
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Revision No. {{ revision.id }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ revision.time_created }}</h6>
+                    <p class="card-text">{{ revision.type }} requested by {{ revision.customer }}</p>
+                    <a href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
+                  </div>
                 </div>
                 
                 {% endfor %}
