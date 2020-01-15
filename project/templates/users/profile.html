@@ -50,15 +50,15 @@
                         <a href="{{ design.source_code.url }}" download> Download source code </a>
                         <img src="{{ design.preview_image.url}}">
                         <div class="row">
-                           <div class="col"><a href="#/">Accept</a></div>
-                           <div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>
+                           <div class="col"><a href="{% url 'design-detail' parameter=design.id %}">View Design</a></div>
+                           <!--<div class="col"><a href="{% url 'request-changes' parameter=design.id %}">Request Changes</a></div>-->
                         </div>
          
                    {% elif design.order_stage == "Revisions requested" %}
         
                         <h4>Revisions... Order no. {{ design.order_number }}</h4>
                         <p>Desc: {{ design.description }}</p>
-                        <a href="{{ design.source_code.url }}" download> Download source code </a>
+                        <!--<a href="{{ design.source_code.url }}" download> Download source code </a>-->
                         <img src="{{ design.preview_image.url}}">
                         <div class="row">
                            <div class="col"><a href="#">Revisions requested</a></div>
@@ -82,7 +82,7 @@
                       <h4>Completed... Order no. {{ design.order_number }}</h4>
                       <p>Desc {{ design.order_number.description }}</p>
                          
-                      <a href="{{ design.source_code.url }}" download> Download source code </a>
+                      <!--<a href="{{ design.source_code.url }}" download> Download source code </a>-->
                       <img src="{{ design.preview_image.url}}">
                       <div class="row">
                           <div class="col"><a href="#">Write Testimonial</a></div>

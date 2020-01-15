@@ -1,22 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm
+from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Order, Design, Revision
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-
-
-# class OrderCreateView(LoginRequiredMixin, CreateView):
-#     template_name = "orders/create_order.html"
-    
-#     form_class = OrderForm
-        
-#     def form_valid(self, form):
-#         form.instance.customer = self.request.user
-#         form.instance.price = 100
-#         return super().form_valid(form)
     
 @login_required
 def order_create_view(request):
@@ -107,43 +96,7 @@ def submit_design(request, parameter):
         form = DesignSubmissionForm()
         
     return render(request, 'orders/submit_design.html', {"order": getOrder,'form': form})
-    # getOrder = Order.objects.get(pk=parameter)
-    # form = DesignSubmissionForm(request.POST or None)
-    # if form.is_valid():
-    #     instance = form.save(commit=False)
-    #     instance.customer = getOrder.customer
-    #     instance.order_number = parameter
-    #     instance.save()
-    #     # change order_status of order object
-    #     return redirect('order-list')
-        
-    # context = {
-    #     "order": getOrder,
-    #     'form': form
-    # }
-    # return render(request, 'orders/submit_design.html', context)
 
-# Need to update rather than create new object!!! Update time, SC, PI and stage
-# @login_required
-# def submit_revision(request, parameter):
-#     getOrder = Order.objects.get(pk=parameter)
-#     if request.method == 'POST':
-        
-#         form = DesignSubmissionForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             instance = form.save(commit=False)
-#             # replace old files
-#             instance.customer = getOrder.customer
-#             instance.type = getOrder.type
-#             instance.order_number = getOrder
-#             instance.save()
-#             Revision.objects.filter(pk=parameter).update(open=False)
-            
-#             return redirect('order-list')
-#     else:
-#         form = DesignSubmissionForm()
-        
-#     return render(request, 'orders/submit_revision.html', {"order": getOrder,'form': form})
 
 @login_required
 def submit_revision(request, parameter):
@@ -205,17 +158,20 @@ def testimonial(request, parameter):
     }
     return render(request, 'orders/testimonial.html', context)
 
-# @login_required 
-# def accept_design(request, parameter):
-#     getDesign = Design.objects.get(pk=parameter)
-#     form = DesignAcceptanceForm(request.POST)
-#     if form.is_valid():
-
-#         form.save()
+@login_required 
+def design_detail(request, parameter):
+    getDesign = Design.objects.get(pk=parameter)
+    
+    if request.method == 'POST':
+        if request.POST.get('status') == 'accept':
+            Design.objects.filter(pk=getDesign.id).update(order_status="Design accepted")
             
-#         return redirect('order-list')
+        return redirect('profile')
         
-#     else:
-#         form = DesignAcceptanceForm()
-#     return render(request, 'orders/accept-design.html', {'form': form})
+    context={
+        'design': getDesign,
+        'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by('-time_created'),
+
+    }
+    return render(request, 'orders/design_detail.html', context)
     

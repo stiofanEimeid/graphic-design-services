@@ -36,13 +36,13 @@ class DesignUpdateForm(forms.ModelForm):
             'preview_image',
             ]
             
-# class DesignAcceptanceForm(forms.ModelForm):
+class DesignAcceptanceForm(forms.ModelForm):
     
-#     class Meta:
-#         model = Design
-#         fields = [
-#             'order_stage'
-#         ]
+    class Meta:
+        model = Design
+        fields = [
+            'order_stage'
+        ]
         
 class RevisionsForm(forms.ModelForm):
     
