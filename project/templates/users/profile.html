@@ -47,8 +47,10 @@
              <div class="col-12">
             {% if designs %}
             <h5>Pending</h5>
+            {% if design.order_stage == "Design pending approval" or design.order_stage == "Revisions requested" %}
                {% for design in designs %}
-                   {% if design.order_stage == "Design pending approval" %} 
+                   {% if design.order_stage == "Revisions requested"  %}
+                    
                         <div class="card">
                       <div class="card-body">
                         <h6 class="card-title"> Order no. {{ design.order_number }}</h6>
@@ -59,7 +61,7 @@
                         <a href="#" class="card-link">Another link</a>
                       </div>
                     </div>
-                       {% elif design.order_stage == "Revisions requested"  %}
+                     {% elif design.order_stage == "Revisions requested"  %}
                         <div class="card">
                       <div class="card-body">
                         <h6 class="card-title"> Order no. {{ design.order_number }}</h6>
@@ -70,11 +72,12 @@
                         <p>Revisions requested</p>
                       </div>
                     </div>
-                       {% else %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
                        <p>No designs pending approval</p>
-                   {% endif %}
-               {% endfor %}
-             {% endif %}
+            {% endif %}
+            {% endif %}
              
                 </div>
                 <div class="col-12">Completed Designs
