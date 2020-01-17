@@ -125,18 +125,13 @@ def request_changes(request, parameter):
     if form.is_valid():
         """Create a dictionary 'basket' that stores order info"""
         design = Design.objects.get(pk=parameter)
+        # get parent
+        order = Order.objects.get(pk=design.order_number.pk)
         my_basket = request.session.get('my_basket', {})
         request.session['my_basket'] = my_basket
         request.session['my_basket']['type'] = design.type
         request.session['my_basket']['description'] = request.POST.get('revisions')
-        
-        #set design id with parameter using form instance
-        
-        # cost if flat fee plus percentage of total cost for certain pieces
-        # must get type from order (or from design which takes from order) to calculate price
-        
-        # placeholder
-        request.session['my_basket']['price'] = 30
+        request.session['my_basket']['price'] = int(order.price) * 0.15
         request.session['my_basket']['design_id'] = parameter
         request.session['my_basket']['revision'] = True
         
@@ -146,7 +141,7 @@ def request_changes(request, parameter):
             'price': request.session['my_basket']['price']
         }
        
-        return render(request, 'basket.html', context)
+        return render(request, 'checkout.html', context)
 
     return render(request, 'orders/request_changes.html', {"form": form, 'DesignNumber': parameter})
 

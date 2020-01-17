@@ -59,7 +59,7 @@
                         <p class="card-text">{{ design.order_number.description }}</p>
                         <img src="{{ design.preview_image.url}}">
                         <a href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="{% url 'request-changes' parameter=design.id %}" class="card-link">Request Revisions</a></a>
                       </div>
                     </div>
                      {% elif design.order_stage == "Revisions requested"  %}
