@@ -180,9 +180,9 @@ footer {
 }
 
 .nav-brand {
-    color: #990033;
-    font-size: 1.75em;
-     position: absolute;
+  color: #990033;
+  font-size: 1.75em;
+  position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
@@ -291,6 +291,7 @@ img {
     height: calc(100vh - 70px);
     width: 100%;
     background-color: #990033;
+    padding-top: 70px;
 }
 
 .svg-container {
