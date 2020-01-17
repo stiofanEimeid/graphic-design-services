@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from pages.views import home, gallery, pricing, orders, showcase
+from pages.views import home, gallery, pricing, orders, showcase, gallery_design_detail
 from users import views as user_views
 from orders import views as order_views
 from checkout.views import checkout
@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="homepage"),
     path("gallery/", gallery, name="gallery"),
+    path("gallery-design-detail/<int:parameter>/", gallery_design_detail, name="gallery-design-detail"),
     path("pricing/", pricing, name="pricing"),
     path("orders/", orders, name="orders"),
     path("showcase/", showcase, name="showcase"),

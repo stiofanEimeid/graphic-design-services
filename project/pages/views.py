@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from orders.models import Design
 
 def home(request, *args, **kwargs):
     # print(args, kwargs)
@@ -6,9 +7,14 @@ def home(request, *args, **kwargs):
     return render(request, "home.html", {})
     
 def gallery(request, *args, **kwargs):
-    # print(args, kwargs)
-    # print(request.user)
-    return render(request, "gallery.html", {})
+    context ={
+        "designs": Design.objects.filter(order_stage="Design accepted")
+    }
+    return render(request, "gallery.html", context)
+    
+def gallery_design_detail(request, parameter):
+    
+    return render(request, 'gallery_design_detail.html')
     
 def showcase(request, *args, **kwargs):
     # print(args, kwargs)

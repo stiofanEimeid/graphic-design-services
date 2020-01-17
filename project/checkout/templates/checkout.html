@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load static from staticfiles %}
 
 
@@ -38,11 +39,11 @@
             </div>
             
             <div class="form-group col-md-6">
-             {{ cd_form }}
+             {{ cd_form|crispy }}
              </div>
              
              <div class="form-group col-md-6">
-             {{ payment_form }}
+             {{ payment_form|crispy }}
              </div>
              
              {% csrf_token %}

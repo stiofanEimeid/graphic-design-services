@@ -44,12 +44,13 @@
          </div>
          <!--designs section-->
          <div class="col-md-8">
-             <div class="col-12">
+            <h2>Designs</h2>
+            <div class="col-12">
             {% if designs %}
-            <h5>Pending</h5>
-            {% if design.order_stage == "Design pending approval" or design.order_stage == "Revisions requested" %}
+            <h5>Designs Pending Approval</h5>
+       
                {% for design in designs %}
-                   {% if design.order_stage == "Revisions requested"  %}
+                   {% if design.order_stage == "Design pending approval"  %}
                     
                         <div class="card">
                       <div class="card-body">
@@ -76,11 +77,13 @@
                 {% endfor %}
             {% else %}
                        <p>No designs pending approval</p>
-            {% endif %}
+
             {% endif %}
              
                 </div>
-                <div class="col-12">Completed Designs
+                <div class="col-12">
+                    <h5>Approved Designs</h5>
+                    
     {% if designs %}
       {% for design in designs %}
         {% if design.order_stage == "Design accepted"  %} 
@@ -91,7 +94,7 @@
                     <p class="card-text">{{ design.order_number.description }}</p>
                     <img src="{{ design.preview_image.url}}">
                     <a href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                    <a href="#">Write Testimonial</a>
+                    <a href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
                 </div>
             </div>
         {% else %}

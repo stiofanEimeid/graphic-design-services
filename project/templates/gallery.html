@@ -5,47 +5,21 @@
 
 
 <div class="container">
-
-<div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="container-general">
-            <div class="gallery-wrap wrap-effect-1">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-     
-            </div>
+  <div class="row">
+  {% for design in designs %}
+       <div class="col-sm-6 col-lg-3">
+        <div class="img-container">
+          <div class="design-details">
+            <a href="{% url 'gallery-design-detail' parameter=design.id %}/">View Details</a>
           </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="container-general">
-            <div class="gallery-wrap wrap-effect-2">
-       
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="container-general">
-            <div class="gallery-wrap wrap-effect-3">
-        
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-   
-      
-            </div>
-          </div>
+          <img src="{{ design.preview_image.url }}">
         </div>
       </div>
-    </div>
-
+  {% endfor %}
+  </div>
+  
+  
 </div>
-
   
 
 
