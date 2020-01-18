@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from orders.models import Design, Testimonial
+from orders.models import Design, Testimonial, Revision, Order
 
 def home(request, *args, **kwargs):
     # print(args, kwargs)
@@ -16,7 +16,7 @@ def gallery_design_detail(request, parameter):
     try:
         testimonial = Testimonial.objects.get(design_id=parameter)
     except Testimonial.DoesNotExist:
-        testimonial = None
+        testimonial = ''
     context={
         "design": Design.objects.get(pk=parameter),
         "testimonial": testimonial

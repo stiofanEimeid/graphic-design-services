@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from pages.views import home, gallery, pricing, orders, showcase, gallery_design_detail
+from pages import views as page_views 
 from users import views as user_views
 from orders import views as order_views
 from checkout.views import checkout
@@ -28,12 +28,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", home, name="homepage"),
-    path("gallery/", gallery, name="gallery"),
-    path("gallery-design-detail/<int:parameter>/", gallery_design_detail, name="gallery-design-detail"),
-    path("pricing/", pricing, name="pricing"),
-    path("orders/", orders, name="orders"),
-    path("showcase/", showcase, name="showcase"),
+    path("", page_views.home, name="homepage"),
+    path("gallery/", page_views.gallery, name="gallery"),
+    path("pricing/", page_views.pricing, name="pricing"),
+    path("orders/", page_views.orders, name="orders"),
+    path("showcase/", page_views.showcase, name="showcase"),
+    path("gallery-design-detail/<int:parameter>/", page_views.gallery_design_detail, name="gallery_design_detail"),
     path('register/', user_views.register, name='register'),
     path('create-order/', order_views.order_create_view, name='create-order'),
     path('checkout/', checkout, name='checkout'),

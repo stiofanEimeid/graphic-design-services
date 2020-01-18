@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-
-
 <div class="container">
   <h1 class="text-center pt-4">Gallery</h1>
   <div class="row">
@@ -11,7 +8,7 @@
        <div class="col-sm-6 col-lg-3">
         <div class="img-container">
           <div class="design-details">
-            <a href="{% url 'gallery-design-detail' parameter=design.id %}/">View Details</a>
+            <a href="{% url 'gallery_design_detail' parameter=design.id %}/">View Details</a>
           </div>
           <img src="{{ design.preview_image.url }}">
         </div>
