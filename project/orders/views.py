@@ -41,7 +41,7 @@ def order_create_view(request):
             'price': request.session['my_basket']['price']
         }
        
-        return render(request, 'checkout.html', context)
+        return render(request, 'basket.html', context)
         
     context = {
         'form': form

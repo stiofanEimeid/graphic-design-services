@@ -22,14 +22,24 @@
 <div class="container">
     <h1 class="text-center pt-4">Checkout</h1>
     <div class="row">
-        <div class="col">
-            <h3>Order Details</h3>
-            <p>{{ type }}</p>
-            <p>{{ description }}</p>
-            <p>{{ price }}</p>
+        <div class="col-12">
+            
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Order Details</h5>
+                <p class="card-text">Type: {{ type }}</p>
+                <p class="card-text">Price: {{ price }}</p>
+                <p class="card-text">Description: {{ description }}</p>
+              </div>
+            </div>
+  
         </div>
+
+            
+
     </div>
-    
+    <div class="row">
+        <div class="col">
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         <legend>Payment Details</legend>
         <div class="row">
@@ -52,6 +62,8 @@
              </div>
          </div>
     </form>
+    </div>
+    </div>
 </div>
 
 {% endblock content %} 

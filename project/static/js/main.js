@@ -1,24 +1,6 @@
 /* global $, AOS */
 
 $(document).ready(function(){
-    
-       const swiper = new Swiper('.swiper-container', {
-      direction: 'horizontal',
-	  mousewheel: {
-            releaseOnEdges: true
-        },
-	  effect: 'cube',
-	  keyboard: {
-	    enabled: true,
-	    onlyInViewport: false
-	  },
-
-      grabCursor: true
-   
-	});
-
-    
-      
 
         $('#submitBtn').click(function() {
              /* when the button in the form, display the entered values in the modal */
