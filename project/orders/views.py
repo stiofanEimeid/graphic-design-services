@@ -76,6 +76,7 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
     
 class RevisionDetailView(LoginRequiredMixin, DetailView):
     model = Revision
+    template_name = "revision_detail.html"
     
 @login_required
 def submit_design(request, parameter):
