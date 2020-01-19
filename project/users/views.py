@@ -14,7 +14,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
 @login_required
 def profile(request, *args, **kwargs):
@@ -42,7 +42,7 @@ def profile(request, *args, **kwargs):
         
     }
     
-    return render(request, 'users/profile.html', context)
+    return render(request, 'profile.html', context)
     
 # def view_my_orders(request):
 #     ...

@@ -3,16 +3,13 @@ html, body {
     /*width: 100%;*/
 }
 
-
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-    background-color: #EAE7DC;
+    background-color: #fffafa;
     font-family: 'Cabin';
-
     display: flex;
     flex-direction: column;
 }
@@ -43,24 +40,9 @@ footer {
   text-align: center;
 }
 
-/*.account-img {*/
-/*  height: 125px;*/
-/*  width: 125px;*/
-/*  margin-right: 20px;*/
-/*  margin-bottom: 16px;*/
-/*} */
-
-/*.rounded-circle {*/
-/*    border-radius: 50%!important;*/
-/*}*/
 
 .introBlurb {
   font-size: 2rem;
-}
-
-.card {
-  background-color: #EAE7DC;
-  border: none;
 }
 
 /*navbar styles*/
@@ -71,8 +53,7 @@ footer {
     width: 100%;
     padding: 10px;
     height: 70px;
-    background-color: #EAE7DC;
-    /*color: #F7FFF6;*/
+    background-color: #fff;
     top: 0;
     transition: top 0.3s;
 }
@@ -90,7 +71,7 @@ footer {
     height: 70px;
     position: relative;
     background-color: #990033;
-    color: #F7FFF6;
+    color: #FFF;
 }
 
 .sidebar {
@@ -191,7 +172,7 @@ footer {
 .nav-title a:link, .nav-title a:visited,
 .nav-title a:hover, .nav-title:active {
     text-decoration: none;
-    color: #990033;
+    color: red;
 }
 
 /*.openbtn:hover {*/
@@ -217,11 +198,6 @@ footer {
   z-index: 998;
 }
 
-.pricePlan {
-  background-color: white;
-  padding: 1em;
-  min-height: 500px;
-}
 
 .box {
   height: 250px;
@@ -282,7 +258,9 @@ img {
   margin-right: auto;
 }
 
-
+#card {
+  border-radius: none;
+}
 
 
 
@@ -292,7 +270,7 @@ img {
 .main-container {
     height: calc(100vh - 70px);
     width: 100%;
-    background-color: #990033;
+    background-image: linear-gradient(to bottom right, #ECA72C, #990033);
     padding-top: 70px;
 }
 
@@ -339,7 +317,7 @@ img {
 }
 
 .ball2 {
-  width: 2%;
+width: 2%;
   height: 5%;
   background-color: blue;
 
@@ -369,7 +347,7 @@ img {
 .content-section {
   position: relative;
 	margin: 120px 0 60px 0;
-	background: #97AABD;
+	background: #D5DFE5;
 	padding: 20px;
 }
 
@@ -382,7 +360,7 @@ img {
 	margin-left: -100px;
 	transform: translateY(-50%);
 	background: #990033;
-	border: 10px solid #EAE7DC;
+	border: 10px solid #fffafa;
 	border-radius: 50%;
 }
 

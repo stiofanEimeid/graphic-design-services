@@ -28,7 +28,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("/", page_views.home, name="homepage"),
+    path("", page_views.home, name="homepage"),
     path("gallery/", page_views.gallery, name="gallery"),
     path("orders/", page_views.orders, name="orders"),
     path("gallery-design-detail/<int:parameter>/", page_views.gallery_design_detail, name="gallery_design_detail"),
@@ -45,19 +45,19 @@ urlpatterns = [
     path('order-list/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
     path('revision/<int:pk>/', RevisionDetailView.as_view(), name='revision-detail'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('password-reset/', 
           auth_views.PasswordResetView.as_view(
-          template_name='users/password_reset.html'),
+          template_name='password_reset.html'),
           name='password_reset'),
     path('password-reset/done', 
           auth_views.PasswordResetDoneView.as_view(
-          template_name='users/password_reset_done.html'),
+          template_name='password_reset_done.html'),
           name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/', 
           auth_views.PasswordResetConfirmView.as_view(
-          template_name='users/password_reset_confirm.html'),
+          template_name='password_reset_confirm.html'),
           name='password_reset_confirm'),
     path('profile/', user_views.profile, name='profile'),
 ]
