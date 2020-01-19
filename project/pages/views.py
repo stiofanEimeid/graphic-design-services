@@ -27,4 +27,4 @@ def gallery_design_detail(request, parameter):
 def orders(request, *args, **kwargs):
     # print(args, kwargs)
     # print(request.user)
-    return render(request, "orders/orders.html", {})
+    return render(request, "orders.html", {})

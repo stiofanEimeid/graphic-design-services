@@ -46,7 +46,7 @@ def order_create_view(request):
     context = {
         'form': form
     }
-    return render(request, 'orders/create_order.html',  context)
+    return render(request, 'create_order.html',  context)
 
 # @staff_member_required    
 # def order_list(request):
@@ -72,6 +72,7 @@ class OrderListView(LoginRequiredMixin, ListView):
 # Must make accessible to respective owners and admin only
 class OrderDetailView(LoginRequiredMixin, DetailView):
     model = Order
+    template_name = "order_detail.html"
     
 class RevisionDetailView(LoginRequiredMixin, DetailView):
     model = Revision
@@ -95,7 +96,7 @@ def submit_design(request, parameter):
     else:
         form = DesignSubmissionForm()
         
-    return render(request, 'orders/submit_design.html', {"order": getOrder,'form': form})
+    return render(request, 'submit_design.html', {"order": getOrder,'form': form})
 
 
 @login_required
@@ -117,7 +118,7 @@ def submit_revision(request, parameter):
     else:
         form = DesignUpdateForm()
         
-    return render(request, 'orders/submit_revision.html', {'design': getDesign, 'revision': getRevision,  'form':form})
+    return render(request, 'submit_revision.html', {'design': getDesign, 'revision': getRevision,  'form':form})
     
 @login_required    
 def request_changes(request, parameter):
@@ -143,7 +144,7 @@ def request_changes(request, parameter):
        
         return render(request, 'checkout.html', context)
 
-    return render(request, 'orders/request_changes.html', {"form": form, 'DesignNumber': parameter})
+    return render(request, 'request_changes.html', {"form": form, 'DesignNumber': parameter})
 
 @login_required 
 def design_detail(request, parameter):
@@ -160,7 +161,7 @@ def design_detail(request, parameter):
         'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by('-time_created'),
 
     }
-    return render(request, 'orders/design_detail.html', context)
+    return render(request, 'design_detail.html', context)
     
 @login_required
 def testimonial(request, parameter):
@@ -177,5 +178,5 @@ def testimonial(request, parameter):
         'form': form,
         'design': parameter
     }
-    return render(request, 'orders/testimonial.html', context)
+    return render(request, 'testimonial.html', context)
     
