@@ -84,23 +84,22 @@ As a site owner, I want to:
 
 ### Name
 
-
 #### Fonts
 
 #### Icons
 
 #### Colours
 
-Light Sky Blue #8ECAF9
-Mint Cream #F7FFF6
-Eerie Black #1D1E18
-Light Carmine Pink #EF626C
-Hansa Yellow # E9D758
-Ube #8377D1
+| Light Sky Blue | Mint Cream | Eerie Black | Light Carmine Pink | Hansa Yellow | Ube |
+| :---: | :---: | :---: |  :---: | :---: | :---: |
+| ![#8ECAF9](https://placehold.it/15/8ECAF9/8ECAF9) | ![#F7FFF6](https://placehold.it/15/F7FFF6/F7FFF6) | ![#1D1E18](https://placehold.it/15/1D1E18/1D1E18) | ![#EF626C](https://placehold.it/15/EF626C/EF626C) | ![#E9D758](https://placehold.it/15/E9D758/E9D758) | ![#8377D1](https://placehold.it/15/8377D1/8377D1) |
+| #8ECAF9 | #F7FFF6| #1D1E18 | #EF626C |#E9D758| #8377D1 |
 
 #### Format
 
 ### Wireframes
+
+Wireframes were created using Balsamiq and may be viewed in the [wireframes folder](https://github.com/stiofanEimeid/graphic-design-services/tree/master/wireframes). 
 
 ## Features
 
@@ -137,7 +136,7 @@ Once this updated design has been submitted, users may view it from their profil
 
 Once the user has accepted the design, the process ends. A snapshot of the work is then made viewable by everyone in the website gallery and users are given the option of writing a testimonial to be displayed alongside the work. 
 
-The carousel was built using the JS library, Swiper.js. Each slide takes the form of a side of a block. The block may be rotated to view more sides or slides. Each slide represents a different type of work, icon, logo or illustration. Each side is comprised of three images laid alongside one another that may be clicked on viewed on a individual detail page, along with details of the image and a testimonial if a user has made one available. 
+#### Order Calculator
 
 
 #### Navigation
@@ -222,7 +221,7 @@ It is recommended that you create a virtual environment that contains the projec
 - Create env.py file within the project directory to hold sensitive environment variables such as the secret key. 
 
 - Install project requirements from the requirements.txt file with the command 
-‘pip –r requirements.txt’.
+`pip –r requirements.txt`.
 
 - Run the server and view a live version of the site with the command python `manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
 
@@ -246,7 +245,7 @@ It is recommended that you create a virtual environment that contains the projec
 - Having connected to a new database, you will be required to rebuild the tables you previously created in the local deployment section. Run the commands ‘python manage.py makemigrations’ and ‘python manage.py migrate’ again.
 
 - Create a new superuser once again using the command ‘python manage.py createsuperuser’ and follow the instructions indicated. 
-Upload the project subdirectory using the command ```git subtree push --prefix project heroku master``` (where project is the name of the folder containing the app) from the root directory.
+Upload the project subdirectory using the command `git subtree push --prefix project heroku master` (where project is the name of the folder containing the app) from the root directory.
 
 ##### Serving Images 
 
@@ -258,6 +257,7 @@ Upload the project subdirectory using the command ```git subtree push --prefix p
 
 
 ## Credits
+
 Installing psycopg2 with a virtual environment help found at [goshawknest](https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/)
 
 https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template
@@ -283,8 +283,6 @@ Django Form Dropdown Menu: https://stackoverflow.com/questions/24403075/django-c
 ### Disclaimer 
 
 The contents of this website are for educational purposes only.
-
-
 
 [**Jump to top &uarr;**](#table-of-contents)
 
