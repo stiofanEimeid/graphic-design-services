@@ -204,24 +204,6 @@ Using an IDE of your choice, ensure the following are installed, Git, PIP and Py
 
 It is recommended that you create a virtual environment that contains the project's dependencies, and keeps those dependencies separate from those of other projects. 
 
-#### Cloning from Github
-
-In order to run a repository locally, the repository must be cloned. To clone the repository
-:
-1. Follow the link to the [Graphic Design Services repository](https://github.com/stiofanEimeid/graphic-design-services).
-2. Under the repository name, click "Clone or download".
-3. In the Clone with HTTPs section, copy the clone URL for the repository. 
-4. In your preferred IDE, open the terminal.
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type ```git clone```, and then paste the URL you copied in Step 3.
-```console
-git clone https://github.com/USERNAME/REPOSITORY
-```
-7. Press Enter. Your local clone will be created.
-
-Further reading and troubleshooting on how to clone a repository from GitHub may be found [here](https://help.github.com/en/articles/cloning-a-repository).
-
-To cut ties with this repository, type ```git remote rm origin``` into the terminal of your editor. In order to verify the terminal has been removed, type ```git remote -v``` to determine which remotes are still connected. 
 
 #### Running the Site in your IDE
 
@@ -229,21 +211,29 @@ Create virtual environment with command virtualenv . (Python3)
 
 Activate virtual environment with command source bin/activate
 
-Install django (version?)
-
-Create directory 'src' with mkdir src command
-
-Navigate to src directory with cd src command
-
-Create project with django-admin startproject graphic_design_services  . command
-
-Add server to allowed hosts in settings.py
-
 Run using command python manage.py runserver $IP:$PORT
 
 Add command as string as alias in .bashrc
 
 Run
+
+Save this repository by clicking the clone or download button located at the top of the front page of this repository.
+
+Alternatively, having installed Git locally, clone the repository with the command `git clone https://github.com/stiofanEimeid/graphic-design-services.git`
+
+From the Command Line Interface, navigate to the project directory where the extracted files are located. 
+
+Create .env file to hold sensitive environment variables. LIST
+
+Install project requirements from the requirements.txt file with the command 
+‘pip –r requirements.txt’.
+
+Run the server and view a live version of the site with the command python `manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
+
+Next, it will be necessary to populate the database with the proper tables. Run the command `python manage.py makemigrations` followed by the command `python manage.py migrate`. 
+
+In order to access the admin panel, run the command `python manage.py createsuperuser`. You will be prompted to enter a username, password and email.
+
 
 #### Deploying the Project to Heroku
 

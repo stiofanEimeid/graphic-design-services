@@ -43,35 +43,35 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 # Views
 
-class TestHomeView(TestCase):
-    def test_index_view(self):
-        page = self.client.get("/")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "home.html")
+# class TestHomeView(TestCase):
+#     def test_index_view(self):
+#         page = self.client.get("/")
+#         self.assertEqual(page.status_code, 200)
+#         self.assertTemplateUsed(page, "home.html")
 
-class TestLoginView(TestCase):
-    def test_login_view(self):
-        page = self.client.get("/login/")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "login.html")
-
-
-class TestLogoutView(TestCase):
-    def test_logout_view(self):
-        page = self.client.get("/logout/")
-        self.assertEqual(page.status_code, 302)
-        self.client.post(reverse("login"))
+# class TestLoginView(TestCase):
+#     def test_login_view(self):
+#         page = self.client.get("/login/")
+#         self.assertEqual(page.status_code, 200)
+#         self.assertTemplateUsed(page, "login.html")
 
 
-class TestRegisterView(TestCase):
-    def test_register_view(self):
-        page = self.client.get("/register/")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "register.html")
+# class TestLogoutView(TestCase):
+#     def test_logout_view(self):
+#         page = self.client.get("/logout/")
+#         self.assertEqual(page.status_code, 302)
+#         self.client.post(reverse("login"))
 
 
-class TestProfileView(TestCase):
-    def test_profile_view(self):
-        page = self.client.get("/profile/")
-        self.assertEqual(page.status_code, 302)
-        self.client.post(reverse("profile"))
+# class TestRegisterView(TestCase):
+#     def test_register_view(self):
+#         page = self.client.get("/register/")
+#         self.assertEqual(page.status_code, 200)
+#         self.assertTemplateUsed(page, "register.html")
+
+
+# class TestProfileView(TestCase):
+#     def test_profile_view(self):
+#         page = self.client.get("/profile/")
+#         self.assertEqual(page.status_code, 302)
+#         self.client.post(reverse("profile"))
