@@ -207,47 +207,55 @@ It is recommended that you create a virtual environment that contains the projec
 
 #### Running the Site in your IDE
 
-Create virtual environment with command virtualenv . (Python3)
+<!--Create virtual environment with command virtualenv . (Python3)-->
 
-Activate virtual environment with command source bin/activate
+<!--Activate virtual environment with command source bin/activate-->
 
-Run using command python manage.py runserver $IP:$PORT
+<!--Run using command python manage.py runserver $IP:$PORT/Add command as string as alias in .bashrc-->
 
-Add command as string as alias in .bashrc
 
-Run
+- Save this repository by clicking the clone or download button located at the top of the front page of this repository.
+    - Alternatively, having installed Git locally, clone the repository with the command `git clone https://github.com/stiofanEimeid/graphic-design-services.git`
 
-Save this repository by clicking the clone or download button located at the top of the front page of this repository.
+- From the Command Line Interface, navigate to the project directory where the extracted files are located. 
 
-Alternatively, having installed Git locally, clone the repository with the command `git clone https://github.com/stiofanEimeid/graphic-design-services.git`
+- Create env.py file within the project directory to hold sensitive environment variables such as the secret key. 
 
-From the Command Line Interface, navigate to the project directory where the extracted files are located. 
-
-Create .env file to hold sensitive environment variables. LIST
-
-Install project requirements from the requirements.txt file with the command 
+- Install project requirements from the requirements.txt file with the command 
 ‘pip –r requirements.txt’.
 
-Run the server and view a live version of the site with the command python `manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
+- Run the server and view a live version of the site with the command python `manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
 
-Next, it will be necessary to populate the database with the proper tables. Run the command `python manage.py makemigrations` followed by the command `python manage.py migrate`. 
+- Next, it will be necessary to populate the database with the proper tables. Run the command `python manage.py makemigrations` followed by the command `python manage.py migrate`. 
 
-In order to access the admin panel, run the command `python manage.py createsuperuser`. You will be prompted to enter a username, password and email.
+- In order to access the admin panel, run the command `python manage.py createsuperuser`. You will be prompted to enter a username, password and email.
 
 
 #### Deploying the Project to Heroku
 
-Login to Heroku through the CLI
+- In order to allow Heroku to install this project’s requirements, create a requirements.txt file with the command pip freeze > requirements.txt’ while you are in the project directory i.e. src/project.
 
-Create an app.
+- Create a Procfile in order to tell Heroku what type of application is being run. Enter the command `echo:web gunicorn main.wsgi:application > Procfile`.
 
-Create a PostgresSQL database.
+- Sign in to your account or register a free Heroku account. Create an app and select ‘deploy’ at the top of the app page.
 
-Add environment variables.
+- Under the resources tab of your app, find the Add-ons section and search for Heroku Postgres and select Hobby for the level. This database will replace the locally generated sqlite database. Add the url provided as an environment variable to your env.py file along with the config vars under the settings tab of your app. 
 
-Add the Heroku App Domain name to the list of allowed hosts in settings.py
+- Add the rest of the environment variables found in your env.py file as config vars. 
 
+- Having connected to a new database, you will be required to rebuild the tables you previously created in the local deployment section. Run the commands ‘python manage.py makemigrations’ and ‘python manage.py migrate’ again.
+
+- Create a new superuser once again using the command ‘python manage.py createsuperuser’ and follow the instructions indicated. 
 Upload the project subdirectory using the command ```git subtree push --prefix project heroku master``` (where project is the name of the folder containing the app) from the root directory.
+
+##### Serving Images 
+
+- Static files cannot be hosted on Heroku. You will therefore need to create an S3 bucket to serve static files and connect this to your project…
+
+##### Stripe Functionality
+
+- Finally, in order to allow for checkout functionality, you will need to include access to the Stripe API I your project…
+
 
 ## Credits
 Installing psycopg2 with a virtual environment help found at [goshawknest](https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/)
