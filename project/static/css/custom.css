@@ -304,30 +304,32 @@ img {
 .mouseContainer {
   padding-top: 20px;
   height: 25%;
-   text-align: center;
-   /*background-color: #1D1E18;*/
-      background-color: #EAE7DC;
+  text-align: center;
+  background-color: #fffafa;
+}
+
+.ball, .ball2, .ball3 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 .ball {
-  width: 2%;
-  height: 5%;
   background-color: grey;
-
 }
 
 .ball2 {
-width: 2%;
-  height: 5%;
   background-color: blue;
-
 }
 
-
 .ball3 {
-  width: 2%;
-  height: 5%;
   background-color: black;
+}
+
+.designDesc {
+  background-color: darkgrey;
+  color: white;
+  min-height: 500px;
 }
 
 .marginTop {

@@ -44,10 +44,10 @@
          </div>
          <!--designs section-->
          <div class="col-md-8">
-            <h2 class="border-bottom mb-4">Designs</h2>
-            <div class="col-12">
+            <div class="col-12"><h2 class="border-bottom mb-4">Designs</h2></div>
+            <div class="col-12 mb-4">
             {% if designs %}
-            <h5>Designs Pending Approval</h5>
+            <h5>Designs Pending Approval:</h5>
        
                {% for design in designs %}
                    {% if design.order_stage == "Design pending approval"  %}
@@ -82,7 +82,7 @@
              
                 </div>
                 <div class="col-12">
-                    <h5>Approved Designs</h5>
+                    <h5>Approved Designs:</h5>
                     
     {% if designs %}
       {% for design in designs %}
