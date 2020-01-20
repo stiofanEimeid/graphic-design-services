@@ -104,49 +104,49 @@ function calculateTotal()
 };
 
 
-var path = anime.path('.path1');
+// var path = anime.path('.path1');
 
-var easings = ['linear'];
+// var easings = ['linear'];
 
-var motionPath = anime({
-  targets: '.ball',
-  translateX: path('x'),
-  translateY: path('y'),
-  rotate: path('angle'),
-  easing: function (el, i) {
-    return easings[i];
-  },
-  duration: 10000,
-  loop: true
-});
+// var motionPath = anime({
+//   targets: '.ball',
+//   translateX: path('x'),
+//   translateY: path('y'),
+//   rotate: path('angle'),
+//   easing: function (el, i) {
+//     return easings[i];
+//   },
+//   duration: 10000,
+//   loop: true
+// });
 
-var path2 = anime.path('.path2');
+// var path2 = anime.path('.path2');
 
-var motionPath2 = anime({
-  targets: '.ball2',
-  translateX: path2('x'),
-  translateY: path2('y'),
-  rotate: path2('angle'),
-  easing: function (el, i) {
-    return easings[i];
-  },
-  duration: 12500,
-  loop: true
-});
+// var motionPath2 = anime({
+//   targets: '.ball2',
+//   translateX: path2('x'),
+//   translateY: path2('y'),
+//   rotate: path2('angle'),
+//   easing: function (el, i) {
+//     return easings[i];
+//   },
+//   duration: 12500,
+//   loop: true
+// });
 
-var path3 = anime.path('.path3');
+// var path3 = anime.path('.path3');
 
-var motionPath3 = anime({
-  targets: '.ball3',
-  translateX: path3('x'),
-  translateY: path3('y'),
-  rotate: path3('angle'),
-  easing: function (el, i) {
-    return easings[i];
-  },
-  duration: 15000,
-  loop: true
-});
+// var motionPath3 = anime({
+//   targets: '.ball3',
+//   translateX: path3('x'),
+//   translateY: path3('y'),
+//   rotate: path3('angle'),
+//   easing: function (el, i) {
+//     return easings[i];
+//   },
+//   duration: 15000,
+//   loop: true
+// });
 
 
         

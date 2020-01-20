@@ -2,19 +2,29 @@
 {% block content %}
 
 <div class="container">
+  
+  
   <h1 class="text-center pt-4">Gallery</h1>
-  <div class="row">
-  {% for design in designs %}
-       <div class="col-sm-6 col-lg-3">
-        <div class="img-container">
-          <div class="design-details">
-            <a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
-          </div>
-          <img src="{{ design.preview_image.url }}">
-        </div>
-      </div>
+<div class="row">
+  <div class="col">
+  <ul class="grid cs-style-4">
+     {% for design in designs %}
+	<li>
+		<figure>
+			<div class="image-container">
+			<img src="{{ design.preview_image.url }}" alt="img01">
+			
+			<figcaption>
+				<h3>Camera</h3>
+				<span>Jacob Cummings</span>
+				<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
+			</figcaption>
+		</figure>
+	</li>
   {% endfor %}
-  </div>
+</ul>
+</div>
+</div>
   
   
 </div>
