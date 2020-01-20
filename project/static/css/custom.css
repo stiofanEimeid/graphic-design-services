@@ -400,6 +400,8 @@ img {
   height: auto;
 }
 
+
+
 @-webkit-keyframes scroll {
   0%, 20% {
       -webkit-transform: translateY(0) scaleY(1);
