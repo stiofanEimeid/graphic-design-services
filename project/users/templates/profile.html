@@ -19,22 +19,33 @@
                               {{ u_form|crispy }}
                               {{ p_form|crispy }}
                               <div class="form-group text-center">
-                                  <button class="btn btn-outline-info" type="submit">Update</button>
+                                  <button class="submit-btn" type="submit">Update</button>
                               </div>
                           </fieldset>
                     </form>
                 </div>
                  <div class="col-12">
-                     <h3 class="text-center border-bottom mb-4">My Orders</h3>
+                     <h3 class="border-bottom mb-4">My Orders</h3>
                         {% if orders %}
                           {% for order in orders %}
-                          <div id="card" class="card">
-                              <div class="card-body">
-                                <h5 class="card-title">Order No. {{ order.id }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ order.type }}</h6>
-                                <p class="card-text">{{ order.description }}</p>
+                          <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Order No. {{ order.id }}</div>
                               </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">TYPE</div>
+                                  <div class="col-8">{{ order.type }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">Desc.</div>
+                                  <div class="col-8"><p>{{ order.description }}</p></div>
+                              </div>
+       
+   
+                                
+            
                           </div>
+              
                          {% endfor %}
                         {% else %}
                           <p>No orders made yet!</p>
@@ -51,28 +62,47 @@
        
                {% for design in designs %}
                    {% if design.order_stage == "Design pending approval"  %}
-                    
-                        <div class="card">
-                      <div class="card-body">
-                        <h6 class="card-title"> Order no. {{ design.order_number }}</h6>
-                        <h7 class="card-subtitle mb-2 text-muted">{{ design.type }}</h7>
-                        <p class="card-text">{{ design.order_number.description }}</p>
-                        <img src="{{ design.preview_image.url}}">
-                        <a href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                        <a href="{% url 'request-changes' parameter=design.id %}" class="card-link">Request Revisions</a></a>
-                      </div>
-                    </div>
+                         <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">TYPE</div>
+                                  <div class="col-8">{{ design.type }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">Desc.</div>
+                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                              </div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                                <div class="button-container">
+                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                <a href="{% url 'request-changes' parameter=design.id %}" class="view-brn">Request Revisions</a></a>
+                                </div>
+                          </div>
+              
                      {% elif design.order_stage == "Revisions requested"  %}
-                        <div class="card">
-                      <div class="card-body">
-                        <h6 class="card-title"> Order no. {{ design.order_number }}</h6>
-                        <h7 class="card-subtitle mb-2 text-muted">{{ design.type }}</h7>
-                        <p class="card-text">{{ design.description }}</p>
-                        <img src="{{ design.preview_image.url}}">
-                        <a href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                        <p>Revisions requested</p>
-                      </div>
-                    </div>
+                     
+                            <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">TYPE</div>
+                                  <div class="col-8">{{ design.type }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">Desc.</div>
+                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                              </div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                                <div class="button-container">
+                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                <a class="view-btn text-center" href="#/">Revisions requested</a>
+                                </div>
+                          </div>
+              
+
                     {% endif %}
                 {% endfor %}
             {% else %}
@@ -87,16 +117,26 @@
     {% if designs %}
       {% for design in designs %}
         {% if design.order_stage == "Design accepted"  %} 
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title"> Order no. {{ design.order_number }}</h6>
-                    <h7 class="card-subtitle mb-2 text-muted">{{ design.type }}</h7>
-                    <p class="card-text">{{ design.order_number.description }}</p>
-                    <img src="{{ design.preview_image.url}}">
-                    <a href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                    <a href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
-                </div>
-            </div>
+        
+                           <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">TYPE</div>
+                                  <div class="col-8">{{ design.type }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-4 mycard-category">Desc.</div>
+                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                              </div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                                <div class="button-container">
+                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                <a class="view-btn text-center" href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
+                                </div>
+                          </div>
+                          
         {% else %}
             <p>No completed designs available</p>
         {% endif %}
