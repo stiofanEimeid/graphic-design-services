@@ -3,19 +3,23 @@
 {% block content %}
 <div class="container">
     <div class="content-section">
-       <div>
-        <img class="avatar" src="{{ user.profile.image.url }}">
-       </div>
+        <div class="row">
+            <div class="col-md-5 profile-details"><img class="avatar" src="{{ user.profile.image.url }}"></div>
+            <div class="col-md-7 profile-details"><p>A</p>
+            <p>B</p>
+            <p>C</p></div>
+        </div>
+      
      <!--main container-->
-     <div class="row profileBody marginTop">
+     <div class="row profileBody">
          <!--details section-->
-         <div class="col-md-4">
+         <div class="col-md-5">
              <div class="row">
                  <div class="col-12">
                     <form method="POST" enctype="multipart/form-data">
                           {% csrf_token %}
                           <fieldset class="form-group">
-                              <legend class="border-bottom mb-4">Profile Info</legend>
+                              <legend><h3>Profile Info</h3></legend>
                               {{ u_form|crispy }}
                               {{ p_form|crispy }}
                               <div class="form-group text-center">
@@ -25,7 +29,7 @@
                     </form>
                 </div>
                  <div class="col-12">
-                     <h3 class="border-bottom mb-4">My Orders</h3>
+                     <h3>My Orders</h3>
                         {% if orders %}
                           {% for order in orders %}
                           <div class="mycard">
@@ -34,16 +38,12 @@
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8">{{ order.type }}</div>
+                                  <div class="col-8 border-bottom">{{ order.type }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8"><p>{{ order.description }}</p></div>
+                                  <div class="col-8 border-bottom"><p>{{ order.description }}</p></div>
                               </div>
-       
-   
-                                
-            
                           </div>
               
                          {% endfor %}
@@ -54,11 +54,12 @@
              </div>
          </div>
          <!--designs section-->
-         <div class="col-md-8">
-            <div class="col-12"><h2 class="border-bottom mb-4">Designs</h2></div>
+         <div class="col-md-7">
+            <div class="col-12">
+            <h3>Designs</h3></div>
             <div class="col-12 mb-4">
             {% if designs %}
-            <h5>Designs Pending Approval:</h5>
+            <p>Designs Pending Approval:</p>
        
                {% for design in designs %}
                    {% if design.order_stage == "Design pending approval"  %}
@@ -68,11 +69,11 @@
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8">{{ design.type }}</div>
+                                  <div class="col-8 border-bottom">{{ design.type }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
                                 <img class="mycard-img" src="{{ design.preview_image.url}}">
                                 <div class="button-container">
@@ -89,11 +90,11 @@
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8">{{ design.type }}</div>
+                                  <div class="col-8 border-bottom">{{ design.type }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
                                 <img class="mycard-img" src="{{ design.preview_image.url}}">
                                 <div class="button-container">
@@ -112,7 +113,7 @@
              
                 </div>
                 <div class="col-12">
-                    <h5>Approved Designs:</h5>
+                    <p>Approved Designs:</p>
                     
     {% if designs %}
       {% for design in designs %}
@@ -124,11 +125,11 @@
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8">{{ design.type }}</div>
+                                  <div class="col-8 border-bottom">{{ design.type }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8"><p>{{ design.description }}</p></div>
+                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
                                 <img class="mycard-img" src="{{ design.preview_image.url}}">
                                 <div class="button-container">

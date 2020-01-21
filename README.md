@@ -280,6 +280,8 @@ Preview order modal: https://stackoverflow.com/questions/23775272/bootstrap-moda
 
 Django Form Dropdown Menu: https://stackoverflow.com/questions/24403075/django-choicefield/24404791
 
+Button style: https://codepen.io/grbav/pen/GZXgVj
+
 ### Disclaimer 
 
 The contents of this website are for educational purposes only.

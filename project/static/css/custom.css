@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    background-color: #102E4A;
+    /*background-color: #102E4A;*/
     font-family: 'Cabin';
     display: flex;
     flex-direction: column;
@@ -17,6 +17,7 @@ body {
 .row {
   margin: 0;
 }
+
 
 .myCon {
   position: relative;
@@ -125,7 +126,7 @@ footer {
 .sidebar a {
   padding: 8px 8px 8px 35px;
   text-decoration: none;
-  font-size: 3em;
+  font-size: 1.5em;
   padding-bottom: 5px;
   display: block;
   transition: 0.3s;
@@ -450,14 +451,21 @@ img {
 
 .profileBody {
   background-color: #fffafa;
-  padding: 10px;
+  /*padding: 10px;*/
 }
 .content-section {
   position: relative;
 	margin: 120px 0 60px 0;
-	background: #D5DFE5;
-	padding: 20px;
+	background-color: #D5DFE5;
+	padding: 10px;
 	color: #1a1a1a;
+}
+
+
+.profile-details {
+  height: 120px;
+  background-color: #fffafa;
+  padding: 10px;
 }
 
 .avatar {
@@ -469,7 +477,7 @@ img {
 	margin-left: -100px;
 	transform: translateY(-50%);
 	background: #990033;
-	border: 10px solid #fffafa;
+	border: 10px solid #D5DFE5;
 	border-radius: 50%;
 }
 
@@ -501,7 +509,7 @@ img {
 .view-btn {
     padding: 10px 0;
     background-color: #fffafa;
-    width: 50%;
+    width: 100%;
     border: 2px solid #1B5299;
     /*color: red;*/
     /*border-radius: 10px;*/

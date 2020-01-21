@@ -9,20 +9,20 @@
                               </div>
                               <div class="row">
                                 <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted">{{ object.time_created }}</div>
+                                <div class="col-md-8 text-muted border-bottom">{{ object.time_created }}</div>
                               </div>
                               <div class="row">
                                 
                                   <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8">{{ object.type }} by {{ object.customer }} </div>
+                                  <div class="col-md-8 border-bottom">{{ object.type }} by {{ object.customer }} </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4 mycard-category">Desription.</div>
-                                  <div class="col-md-8"><p>{{ object.description }}</p></div>
+                                  <div class="col-md-8 border-bottom"><p>{{ object.description }}</p></div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4 mycard-category">Price</div>
-                                  <div class="col-md-8"><p>{{ object.price }}</p></div>
+                                  <div class="col-md-8 border-bottom">{ object.price }</div>
                               </div>
                               <div class="button-container text-center">
                                 <a class="view-btn" href="{% url 'submit-design' parameter=object.id %}">Submit Design</a>

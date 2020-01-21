@@ -23,20 +23,27 @@
     <h1 class="text-center pt-4">Checkout</h1>
     <div class="row">
         <div class="col-12">
-            
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Order Details</h5>
-                <p class="card-text">Type: {{ type }}</p>
-                <p class="card-text">Price: {{ price }}</p>
-                <p class="card-text">Description: {{ description }}</p>
-              </div>
-            </div>
-  
+             <div class="mycard mb-4">
+                              <div class="row">
+                                  <div class="col mycard-title">Your Order Details</div>
+                              </div>
+                              
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Type</div>
+                                  <div class="col-md-8">{{ type }}</div>
+                              </div>
+                              
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Price</div>
+                                  <div class="col-md-8">{{ price }}</div>
+                              </div>
+                              
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Description</div>
+                                  <div class="col-md-8">{{ description }}</div>
+                              </div>
+             </div>
         </div>
-
-            
-
     </div>
     <div class="row">
         <div class="col">
@@ -58,7 +65,7 @@
              
              {% csrf_token %}
              <div class="col-md-12">
-                 <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                 <input class="view-btn" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
              </div>
          </div>
     </form>

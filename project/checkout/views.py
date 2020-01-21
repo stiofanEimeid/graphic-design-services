@@ -77,5 +77,5 @@ def checkout(request):
             'publishable': settings.STRIPE_PUBLISHABLE,
             'type': request.session['my_basket']['type'],
             'description': request.session['my_basket']['description'],
-            'description': request.session['my_basket']['price'],
+            'price': request.session['my_basket']['price'],
             })

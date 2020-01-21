@@ -10,11 +10,11 @@ $(document).ready(function(){
              $('#confirmPrice').text($('#price').val());
         });
         
-        $('#submit').click(function(){
-             /* when the submit button in the modal is clicked, submit the form */
-            alert('submitting');
-            $('#formfield').submit();
-        });
+        // $('#submit').click(function(){
+        //      /* when the submit button in the modal is clicked, submit the form */
+        //     alert('submitting');
+        //     $('#formfield').submit();
+        // });
         
         
         

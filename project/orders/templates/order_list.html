@@ -17,16 +17,16 @@
                               </div>
                               <div class="row">
                                 <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted">{{ order.time_created }}</div>
+                                <div class="col-md-8 text-muted border-bottom">{{ order.time_created }}</div>
                               </div>
                               <div class="row">
                                 
                                   <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8">{{ order.type }} by {{ order.customer }} </div>
+                                  <div class="col-md-8 border-bottom">{{ order.type }} by {{ order.customer }} </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4 mycard-category">Desription.</div>
-                                  <div class="col-md-8"><p>{{ order.description }}</p></div>
+                                  <div class="col-md-8 border-bottom"><p>{{ order.description }}</p></div>
                               </div>
                               <div class="button-container text-center">
                                 <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
@@ -52,15 +52,15 @@
                               </div>
                               <div class="row">
                                  <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted">{{ revision.time_created }}</div>
+                                <div class="col-md-8 text-muted border-bottom">{{ revision.time_created }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8">{{ revision.type }} requested by {{ revision.customer }}</div>
+                                  <div class="col-md-8 border-bottom">{{ revision.type }} requested by {{ revision.customer }}</div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4 mycard-category">Description.</div>
-                                  <div class="col-md-8"><p>{{ revision.description }}</p></div>
+                                  <div class="col-md-8 border-bottom"><p>{{ revision.description }}</p></div>
                               </div>
                               <div class="button-container text-center">
                                 <a class="view-btn text-center" href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
