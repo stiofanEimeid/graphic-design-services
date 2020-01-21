@@ -12,8 +12,9 @@
      
                 
                           <div class="mycard">
-                              <div class="row">
-                                  <div class="col mycard-title">Order No. {{ order.id }}</div>
+                              <div class="row mycard-title">
+                                  <div class="col-6">Order No. {{ order.id }}</div>
+                                  <div class="col-6"><a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a></div>
                               </div>
                               <div class="row">
                                 <div class="col-md-4 mycard-category">Time Created</div>
@@ -28,9 +29,9 @@
                                   <div class="col-md-4 mycard-category">Desription.</div>
                                   <div class="col-md-8 border-bottom"><p>{{ order.description }}</p></div>
                               </div>
-                              <div class="button-container text-center">
-                                <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
-                              </div>
+                              <!--<div class="button-container text-center">-->
+                              <!--  <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>-->
+                              <!--</div>-->
                           </div>
                 
                 {% endfor %}
