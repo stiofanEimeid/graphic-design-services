@@ -9,18 +9,29 @@
             {% if orders %}
             
                 {% for order in orders %}
+     
                 
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Order No. {{ order.id }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ order.time_created }}</h6>
-                    <p class="card-text">{{ order.type }} requested by {{ order.customer }}</p>
-                    <a href="{% url 'order-detail' order.id %}">Go to order</a>
-                    {% if order.order_stage == 'Change/s requested' %}
-                    <a href="#/">View Changes</a>
-                    {% endif %}
-                  </div>
-                </div>
+                          <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Order No. {{ order.id }}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4 mycard-category">Time Created</div>
+                                <div class="col-md-8 text-muted">{{ order.time_created }}</div>
+                              </div>
+                              <div class="row">
+                                
+                                  <div class="col-md-4 mycard-category">Type</div>
+                                  <div class="col-md-8">{{ order.type }} by {{ order.customer }} </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Desription.</div>
+                                  <div class="col-md-8"><p>{{ order.description }}</p></div>
+                              </div>
+                              <div class="button-container text-center">
+                                <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
+                              </div>
+                          </div>
                 
                 {% endfor %}
                 
@@ -35,14 +46,26 @@
             {% if revisions %}
                 {% for revision in revisions %}
                 
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Revision No. {{ revision.id }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ revision.time_created }}</h6>
-                    <p class="card-text">{{ revision.type }} requested by {{ revision.customer }}</p>
-                    <a href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
-                  </div>
-                </div>
+                   <div class="mycard">
+                              <div class="row">
+                                  <div class="col mycard-title">Revision No. {{ revision.id }}</div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-4 mycard-category">Time Created</div>
+                                <div class="col-md-8 text-muted">{{ revision.time_created }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Type</div>
+                                  <div class="col-md-8">{{ revision.type }} requested by {{ revision.customer }}</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-4 mycard-category">Description.</div>
+                                  <div class="col-md-8"><p>{{ revision.description }}</p></div>
+                              </div>
+                              <div class="button-container text-center">
+                                <a class="view-btn text-center" href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
+                              </div>
+                          </div>
                 
                 {% endfor %}
                 
