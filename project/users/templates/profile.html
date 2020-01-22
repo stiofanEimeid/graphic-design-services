@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
@@ -76,8 +75,8 @@
                                   <div class="col-4 mycard-category">Desc.</div>
                                   <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
-                                <!--<img class="mycard-img" src="{{ design.preview_image.url}}">-->
-                                <div class="box"><img class="mycard-img" src="{% static 'images/skull.jpg' %}"></div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                                
                                 
                                 <div class="button-container">
                                 <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
@@ -99,8 +98,8 @@
                                   <div class="col-4 mycard-category">Desc.</div>
                                   <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
-                                <!--<img class="mycard-img" src="{{ design.preview_image.url}}">-->
-                                <div class="box"><img class="mycard-img" src="{% static 'images/skull.jpg' %}"></div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                               
                                 <div class="button-container">
                                 <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
                                 <a class="view-btn text-center" href="#/">Revisions requested</a>
@@ -135,8 +134,8 @@
                                   <div class="col-4 mycard-category">Desc.</div>
                                   <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                               </div>
-                                <!--<img class="mycard-img" src="{{ design.preview_image.url}}">-->
-                                <div class="box"><img class="mycard-img" src="{% static 'images/skull.jpg' %}"></div>
+                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                         
                                 <div class="button-container">
                                 <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
                                 <a class="view-btn text-center" href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>

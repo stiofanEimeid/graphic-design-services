@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
+
 {% block content %}
 
 <div class="container">
@@ -12,8 +12,7 @@
      {% for design in designs %}
 	<li>
 		<figure>
-			<div class="image-container">
-			<div class="box"><img src="{% static 'images/skull.jpg' %}"></div>
+			<div class="image-container"></div>
 			
 			<figcaption>
 				<h3>Camera</h3>
