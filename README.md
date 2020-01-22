@@ -4,7 +4,7 @@
 
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
 
-# Phantistry - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
+# Agents of Design - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
 
 ## Table of Contents
 1. [**UX**](#ux)
@@ -37,7 +37,7 @@
 
 #### Project Goals
 
-Phantistry is an e-commerce site that provides graphic design services. It provides hand-drawn illustrations as well as hand drawn assets for websites to add a dose of creativity and authenticity to a brand. 
+'Agents of Design' is an e-commerce site that provides graphic design services. It provides hand-drawn illustrations as well as hand drawn assets for websites to add a dose of creativity and authenticity to a brand. 
 
 This site serves as my submission for the fourth and final milestone of the Code Institutes Full Stack Software Development Diploma, as part the Full Stack Frameworks module.
 
