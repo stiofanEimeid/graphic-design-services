@@ -4,6 +4,15 @@
 
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
 
+<div align="center">
+ <a href="#/" target="_blank" rel="noopener"><img src="https://github.com/stiofanEimeid/graphic-design-services/blob/master/project/static/images/AODLogo.png" alt="Agents of Design Logo"/></a>
+ 
+ <h1 align="center">
+ Agents of Design
+ </h1>
+ 
+</div>
+
 # Agents of Design - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
 
 ## Table of Contents
@@ -37,9 +46,9 @@
 
 #### Project Goals
 
-'Agents of Design' is an e-commerce site that provides graphic design services. It provides hand-drawn illustrations as well as hand drawn assets for websites to add a dose of creativity and authenticity to a brand. 
+'Agents of Design' is an e-commerce site that sells graphic design services. It provides hand-drawn illustrations as well as hand drawn assets for websites to add a dose of creativity and authenticity to a customer's brand.. 
 
-This site serves as my submission for the fourth and final milestone of the Code Institutes Full Stack Software Development Diploma, as part the Full Stack Frameworks module.
+This site is my submission for the fourth and final milestone of the Code Institutes Full Stack Software Development Diploma, as part the Full Stack Frameworks module.
 
 #### User Goals
 
@@ -60,31 +69,41 @@ Users are view the site gallery to see the artist’s previous work to determine
 
 As a user, I want to be able to:
 
-- view previous work and customer testimonials without having to log in;
-- Create a password protected profile with associated username and image;
-- Update profile details;
-- use a form to order a design to fit my needs;
-- view how much my request will cost;
-- pay using a secure checkout process;
-- Keep track of my purchases and order history from my profile;
-- accept the result or request a round of changes.
-- write a testimonial for the design. 
+- **_view previous work and customer testimonials without having to log in;_**
+- **_Create a password protected profile with associated username and image;_**
+- **_Update profile details;_**
+- **_use a form to order a design to fit my needs;_**
+- **_view how much my request will cost;_**
+- **_pay using a secure checkout process;_**
+- **_Keep track of my purchases and order history from my profile;_**
+- **_accept the result or request a round of changes._**
+- **_write a testimonial for the design._**
 
 As a site owner, I want to:
 
-- showcase prior work to attract potential clients;
-- log in as a special user in order to see a list of all orders submitted by customers;
-- upload completed work.
-- View requested changes to designs submitted by users;
-- Upload an updated design to the site viewable by users;
-- receive payment for orders and designs. 
+- **_showcase prior work to attract potential clients;_**
+- **_log in as a special user in order to see a list of all orders submitted by customers;_**
+- **_upload completed work._**
+- **_View requested changes to designs submitted by users;_**
+- **_Upload an updated design to the site viewable by users;_**
+- **_receive payment for orders and designs._**
 
 
 ### Design Choices
 
+ ***
+ 
 ### Name
 
+'Agents of Design' is a concept created for the site in which it is reimagined as a group of secret agents selling their services, in this case illustrations rather than anything espeically nefarious. The idea was to make the brand memorable with a concept that was fun and out of the ordinary.
+
+### Logo
+
+The logo consists of two hands using fingerguns (index and middle finger extending) coming together to form a picture frame. My intention was to evoke the spy theme, with two individuals involved in a playful shootout, while conveying the purpose of the site: to sell images based on the vision of customers. 
+
 #### Fonts
+
+I used the fonts "Special Elite" and "Roboto". Special Elite is a typewriter font that also ties into the spy theme of the website, giving the user the impression they are reading the header of a special document or the like. Roboto was chosen to compliment the stylised "Special Elite" font. It is clear and easy to read and more approrpriate for users reading large blocks of text.
 
 #### Icons
 
