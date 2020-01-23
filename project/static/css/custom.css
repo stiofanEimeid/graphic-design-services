@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    font-family: 'Cabin';
+    font-family: 'Roboto';
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -19,6 +19,9 @@ body {
   margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Special Elite', sans-serif;
+}
 
 .myCon {
   position: relative;
@@ -80,6 +83,7 @@ footer {
   height: 100%;
   width: 100%;
   background-color: #fff;
+  font-family: 'Special Elite', sans-serif;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -164,6 +168,7 @@ footer {
 
 .nav-brand {
   font-size: 1.75em;
+  font-family: 'Special Elite', sans-serif;
   position: absolute;
   right: 0;
   top: 50%;
@@ -241,55 +246,121 @@ footer {
 
 img {
   max-width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  /*display: block;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
 }
 
 /*landingpage*/
 
-.main-container {
-    height: calc(100vh - 70px);
-    margin-top: 70px;
-    background-color: #1a1a1a;
-}
+		.homepage-container {
+			position: relative;
+			height: calc(100vh - 140px);
+			margin-top: 70px;
 
-.lion-image-container {
-  height: 80%;
-  /*background-color: red;*/
-  /*transform: rotate(-20deg);*/
-  /*animation: main-fade 2s linear 2s 1;*/
-  /*opacity: 0;*/
-  /*animation-fill-mode: forwards;*/
-  /*position: relative;*/
-}
+		}
+			.my-image {
+			position: absolute;
+			width: 60%;
+			margin-left: 20%;
+			margin-top: calc((100vh - 140px - 60vw)/2);
+		}
+
+		.first-div {
+			height: calc((100vh - 140px - 60vw)/2);
+			background-color: #941C2F;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.second-div {
+			height: calc((100vh - 140px - 60vw)/2);
+			background-color: #1a1a1a;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.myNav {
+			width: 100%;
+			height: 70px;
+			background-color: white;
+		}
+
+
+
+		.front {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.one {
+				transform: translateX(-20%);
+				animation-name: left;
+				animation-duration: 2s;
+				animation-timing-function: ease-in-out;
+				animation-fill-mode: forwards;
+		}
+
+		.two {
+				transform: translateX(20%);
+				animation-name: right;
+				animation-duration: 2s;
+				animation-timing-function: ease-in-out;
+				animation-fill-mode: forwards;
+		}
+
+
+		@keyframes left {
+		  from {transform: translateX(-20%);}
+		  to {transform: translateX(0%)}
+		}
+
+		@keyframes right {
+		  from {transform: translateX(20%);}
+		  to {transform: translateX(0%);}
+		}
+
+/*lion-code-begins*/
+/*.main-container {*/
+/*    height: calc(100vh - 70px);*/
+/*    margin-top: 70px;*/
+/*    background-color: #1a1a1a;*/
+/*}*/
+
+
+/*.lion-image-container {*/
+/*  height: 80%;*/
+
+/*}*/
 
 
 
 
 
 
-.title-container {
-  height: 10%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*transform: rotate(-20deg);*/
-  
-  /*animation: main-fade 2s linear 2s 1;*/
-  /*animation-fill-mode: forwards;*/
-  font-family: 'Inknut+Antiqua';
-}
+/*.title-container {*/
+/*  height: 10%;*/
+/*  color: white;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-family: 'Special Elite', sans-serif;*/
+/*}*/
 
 
-.logo-container {
-  height: 30%;
-}
+/*.logo-container {*/
+/*  height: 30%;*/
+/*}*/
 
-.logo-container > img, .lion-image-container > img {
-  max-height: 100%;
-}
+/*.logo-container > img, .lion-image-container > img {*/
+/*  max-height: 100%;*/
+/*}*/
+
+/*lion code ends */
 
 /*.mouseContainer {*/
 /*  padding-top: 20px;*/
@@ -353,8 +424,7 @@ img {
     width: 100%;
     border: 2px solid #D17A22;
     color: #D17A22;
-    /*color: red;*/
-    /*border-radius: 10px;*/
+    font-family: 'Special Elite', sans-serif;
 
     background: linear-gradient( to left,#fff 50%,     #D17A22 50% );
 	  background-size: 200% 100%;
@@ -376,6 +446,7 @@ img {
 	  background-size: 200% 100%;
 	  background-position: right bottom;
     transition: all ease .3s;
+    font-family: 'Special Elite', sans-serif;
 }
 
 .mycard {
@@ -395,6 +466,7 @@ img {
   color: #fff;
   padding: 10px;
   font-size: 1.5rem;
+  font-family: 'Special Elite', sans-serif;
 }
 
 .mycard-img {
@@ -664,6 +736,18 @@ img {
 				margin-left: -20px;
 			  }
 }
+
+	@media screen and (orientation: landscape) {
+			.my-image{
+		    width: 35%;
+		    margin-left: 32.5%;
+		    margin-top: calc((100vh - 140px - 35vw)/2);
+		}
+
+			.first-div, .second-div {
+				height: calc((100vh - 140px - 35vw)/2);
+			}
+		}
 
 @media screen and (max-width: 31.5em) {
 	.grid {
