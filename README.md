@@ -128,6 +128,9 @@ Users may register a profile on the site by providing a username, email and pass
 
 In addition, registered user’s purchase history and associated designs will be available to view from their profile. 
 
+#### Password Reset
+
+Users may reset their password by clicking the relevant link on the login page. 
 
 #### Orders
 

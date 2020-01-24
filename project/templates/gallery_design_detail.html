@@ -4,21 +4,21 @@
 <div class="container">
     <h1 class="text-center pt-4">Gallery</h1>
     <div class="row">
-        <div class="col-md-6" ><img src="{{ design.preview_image.url }}"></div>
-        <div class="col-md-6" >
-            <div class="col-12">
+        <div class="col-12">
+            <img src="{{ design.preview_image.url }}">
+        </div>
+        <div class="col-12">
+           
                 <div class="designDesc">
                     <h2>Order Description</h2>
                     {{ design.description }}
-                </div
-            ></div>
+                </div>
+        </div>
             {% if testimonial %}
             <div class="col-12">
-                <div class="designTest">Testimonial Goes Here</div>
+                    <div class="designTest">Testimonial Goes Here</div>
             </div>
-       
             {% endif %}
-        </div>
     </div>
 
     
