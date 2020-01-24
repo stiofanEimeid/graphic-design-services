@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm, TestimonialForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Order, Design, Revision
 
@@ -53,7 +53,12 @@ def order_create_view(request):
 #     orders = Order.objects.all()
 #     return render(request, 'orders/order_list.html', {"orders": orders})
 
-class OrderListView(LoginRequiredMixin, ListView):
+
+
+
+class OrderListView(UserPassesTestMixin, ListView):
+    def test_func(self):
+        return self.request.user.is_superuser
     model = Order
     template_name = "order_list.html"
     context_object_name = 'orders'
@@ -77,7 +82,8 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
 class RevisionDetailView(LoginRequiredMixin, DetailView):
     model = Revision
     template_name = "revision_detail.html"
-    
+
+# Must make accessible to respective owners and admin only
 @login_required
 def submit_design(request, parameter):
     getOrder = Order.objects.get(pk=parameter)
@@ -99,7 +105,7 @@ def submit_design(request, parameter):
         
     return render(request, 'submit_design.html', {"order": getOrder,'form': form})
 
-
+# Must make accessible to respective owners and admin only
 @login_required
 def submit_revision(request, parameter):
 

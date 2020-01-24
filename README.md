@@ -13,8 +13,6 @@
  
 </div>
 
-# Agents of Design - A SERVICE FOR ALL THE GRAPHIC DESIGN NEEDS YOU CAN THINK OF AND MORE
-
 ## Table of Contents
 1. [**UX**](#ux)
     - [**Project Goals**](#project-goals)

@@ -9,11 +9,15 @@
   {% if user.is_authenticated %}
     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    {% if user.is_superuser %}
+       <a class="nav-link" href="{% url 'order-list' %}">Order List</a>
+    {% endif %}
     <a class="nav-link" href="#/">(You are logged in as  {{ user.username }})</a>
   {% else %}
     <a class="nav-link" href="{% url 'login' %}">Login</a>
     <a class="nav-link" href="{% url 'register' %}">Register</a>
   {% endif %}
+  
   </div>
 </div>
   
