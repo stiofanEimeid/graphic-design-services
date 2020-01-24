@@ -75,11 +75,15 @@ class OrderListView(UserPassesTestMixin, ListView):
         return Order.objects.order_by('-time_created')
 
 # Must make accessible to respective owners and admin only
-class OrderDetailView(LoginRequiredMixin, DetailView):
+class OrderDetailView(UserPassesTestMixin, DetailView):
+    def test_func(self):
+        return self.request.user.is_superuser
     model = Order
     template_name = "order_detail.html"
     
-class RevisionDetailView(LoginRequiredMixin, DetailView):
+class RevisionDetailView(UserPassesTestMixin, DetailView):
+    def test_func(self):
+        return self.request.user.is_superuser
     model = Revision
     template_name = "revision_detail.html"
 

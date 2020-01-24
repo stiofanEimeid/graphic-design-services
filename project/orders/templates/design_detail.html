@@ -3,37 +3,60 @@
 <div class="container">
     <h1 class="text-center pt-4">View Design</h1></h1>
     <div class="container">
-        <div class="row">
-            <div class="col-8"><img src="{{ design.preview_image.url}}"></div>
-        </div>
-        <div class="row">
-            <div class="col"><a href="{{ design.source_code.url }}" download="design"> Download source code </a></div>
-        </div>
-        <div class="row">
-            <h2>Order Details</h2>
-            <div class="col-12">{{ design.type }} </div>
-            <div class="col-12">{{ design.description }} </div>
-            <div class="col-12">{{ design.time_created }} </div>
-        </div>
-        {% if designrevisions %}
-        <div class="row">
-            <h2>Revisions to Design</h2>
-            {% for revision in designrevisions %}
-            <div class="col-12">
-                {{ revision.revisions }} 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-8"><img src="{{ design.preview_image.url}}"></div>
             </div>
-            {% endfor %}
+            <div class="row">
+                <a class="view-btn" href="{{ design.source_code.url }}" download="design"> Download source code </a>
+            </div>
         </div>
-        {% endif %}
+        <div class="col-md-6">
+            <div class="mycard">
+                <div class="row">
+                    <div class="col mycard-title">Order No. {{ design.id }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mycard-category">Time Created</div>
+                    <div class="col-md-8 text-muted border-bottom">{{ design.time_created }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mycard-category">Type</div>
+                    <div class="col-md-8 border-bottom">{{ design.type }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mycard-category">Desription</div>
+                    <div class="col-md-8 border-bottom"><p>{{ design.description }}</p></div>
+                </div>
+            </div>
+            {% if designrevisions %}
+            <div class="row">
+                <h2>Revisions to Design</h2>
+                {% for revision in designrevisions %}
+                <div class="col-12">
+                    {{ revision.revisions }} 
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+    
+            {% if design.order_stage != "Design accepted" %}
+            <form method="POST">
+                {% csrf_token %}
+                    <div class="form-group text-center">
+                        <button class="submit-btn" value="accept" type="submit" name="status">Accept Design</button>
+                    </div>
+            </form>
+            {% endif %}
+        </div>
 
-{% if design.order_stage != "Design accepted" %}
-<form method="POST">
-    {% csrf_token %}
-        <div class="form-group text-center">
-            <button class="btn btn-outline-info" value="accept" type="submit" name="status">Accept Design</button>
-        </div>
-</form>
-{% endif %}
+    </div>
+        
+     
+       
+           
+        
 <!--Modal to write testimonial-->
 
 </div>
