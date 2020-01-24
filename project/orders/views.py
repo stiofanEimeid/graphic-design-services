@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm, TestimonialForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Order, Design, Revision
+from django.core.exceptions import PermissionDenied
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -159,18 +160,22 @@ def request_changes(request, parameter):
 
 @login_required 
 def design_detail(request, parameter):
+    # getDesign = get_object_or_404(Design, pk=parameter, customer=request.user)
     getDesign = Design.objects.get(pk=parameter)
+    # designOwner = getattr(getDesign, 'customer')
+    designOwner = getDesign.customer
+    
+    if request.user.username != designOwner:
+        raise PermissionDenied
     
     if request.method == 'POST':
         if request.POST.get('status') == 'accept':
             Design.objects.filter(pk=parameter).update(order_stage="Design accepted")
         return redirect('profile')
 
-        
     context={
         'design': getDesign,
         'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by('-time_created'),
-
     }
     return render(request, 'design_detail.html', context)
     

@@ -2,8 +2,6 @@ from django.shortcuts import render
 from orders.models import Design, Testimonial
 
 def home(request, *args, **kwargs):
-    # print(args, kwargs)
-    # print(request.user)
     return render(request, "home.html", {})
     
 def gallery(request, *args, **kwargs):

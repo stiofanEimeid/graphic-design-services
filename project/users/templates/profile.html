@@ -32,7 +32,7 @@
                      <h3>My Orders</h3>
                         {% if orders %}
                           {% for order in orders %}
-                          <div class="mycard">
+                          <div class="mycard mb-4">
                               <div class="row">
                                   <div class="col mycard-title">Order No. {{ order.id }}</div>
                               </div>
@@ -57,13 +57,13 @@
          <div class="col-md-7">
             <div class="col-12">
             <h3>Designs</h3></div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-5">
             {% if designs %}
             <p>Designs Pending Approval:</p>
        
                {% for design in designs %}
                    {% if design.order_stage == "Design pending approval"  %}
-                         <div class="mycard">
+                         <div class="mycard mb-4">
                               <div class="row">
                                   <div class="col mycard-title">Order no. {{ design.order_number }}</div>
                               </div>
@@ -86,7 +86,7 @@
               
                      {% elif design.order_stage == "Revisions requested"  %}
                      
-                            <div class="mycard">
+                            <div class="mycard mb-4">
                               <div class="row">
                                   <div class="col mycard-title">Order no. {{ design.order_number }}</div>
                               </div>
@@ -115,14 +115,14 @@
             {% endif %}
              
                 </div>
-                <div class="col-12">
-                    <p>Approved Designs:</p>
+                <div class="col-12 mb-15">
+                    <h4>Approved Designs:</h4>
                     
     {% if designs %}
       {% for design in designs %}
         {% if design.order_stage == "Design accepted"  %} 
         
-                           <div class="mycard">
+                           <div class="mycard mb-4">
                               <div class="row">
                                   <div class="col mycard-title">Order no. {{ design.order_number }}</div>
                               </div>
