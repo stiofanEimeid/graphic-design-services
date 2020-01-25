@@ -2,14 +2,15 @@ from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.shortcuts import reverse
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-
-
-
+from .models import User
+        
 # Forms
+
+## Register
 
 class TestUserRegistrationForm(TestCase):
     def test_registration_valid(self):
-            form = UserRegisterForm({'username':"testuser",
+            form = UserRegisterForm({'username':"testuser1",
                                          "email": "test@example.com",
                                          "password1": "test_password",
                                          "password2": "test_password",
@@ -17,29 +18,38 @@ class TestUserRegistrationForm(TestCase):
             self.assertTrue(form.is_valid())
             
     def test_passwords_do_not_match(self):
-        form = UserRegisterForm({"username": "testuser",
+        form = UserRegisterForm({"username": "testuserA",
                                 "email": "test@example.com",
                                 "password1": "tetspassword",
                                 "password2": "testpassword"})
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors["password2"], [u"Passwords do not match. Please enter matching passwords."])
-            
-    
-class TestUserUpdateForm(TestCase):
-    def test_username_update(self):
-        form = UserUpdateForm({"email": "newtestuser"})
-        form.save()
-        self.assertTrue(form.is_valid())
-        
+            form.errors["password2"], [u"The two password fields didn't match."])
+
+## Update
+
     def test_email_update(self):
-        form = UserUpdateForm({"email": "newemail@example.com"})
+        form = UserUpdateForm({"username": "testcaseuser", "email": "newemail@example.com"})
         form.save()
         self.assertTrue(form.is_valid())
         
-# class TestProfileUpdateForm(TestCase):
+    def test_email_bad_update(self):
+        form = UserUpdateForm({"username": "testcaseuser", "email": ""})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["email"], [u'This field is required.'])
     
-#     def test_profile_image_update(self):
+## Username already exists
+
+## Update Email
+
+## Update Profile
+
+## Invalid Username
+
+## Invalid PW
+
+## Invalid Email
 
 # Views
 
