@@ -25,6 +25,24 @@ class TestUserRegistrationForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(
             form.errors["password2"], [u"The two password fields didn't match."])
+            
+    def test_email_missing(self):
+        form = UserRegisterForm({"username": "testuserA",
+                                "email": "",
+                                "password1": "tetspassword",
+                                "password2": "testpassword"})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["email"], [u"This field is required."])
+            
+    def test_username_missing(self):
+        form = UserRegisterForm({"username": "",
+                                "email": "test@example.com",
+                                "password1": "tetspassword",
+                                "password2": "testpassword"})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["username"], [u"This field is required."])
 
 ## Update
 
@@ -38,18 +56,34 @@ class TestUserRegistrationForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(
             form.errors["email"], [u'This field is required.'])
+            
+    def test_email_bad_format_update(self):
+        form = UserUpdateForm({"username": "testcaseuser", "email": "example"})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["email"], [u'Enter a valid email address.'])
     
 ## Username already exists
 
-## Update Email
+    def test_duplicate_username(self):
+        self.user = User.objects.create_user(username='testuserC', password='testing321')
+        form = UserRegisterForm({"username": "testuserC",
+                                "email": "test@example.com",
+                                "password1": "testpassword456",
+                                "password2": "testpassword456"})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["username"], [u"A user with that username already exists."])
+        
 
-## Update Profile
+## Update Profile Image
 
-## Invalid Username
-
-## Invalid PW
-
-## Invalid Email
+    def test_profile_image_update(self):
+        newImage = ProfileUpdateForm
+        newImage.image = SimpleUploadedFile(
+            "test_image.jpg", b"file_content", content_type="image/jpeg")
+        self.client.post(reverse("profile"), {"newImage": newImage})
+        self.assertIsNotNone(ProfileUpdateForm)
 
 # Views
 

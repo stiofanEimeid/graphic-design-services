@@ -11,6 +11,9 @@ class TestGalleryView(TestCase):
         page = self.client.get("/gallery/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "gallery.html")
+        
+        
+# Error test 403, 404, 500
 
 
 
