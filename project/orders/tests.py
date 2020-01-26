@@ -82,46 +82,45 @@ class TestOrdersView(TestCase):
     def set_up(self):
         test_user1 = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
         test_user1.save()
-        order = Order(
-            customer = User.objects.get(username='testuser1'),
+        test_admin = User.objects.create_superuser(username="testadmin", email="admin@example.com", password="784fhhv*90")
+        test_admin.save()
+        test_order = Order.objects.create(
+            customer = "testuser1",
             type = "Logo",
             description = 'This is a new feature description',
             price = "10"
             )
-        order.save()
-        design = Design(
+        test_design = Design.objects.create(
             type='Logo', 
             description='This is a new feature description',
-            customer=User.objects.get(username='testuser1'),
+            customer= "testuser1",
             order_stage = "Design pending approval",
             source_code= SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg"),
             preview_image= SimpleUploadedFile("test__preview_image.jpg", b"file_content", content_type="image/jpeg"),
-            order_number = Order.objects.get(username='testuserC')
-            )
-        design.save()
+            order_number = Order.objects.get(customer='testuser1')
+           )
         
     def test_orders_view(self):
         page = self.client.get("/orders/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "orders.html")
         
-## design detail
+# gallery design detail
+    # def test_gallery_view(self):
+    #     design = Design.objects.get(customer = "testuser1")
+    #     page = self.client.get("gallery-design-detail/{}".format(design.pk))
+    #     self.assertEqual(page.status_code, 302)
+    
+
 
 ### needs parameter
 
-# def test_design_detail(self):
-#         user = User.objects.get(username='testuser')
-#         feature = Feature(
-#             title='Feature test title', 
-#             description='This is a new feature description',
-#             author_id=user.id)
-#         feature.save()
-#         response = self.client.get('/features/{}'.format(feature.pk))
-#         self.assertEqual(response.status_code, 301)
 
 ## order list
-
-## superuser only
+    # def order_list_view(self):
+    #     login = self.client.login(username='testadmin', password='784fhhv*90')
+    #     page = self.client.get("/order-list/")
+    #     self.assertEqual(page.status_code, 200)
 
 ## request changes
 
@@ -132,7 +131,7 @@ class TestOrdersView(TestCase):
 ### needs parameter
 
 ## submit design
-
+        
 ### needs parameter
 
 ## submit revision
@@ -140,8 +139,3 @@ class TestOrdersView(TestCase):
 ### needs parameter
 
 ## submit testimonial
-
-    # def test_testimonial_view(self):
-    #     page = self.client.get("/testimonial/")
-    #     self.assertEqual(page.status_code, 200)
-    #     self.assertTemplateUsed(page, "testimonial.html")
