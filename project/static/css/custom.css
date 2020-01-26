@@ -47,7 +47,9 @@ footer {
 
 
 .introBlurb {
-  font-size: 2rem;
+  font-size: 1.75rem;
+  font-family: 'Special Elite', sans-serif;
+  margin-bottom: 200px;
 }
 
 /*navbar styles*/
@@ -369,15 +371,18 @@ img {
 /*  background-color: #fffafa;*/
 /*}*/
 
+.box {
+  background-color: #1a1a1a;
+}
 
 .designDesc {
   min-height: 250px;
   margin-top: 30px;
 }
 
-.marginTop {
-   margin-top: 120px
-}
+/*.marginTop {*/
+/*   margin-top: 120px*/
+/*}*/
 
 .profileBody {
   background-color: #fff;

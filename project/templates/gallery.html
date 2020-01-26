@@ -6,7 +6,24 @@
   
   
   <h1 class="text-center pt-4">Gallery</h1>
-<div class="row">
+  <h2>Illustrations</h2>
+  <div class="row">
+      <div class="col"></div>
+  </div>
+  
+  <h2>Avatars</h2>
+  <div class="row">
+      <div class="col"></div>
+  </div>
+  
+  <h2>Icons</h2>
+  <div class="row">
+      <div class="col"></div>
+  </div>
+  
+  
+  <div class="row">
+        
 	
 	{% for design in designs %}
   <div class="col-md-3 col-lg-4">
@@ -20,22 +37,7 @@
   	 </div>
   
   	
-<!--  <ul class="grid cs-style-4">-->
-<!--     {% for design in designs %}-->
-<!--	<li>-->
-<!--		<figure>-->
-<!--			<div class="image-container">-->
-<!--			<img src="{% static 'images/skull.jpg' %}"></div>-->
-			
-<!--			<figcaption>-->
-<!--				<h3>Camera</h3>-->
-<!--				<span>Jacob Cummings</span>-->
-<!--				<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>-->
-<!--			</figcaption>-->
-<!--		</figure>-->
-<!--	</li>-->
-<!--  {% endfor %}-->
-<!--</ul>-->
+
 </div>
 	 {% endfor %}
 </div>
