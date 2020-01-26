@@ -80,6 +80,7 @@ class TestOrdersView(TestCase):
         test_user2 = User.objects.create_user(username='testuser2', password='kjsnlkblmbl')
         test_user2.save()
         self.user = test_user2
+        self.client = Client()
         
     # def test_order_create_view(self):
     #     login = self.client.login(username='testuser2', password='kjsnlkblmbl')
