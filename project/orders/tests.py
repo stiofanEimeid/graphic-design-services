@@ -75,12 +75,30 @@ class TestDesignAcceptanceForm(TestCase):
 
 # Views
 
-    
-
-### Create Test Design Object?
+### Create Test Design, Order, User and Superuser
 
 class TestOrdersView(TestCase):
-
+    
+    def set_up(self):
+        test_user1 = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
+        test_user1.save()
+        order = Order(
+            customer = User.objects.get(username='testuser1'),
+            type = "Logo",
+            description = 'This is a new feature description',
+            price = "10"
+            )
+        order.save()
+        design = Design(
+            type='Logo', 
+            description='This is a new feature description',
+            customer=User.objects.get(username='testuser1'),
+            order_stage = "Design pending approval",
+            source_code= SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg"),
+            preview_image= SimpleUploadedFile("test__preview_image.jpg", b"file_content", content_type="image/jpeg"),
+            order_number = Order.objects.get(username='testuserC')
+            )
+        design.save()
         
     def test_orders_view(self):
         page = self.client.get("/orders/")
@@ -100,10 +118,6 @@ class TestOrdersView(TestCase):
 #         feature.save()
 #         response = self.client.get('/features/{}'.format(feature.pk))
 #         self.assertEqual(response.status_code, 301)
-
-## order detail
-
-### needs parameter
 
 ## order list
 
