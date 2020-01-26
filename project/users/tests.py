@@ -1,8 +1,9 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.shortcuts import reverse
+from django.shortcuts import reverse, redirect
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import User
+from .views import profile
         
 # Forms
 
@@ -17,6 +18,37 @@ class TestUserRegistrationForm(TestCase):
                                          })
             self.assertTrue(form.is_valid())
             
+    def test_redirect_after_registration(self):
+            response = self.client.post(reverse('register'), {'username':"testuser2",
+                                         "email": "test2@example.com",
+                                         "password1": "test_passwordB",
+                                         "password2": "test_passwordB",
+                                         })
+            self.assertRedirects(response, reverse('login'))
+
+# Test Post and Redirect for User View
+    def setUp(self):
+        test_user3 = User.objects.create_user(username='testuser3', password='1X<ISRUkw+tuK')
+        test_user3.save()
+        self.user = test_user3
+        
+    def test_redirects_profile_on_success(self):
+        login = self.client.login(username='testuser3', password='1X<ISRUkw+tuK')
+        new_email = "testexample333@example.com"
+        page = self.client.get("/profile/")
+        response = self.client.post(reverse('profile'), {'email':new_email})
+        self.assertEqual(page.status_code, 200)
+
+
+# Test Post and Redirect for Profile View
+
+    # def test_redirect_after_profile_update(self):
+    #     response = self.client.post(reverse('profile'), {
+    #                                      "image": SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg"),
+    #                                      })
+    #     self.assertRedirects(response, reverse('profile'))
+
+
     def test_passwords_do_not_match(self):
         form = UserRegisterForm({"username": "testuserA",
                                 "email": "test@example.com",
@@ -79,11 +111,16 @@ class TestUserRegistrationForm(TestCase):
 ## Update Profile Image
 
     def test_profile_image_update(self):
-        newImage = ProfileUpdateForm
-        newImage.image = SimpleUploadedFile(
+        p_form = ProfileUpdateForm
+        p_form.image = SimpleUploadedFile(
             "test_image.jpg", b"file_content", content_type="image/jpeg")
-        self.client.post(reverse("profile"), {"newImage": newImage})
+        self.client.post(reverse("profile"), {"p_form": p_form})
         self.assertIsNotNone(ProfileUpdateForm)
+
+
+# Views with Forms 
+
+
 
 # Views
 
@@ -112,3 +149,4 @@ class TestProfileView(TestCase):
         page = self.client.get("/profile/")
         self.assertEqual(page.status_code, 302)
         self.client.post(reverse("profile"))
+        

@@ -19,6 +19,12 @@
 
 ## Automated Testing
 
+Automated Tests run for Users, Orders and Pages Apps.
+
+Coverage 
+
+Coverage Report...
+
 ### Validation services
 
 ## Client Stories Testing
