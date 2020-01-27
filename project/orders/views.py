@@ -93,6 +93,8 @@ class RevisionDetailView(UserPassesTestMixin, DetailView):
 # Must make accessible to respective owners and admin only
 @login_required
 def submit_design(request, parameter):
+    def test_func(self):
+        return self.request.user.is_superuser
     getOrder = Order.objects.get(pk=parameter)
     if request.method == 'POST':
 
@@ -116,7 +118,8 @@ def submit_design(request, parameter):
 # Must make accessible to respective owners and admin only
 @login_required
 def submit_revision(request, parameter):
-
+    def test_func(self):
+        return self.request.user.is_superuser
     getRevision = Revision.objects.get(pk=parameter)
     getDesign = getRevision.design_id
     if request.method == 'POST':
