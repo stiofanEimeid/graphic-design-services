@@ -36,18 +36,8 @@ class TestUserRegistrationForm(TestCase):
         login = self.client.login(username='testuser3', password='1X<ISRUkw+tuK')
         new_email = "testexample333@example.com"
         page = self.client.get("/profile/")
-        response = self.client.post(reverse('profile'), {'email':new_email})
+        response = self.client.post(reverse('profile'), {'email':new_email, "image": SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg")})
         self.assertEqual(page.status_code, 200)
-
-
-# Test Post and Redirect for Profile View
-
-    # def test_redirect_after_profile_update(self):
-    #     response = self.client.post(reverse('profile'), {
-    #                                      "image": SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg"),
-    #                                      })
-    #     self.assertRedirects(response, reverse('profile'))
-
 
     def test_passwords_do_not_match(self):
         form = UserRegisterForm({"username": "testuserA",
