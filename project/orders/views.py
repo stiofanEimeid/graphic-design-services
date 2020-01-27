@@ -156,7 +156,8 @@ def request_changes(request, parameter):
        
         return render(request, 'checkout.html', context)
 
-    return render(request, 'request_changes.html', {"form": form, 'DesignNumber': parameter})
+    return render(request, 'request_changes.html', {"form": form,
+                                                    'DesignNumber': parameter})
 
 @login_required 
 def design_detail(request, parameter):
@@ -175,7 +176,8 @@ def design_detail(request, parameter):
 
     context={
         'design': getDesign,
-        'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by('-time_created'),
+        'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by(
+                                                    '-time_created'),
     }
     return render(request, 'design_detail.html', context)
     

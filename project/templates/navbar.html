@@ -9,6 +9,7 @@
   {% if user.is_authenticated %}
     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    <a class="nav-link" href="{% url 'basket' %}">Basket</a>
     {% if user.is_superuser %}
        <a class="nav-link" href="{% url 'order-list' %}">Order List</a>
     {% endif %}
@@ -17,21 +18,16 @@
     <a class="nav-link" href="{% url 'login' %}">Login</a>
     <a class="nav-link" href="{% url 'register' %}">Register</a>
   {% endif %}
-  
   </div>
 </div>
   
 <nav class="navbar-wrapper">
   <div class="nav-content">
-   
-    
-    
     <button class="openbtn">
       <span class="menu-span">☰</span>
     </button> 
-    
     <div class="nav-brand">
-      <span class="nav-title"><a href="{% url 'homepage' %}">A.O.D.</a></span>
+        <span class="nav-title"><a href="{% url 'homepage' %}">A.O.D.</a></span>
     </div>
   </div>
 </nav>

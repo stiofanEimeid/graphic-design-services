@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-
 <div class="container">
     <h1 class="text-center">Request Changes to Order No. {{ DesignNumber }}</h1>
-    
     <form id="formfield" method="POST">
     {% csrf_token %}
         <fieldset class="form-group">
@@ -15,9 +13,5 @@
             </div>
         </fieldset>
     </form>
-    
-    
 </div>
-
-
 {% endblock content %} 

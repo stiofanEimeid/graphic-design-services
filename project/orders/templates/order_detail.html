@@ -1,34 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-<h1 class="text-center pt-4">Order Detail</h1>
-
-<div class="mycard">
-                           <div class="row">
-                                  <div class="col mycard-title">Order No. {{ order.id }}</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted border-bottom">{{ object.time_created }}</div>
-                              </div>
-                              <div class="row">
-                                
-                                  <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8 border-bottom">{{ object.type }} by {{ object.customer }} </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 mycard-category">Desription.</div>
-                                  <div class="col-md-8 border-bottom"><p>{{ object.description }}</p></div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 mycard-category">Price</div>
-                                  <div class="col-md-8 border-bottom">{ object.price }</div>
-                              </div>
-                              <div class="button-container text-center">
-                                <a class="view-btn" href="{% url 'submit-design' parameter=object.id %}">Submit Design</a>
-                              </div>
-</div>
-
+  <h1 class="text-center pt-4">Order Detail</h1>
+  <div class="mycard">
+    <div class="row">
+      <div class="col mycard-title">Order No. {{ order.id }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mycard-category">Time Created</div>
+      <div class="col-md-8 text-muted border-bottom">{{ object.time_created }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mycard-category">Type</div>
+      <div class="col-md-8 border-bottom">{{ object.type }} by {{ object.customer }} </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mycard-category">Desription.</div>
+      <div class="col-md-8 border-bottom"><p>{{ object.description }}</p></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mycard-category">Price</div>
+      <div class="col-md-8 border-bottom">{{ object.price }}</div>
+    </div>
+      <div class="button-container text-center">
+      <a class="view-btn" href="{% url 'submit-design' parameter=object.id %}">Submit Design</a>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

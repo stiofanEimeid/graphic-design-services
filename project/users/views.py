@@ -10,7 +10,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created! You are now able to log in.')
+            messages.success(request,
+            f'Your account has been created! You are now able to log in.')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -39,13 +40,7 @@ def profile(request, *args, **kwargs):
         'orders': Order.objects.filter(customer=request.user),
         'designs': Design.objects.filter(customer=request.user)
         # filter by username
-        
     }
-    
     return render(request, 'profile.html', context)
-    
-# def view_my_orders(request):
-#     ...
-#     return render(request, "user_order_detail.html", {})
 
     

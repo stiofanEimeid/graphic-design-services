@@ -1,83 +1,64 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-<h1 class="text-center pt-4">Customer Requests</h1>
-<div class="row box-styles">
-    <div class="col">
+    <h1 class="text-center pt-4">Customer Requests</h1>
+    <div class="row box-styles">
+        <div class="col">
             <h2 class="text-center">Orders</h2>
             {% if orders %}
-           
                 {% for order in orders %}
-     
-                
-                          <div class="mycard mb-4">
-                              <div class="row mycard-title">
-                                  <div class="col-6">Order No. {{ order.id }}</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted border-bottom">{{ order.time_created }}</div>
-                              </div>
-                              <div class="row">
-                                
-                                  <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8 border-bottom">{{ order.type }} by {{ order.customer }} </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 mycard-category">Desription.</div>
-                                  <div class="col-md-8 border-bottom"><p>{{ order.description }}</p></div>
-                              </div>
-                              <div class="button-container text-center">
-                                <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
-                              </div>
-                          </div>
-                
+                    <div class="mycard mb-4">
+                        <div class="row mycard-title">
+                            <div class="col-6">Order No. {{ order.id }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Time Created</div>
+                            <div class="col-md-8 text-muted border-bottom">{{ order.time_created }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Type</div>
+                            <div class="col-md-8 border-bottom">{{ order.type }} by {{ order.customer }} </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Desription.</div>
+                            <div class="col-md-8 border-bottom"><p>{{ order.description }}</p></div>
+                        </div>
+                        <div class="button-container text-center">
+                            <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
+                            </div>
+                        </div>
                 {% endfor %}
-                
             {% else %}
-            
-            <p>No designs requested. Bummer.</p>
-            
-             
+                <p>No designs requested. Bummer.</p>
             {% endif%}
             <h2 class="text-center">Revisions</h2>
-            
             {% if revisions %}
                 {% for revision in revisions %}
-                
-                   <div class="mycard mb-4">
-                              <div class="row">
-                                  <div class="col mycard-title">Revision No. {{ revision.id }}</div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-md-4 mycard-category">Time Created</div>
-                                <div class="col-md-8 text-muted border-bottom">{{ revision.time_created }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 mycard-category">Type</div>
-                                  <div class="col-md-8 border-bottom">{{ revision.type }} requested by {{ revision.customer }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 mycard-category">Description.</div>
-                                  <div class="col-md-8 border-bottom"><p>{{ revision.description }}</p></div>
-                              </div>
-                              <div class="button-container text-center">
-                                <a class="view-btn text-center" href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
-                              </div>
-                          </div>
-                
+                    <div class="mycard mb-4">
+                        <div class="row">
+                            <div class="col mycard-title">Revision No. {{ revision.id }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Time Created</div>
+                            <div class="col-md-8 text-muted border-bottom">{{ revision.time_created }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Type</div>
+                            <div class="col-md-8 border-bottom">{{ revision.type }} requested by {{ revision.customer }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Description.</div>
+                            <div class="col-md-8 border-bottom"><p>{{ revision.description }}</p></div>
+                        </div>
+                            <div class="button-container text-center">
+                            <a class="view-btn text-center" href="{% url 'revision-detail' revision.id %}">Go to Revision</a>
+                        </div>
+                    </div>
                 {% endfor %}
-                
             {% else %}
-            
-            <p>No revisions requested. Snapple Apple.</p>
+                <p>No revisions requested. Snapple Apple.</p>
             {% endif %}
+        </div>
     </div>
 </div>
-
-
-
-
-</div>
-
 {% endblock %}

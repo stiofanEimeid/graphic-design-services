@@ -3,14 +3,12 @@
 {% block content %}
 
 <div class="container">
-  
-  
   <h1 class="text-center pt-4">Gallery</h1>
   <h2>Illustrations</h2>
   <div class="row no-gutters mb-4">
 	{% for design in designs %}
   <div class="col-md-4 col-lg-3">
-  	 <div>
+  	 <div class="image-details">
   	 	<div class="design-details">
   	 		<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
   	 	</div>
@@ -23,7 +21,7 @@
   <h2>Avatars</h2>
   <div class="row no-gutters mb-4">
    <div class="col-md-4 col-lg-3">
-     <div>
+     <div class="image-details">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
@@ -31,11 +29,13 @@
   	 	</div>
   </div>
    <div class="col-md-4 col-lg-3">
+       <div class="image-details">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
   	 	<img src="{% static 'images/skull.jpg' %}">
-  </div>
+  	 	</div>
+  </div class="image-details">
     <div class="col-md-4 col-lg-3">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
@@ -47,7 +47,7 @@
   <h2>Icons</h2>
     <div class="row no-gutters mb-4">
    <div class="col-md-4 col-lg-3">
-     <div>
+     <div class="image-details">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
