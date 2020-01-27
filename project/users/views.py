@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from orders.models import Order, Design
 
+
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
@@ -11,11 +12,12 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,
-            f'Your account has been created! You are now able to log in.')
+                             f'Your account has been created! You are now able to log in.')
             return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
+
 
 @login_required
 def profile(request, *args, **kwargs):
@@ -29,11 +31,11 @@ def profile(request, *args, **kwargs):
             p_form.save()
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
-            
+
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-        
+
     context = {
         'u_form': u_form,
         'p_form': p_form,
@@ -42,5 +44,3 @@ def profile(request, *args, **kwargs):
         # filter by username
     }
     return render(request, 'profile.html', context)
-
-    

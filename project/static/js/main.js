@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 const myForm = document.querySelector("#formfield");
 
-const type_prices = new Array();
+const type_prices = [];
 type_prices[0]=20;
 type_prices[1]=25;
 type_prices[2]=35;
@@ -61,7 +61,7 @@ type_prices[3]=75;
 function getTypePrice()
 {  
     let typePrice=0;
-    const selectedType = myForm.elements["type"];
+    const selectedType = myForm.elements.type;
     for(let i = 0; i < selectedType.length; i++)
     { 
         if(selectedType[i].checked)
