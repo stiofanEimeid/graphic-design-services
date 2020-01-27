@@ -10,7 +10,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 
 @login_required
-def order_create_view(request):
+def order_create_view(request, *args, **kwargs):
     form = OrderForm(request.POST or None)
     if form.is_valid():
         """Create a dictionary 'basket' that stores order info"""
