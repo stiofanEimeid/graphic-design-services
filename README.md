@@ -91,11 +91,11 @@ As a site owner, I want to:
 
  ***
  
-### Name
+#### Name
 
 'Agents of Design' is a concept created for the site in which it is reimagined as a group of secret agents selling their services, in this case illustrations rather than anything espeically nefarious. The idea was to make the brand memorable with a concept that was fun and out of the ordinary.
 
-### Logo
+#### Logo
 
 The logo consists of two hands using fingerguns (index and middle finger extending) coming together to form a picture frame. My intention was to evoke the spy theme, with two individuals involved in a playful shootout, while conveying the purpose of the site: to sell images based on the vision of customers. 
 
@@ -105,14 +105,14 @@ I used the fonts "Special Elite" and "Roboto". Special Elite is a typewriter fon
 
 #### Icons
 
+...
+
 #### Colours
 
 | Light Sky Blue | Mint Cream | Eerie Black | Light Carmine Pink | Hansa Yellow | Ube |
 | :---: | :---: | :---: |  :---: | :---: | :---: |
 | ![#1a1a1a](https://placehold.it/15/1a1a1a/1a1a1a) | ![#FFF](https://placehold.it/15/FFF/FFF) | ![#941C2F](https://placehold.it/15/941C2F/941C2F) | ![#EF626C](https://placehold.it/15/EF626C/EF626C) | ![#E9D758](https://placehold.it/15/E9D758/E9D758) | ![#8377D1](https://placehold.it/15/8377D1/8377D1) |
 | #1a1a1a | #FFF| #941C2F | #EF626C |#E9D758| #8377D1 |
-
-#### Format
 
 ### Wireframes
 
@@ -130,7 +130,7 @@ In addition, registered user’s purchase history and associated designs will be
 
 #### Password Reset
 
-Users may reset their password by clicking the relevant link on the login page. 
+Users may reset their password by clicking the relevant link on the login page. An email is sent to the account with which the user registered their account.
 
 #### Orders
 
@@ -139,6 +139,10 @@ With an account, users may submit a request for an order, revisions to that orde
 In order to submit a request for a design, users must fill out a form. This includes specifying the type of the design they want as well as a description of what it would feature. 
 
 A Javascript calculator displays a quote based on user input using an AJAX call. Once users are happy with their order, they may submit the form and proceed to checkout. Payment functionality has been implemented using the Stripe API. 
+
+#### Order List
+
+The Order List provides a list of all open orders as well as a list of revisions to designs submitted for approval. It is only viewable by the superuser. Clicking on any one of these individual orders will take the superuser to a detailed view of the order and revision and the option to submit a design based on the order or revision.
 
 #### Design Submission
 
@@ -158,6 +162,7 @@ Once the user has accepted the design, the process ends. A snapshot of the work 
 
 #### Order Calculator
 
+As the user fills out the order form, a javascript calculator provides a quote. The same formula is used to determine the price on the server so that the price cannot be manipulated by the user.
 
 #### Navigation
 
@@ -165,13 +170,25 @@ The navbar is accessible from every page of the site although its contents chang
 
 If the user is not registered or logged in, the navbar options will be the following:
 
-…
+- **Home**
+- **Gallery**
+- **Order**
+- **Login**
+- **Register**
 
 If they are logged in, these options will be supplemented by the following with the option to login/register removed:
 
-…
+- **Home**
+- **Gallery**
+- **Order**
+- **Profile**
+- **Logout**
 
 It will also indicate who the user is logged in as along with a visual identifier or which page the user is currently viewing on the site. 
+
+When the superuser is logged in, a link to the order list will be added to the navbar. 
+
+- **Order List**
 
 
 ### Features left to implement 
@@ -198,6 +215,8 @@ This reward will take the form of a discount on the next purchase of a user who 
     - This project uses **GitHub** to store and share all project code remotely. 
 - [Heroku](https://www.heroku.com/)
     - The application is hosted on **Heroku**.
+- [Clip Art Studio](...)
+    - The application Clip Art Studio was used to create art content. Images were created with the aid of a Wacom tablet.
 
 ## Testing
 
@@ -283,6 +302,8 @@ Installing psycopg2 with a virtual environment help found at [goshawknest](https
 https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template
 
 ### Content
+
+The Logo was designed and drawn by me...
 
 ### Media
 

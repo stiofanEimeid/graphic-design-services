@@ -87,9 +87,7 @@ class TestOrdersView(TestCase):
     #     session = self.client.session
     #     session['basket'] = {}
     #     session['basket']['type'] = "Logo"
-    #     session['my_basket']['description'] = "Some text here"
-    #     session['my_basket']['revision'] = False
-    #     session['my_basket']['price'] = 20
+        
     #     session.save()
         
     def test_orders_view(self):
