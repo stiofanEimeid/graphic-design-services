@@ -26,11 +26,14 @@ Coverage
 Coverage Report...
 
 <details>
-<summary>***Click here*** to view the Coverage Report</summary>
+<summary>**Click here** to view the Coverage Report</summary>
+
 | **Name** | **Stmts** | **Miss** | **Excluded** | **Cover** |
 | :--- | ---: | ---: | ---: | ---: |
 | *accounts/__ init __* | 0 | 0 | 0 | **100%** |
+| --- | --- | --- | --- | --- |
 | **TOTAL** | **N/A** | **N/A** | **N/A**  | **N/A** |
+
 </details>
 
 

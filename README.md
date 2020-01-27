@@ -52,16 +52,13 @@ This site is my submission for the fourth and final milestone of the Code Instit
 
 This site is targeted at businesses who are in the market for art assets for their website along with users who are interested in purchasing art for their own personal enjoyment. 
 
-User Goals are:
+**User Goals are to**:
+- Order a design to their specifications and be able to request revisions to a design if necessary. 
+- View previous work of the artist. 
 
-Order a design to their specifications and be able to request revisions to a design if necessary. 
-
-View previous work of the artist. 
-
-Phantistry is the perfect way to meet these needs as it provides the functionality and ease-of-use to request and purchase the right design, while providing a straightforward process was requesting changes should they be necessary.
+Agents of Design is the perfect way to meet these needs as it provides the functionality and ease-of-use to request and purchase the right design, while providing a straightforward process was requesting changes should they be necessary.
 
 Users are view the site gallery to see the artist’s previous work to determine whether they would be interested in purchasing a design.
-
 
 #### User Stories
 
@@ -237,10 +234,9 @@ Project code was pushed to Github and Heroku.
 
 In order to run this project locally, the following tools are needed.
 
-Using an IDE of your choice, ensure the following are installed, Git, PIP and Python3...
+Using an IDE of your choice, ensure the following are installed, Git, PIP and Python3.
 
-It is recommended that you create a virtual environment that contains the project's dependencies, and keeps those dependencies separate from those of other projects. 
-
+It is advised that you create and work within a virtual environment in your IDE of choice for this project. 
 
 #### Running the Site in your IDE
 
@@ -300,7 +296,7 @@ Upload the project subdirectory using the command `git subtree push --prefix pro
 </CORSConfiguration>
 ```
 
-***_Note about asterisk: Adding an asterisk to the `Allowed Origin` tag allows access from any domain but you may want to switch this to your final domain name in the future. _***
+**_Note about asterisk: Adding an asterisk to the_** `Allowed Origin` **_tag allows access from any domain but you may want to switch this to your final domain name in the future. _**
 
 Next, navigate to IAM and create a new user. Select programmatic access. Give the user permission to access the bucket you have created. Under set permissions, select attach existing policies. Search for an S3 policy in the search bar and select AmazonS3FullAccess. Click next until you can create user. Take the key ID and secret access key and set them as environment variables. 
 
