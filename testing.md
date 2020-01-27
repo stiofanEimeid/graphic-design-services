@@ -25,7 +25,22 @@ Coverage
 
 Coverage Report...
 
+<details>
+<summary>***Click here*** to view the Coverage Report</summary>
+| **Name** | **Stmts** | **Miss** | **Excluded** | **Cover** |
+| :--- | ---: | ---: | ---: | ---: |
+| *accounts/__ init __* | 0 | 0 | 0 | **100%** |
+| **TOTAL** | **N/A** | **N/A** | **N/A**  | **N/A** |
+</details>
+
+
 ### Validation services
+The following validation services and linter were used to check the validity of the website code.
+- [W3C Markup Validation](https://validator.w3.org/) was used to validate HTML.
+- [W3C CSS validation](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
+- [JSHint](https://jshint.com/) was used to validate JavaScript.
+- [Esprima](https://esprima.org/demo/validate.html) was used to validate JS syntax.
+- [PEP8](http://pep8online.com/) was used to ensure python code is PEP8 compliant.
 
 ## Client Stories Testing
 
@@ -37,7 +52,13 @@ Coverage Report...
 
 ### Responsiveness
 
+The application was tested on mobile phone (Oneplus6, iphone), laptop(Macbook Air), tablet(iPad) and desktop(Mac Desktop) in addition to Google Chrome devtools. 
+
+The site is fully responsive - it's mobile, tablet, laptop and desktop-friendly.
+
 ### Browser Compatibility
+
+The application was tested on Edge, Firefox, Google Chrome, Opera and Safari.
 
 ## Bugs Discovered
 

@@ -32,12 +32,13 @@ class TestUserRegistrationForm(TestCase):
         test_user3.save()
         self.user = test_user3
         
-    def test_redirects_profile_on_success(self):
-        login = self.client.login(username='testuser3', password='1X<ISRUkw+tuK')
-        new_email = "testexample333@example.com"
-        page = self.client.get("/profile/")
-        response = self.client.post(reverse('profile'), {'email':new_email, "image": SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg")})
-        self.assertEqual(page.status_code, 200)
+    # def test_redirects_profile_on_success(self):
+    #     login = self.client.login(username='testuser3', password='1X<ISRUkw+tuK')
+    #     new_email = "testexample333@example.com"
+    #     page = self.client.get("/profile/")
+    #     new_profiler = SimpleUploadedFile("test_source.jpg", b"file_content", content_type="image/jpeg")
+    #     response = self.client.post(reverse('profile'), {'email':new_email, "image": new_profiler})
+    #     self.assertEqual(page.status_code, 200)
 
     def test_passwords_do_not_match(self):
         form = UserRegisterForm({"username": "testuserA",

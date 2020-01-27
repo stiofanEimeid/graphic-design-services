@@ -190,7 +190,6 @@ When the superuser is logged in, a link to the order list will be added to the n
 
 - **Order List**
 
-
 ### Features left to implement 
 
 I would like to implement a reward system for users who write testimonials for completed works in order to incentivise engagement with this aspect of the site. 
@@ -245,12 +244,7 @@ It is recommended that you create a virtual environment that contains the projec
 
 #### Running the Site in your IDE
 
-<!--Create virtual environment with command virtualenv . (Python3)-->
-
-<!--Activate virtual environment with command source bin/activate-->
-
-<!--Run using command python manage.py runserver $IP:$PORT/Add command as string as alias in .bashrc-->
-
+It is advised that you create and work within a virtual environment in your IDE of choice for this project.
 
 - Save this repository by clicking the clone or download button located at the top of the front page of this repository.
     - Alternatively, having installed Git locally, clone the repository with the command `git clone https://github.com/stiofanEimeid/graphic-design-services.git`
@@ -262,7 +256,7 @@ It is recommended that you create a virtual environment that contains the projec
 - Install project requirements from the requirements.txt file with the command 
 `pip –r requirements.txt`.
 
-- Run the server and view a live version of the site with the command python `manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
+- Run the server and view a live version of the site with the command `python manage.py runserver`. If you do not have permission to view the site on your local host, add the address to the list of allowed hosts in the settings.py file located in the graphic-design-services app. 
 
 - Next, it will be necessary to populate the database with the proper tables. Run the command `python manage.py makemigrations` followed by the command `python manage.py migrate`. 
 
@@ -288,12 +282,33 @@ Upload the project subdirectory using the command `git subtree push --prefix pro
 
 ##### Serving Images 
 
-- Static files cannot be hosted on Heroku. You will therefore need to create an S3 bucket to serve static files and connect this to your project…
+- Static files cannot be hosted on Heroku. You will therefore need to create an S3 bucket to serve static files and connect this to your project. Sign up for a free account at Amazon Web Services by going to .... and following the instructions provided.
+- Navigate to the managament console and search for the S3 service (Simple Storage Service).
+- Create a new bucket for your project.
+- In your newly created bucket, click on the permissions tab and go to CORS configuration (Cross-origin Resource Sharing). Copy and paste the following into the section provided and save.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+   <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedMethod>POST</AllowedMethod>
+        <AllowedMethod>PUT</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
+```
+
+***_Note about asterisk: Adding an asterisk to the `Allowed Origin` tag allows access from any domain but you may want to switch this to your final domain name in the future. _***
+
+Next, navigate to IAM and create a new user. Select programmatic access. Give the user permission to access the bucket you have created. Under set permissions, select attach existing policies. Search for an S3 policy in the search bar and select AmazonS3FullAccess. Click next until you can create user. Take the key ID and secret access key and set them as environment variables. 
 
 ##### Stripe Functionality
 
-- Finally, in order to allow for checkout functionality, you will need to include access to the Stripe API I your project…
+- Finally, in order to allow for checkout functionality, you will need to include access to the Stripe API in your project. Go to [Stripe's website](https://stripe.com) and set up a free account. From the dashboard, find your API keys, the publishable key and the secret key. They will have the format `pk_test_<34-characters>` and `sk_test_<34-characters>` respectively. Set these as environment variables.
 
+Having followed these steps, your project should be ready to deploy.
 
 ## Credits
 
