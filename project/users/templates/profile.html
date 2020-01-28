@@ -9,151 +9,167 @@
             <p>B</p>
             <p>C</p></div>
         </div>
-      
      <!--main container-->
-     <div class="row profileBody">
-         <!--details section-->
-         <div class="col-md-5">
-             <div class="row">
-                 <div class="col-12">
-                    <form method="POST" enctype="multipart/form-data">
-                          {% csrf_token %}
-                          <fieldset class="form-group">
-                              <legend><h3>Profile Info</h3></legend>
-                              {{ u_form|crispy }}
-                              {{ p_form|crispy }}
-                              <div class="form-group text-center">
-                                  <button class="submit-btn" type="submit">Update</button>
-                              </div>
-                          </fieldset>
-                    </form>
-                </div>
-                 <div class="col-12">
-                     <h3>My Orders</h3>
-                        {% if orders %}
-                          {% for order in orders %}
-                          <div class="mycard mb-4">
-                              <div class="row">
-                                  <div class="col mycard-title">Order No. {{ order.id }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8 border-bottom">{{ order.type }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8 border-bottom"><p>{{ order.description }}</p></div>
-                              </div>
-                          </div>
-              
-                         {% endfor %}
-                        {% else %}
-                          <p>No orders made yet!</p>
-                        {% endif %}
+        <div class="row profileBody">
+            <!--details section-->
+            <div class="col-md-5">
+                 <div class="row">
+                     <div class="col-12">
+                        <form method="POST" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <fieldset class="form-group">
+                                  <legend><h3>Profile Info</h3></legend>
+                                  {{ u_form|crispy }}
+                                  {{ p_form|crispy }}
+                                  <div class="form-group text-center">
+                                      <button class="submit-btn" type="submit">Update</button>
+                                  </div>
+                              </fieldset>
+                        </form>
+                    </div>
                  </div>
              </div>
-         </div>
-         <!--designs section-->
-         <div class="col-md-7">
-            <div class="col-12">
-            <h3>Designs</h3></div>
-            <div class="col-12 mb-5">
-            {% if designs %}
-            <p>Designs Pending Approval:</p>
-       
-               {% for design in designs %}
-                   {% if design.order_stage == "Design pending approval"  %}
-                         <div class="mycard mb-4">
-                              <div class="row">
-                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8 border-bottom">{{ design.type }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
-                              </div>
-                                <img class="mycard-img" src="{{ design.preview_image.url}}">
-                                
-                                
-                                <div class="button-container">
-                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                                <a href="{% url 'request-changes' parameter=design.id %}" class="view-brn">Request Revisions</a></a>
+             <!--designs section-->
+            <div class="col-md-7">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Designs submitted</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Designs Approved</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="col-12">
+                            <h3>My Orders</h3>
+                            {% if orders %}
+                                {% for order in orders %}
+                                <div class="mycard mb-4">
+                                    <div class="row">
+                                        <div class="col mycard-title">Order No. {{ order.id }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 mycard-category">TYPE</div>
+                                        <div class="col-8 border-bottom">{{ order.type }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 mycard-category">Desc.</div>
+                                        <div class="col-8 border-bottom"><p>{{ order.description }}</p></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 mycard-category">Amount Paid</div>
+                                        <div class="col-8 border-bottom"><p>{{ order.price }}</p></div>
+                                    </div>
                                 </div>
-                          </div>
-              
-                     {% elif design.order_stage == "Revisions requested"  %}
-                     
-                            <div class="mycard mb-4">
-                              <div class="row">
-                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                {% endfor %}
+                                {% else %}
+                                    <p>No orders made yet!</p>
+                                {% endif %}
+                        </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                     <div class="col-12">
+                <h3>Designs</h3></div>
+                <div class="col-12 mb-5">
+                {% if designs %}
+                <p>Designs Pending Approval:</p>
+                   {% for design in designs %}
+                       {% if design.order_stage == "Design pending approval"  %}
+                             <div class="mycard mb-4">
+                                  <div class="row">
+                                      <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-4 mycard-category">TYPE</div>
+                                      <div class="col-8 border-bottom">{{ design.type }}</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-4 mycard-category">Desc.</div>
+                                      <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
+                                  </div>
+                                  
+      
+                                    <div class="button-container">
+                                    <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                    <a href="{% url 'request-changes' parameter=design.id %}" class="view-brn">Request Revisions</a></a>
+                                    </div>
                               </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8 border-bottom">{{ design.type }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
-                              </div>
-                                <img class="mycard-img" src="{{ design.preview_image.url}}">
-                               
-                                <div class="button-container">
-                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                                <a class="view-btn text-center" href="#/">Revisions requested</a>
-                                </div>
-                          </div>
-              
-
-                    {% endif %}
-                {% endfor %}
-            {% else %}
-                       <p>No designs pending approval</p>
-
-            {% endif %}
-             
-                </div>
-                <div class="col-12 mb-15">
-                    <h4>Approved Designs:</h4>
-                    
-    {% if designs %}
-      {% for design in designs %}
-        {% if design.order_stage == "Design accepted"  %} 
-        
-                           <div class="mycard mb-4">
-                              <div class="row">
-                                  <div class="col mycard-title">Order no. {{ design.order_number }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">TYPE</div>
-                                  <div class="col-8 border-bottom">{{ design.type }}</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-4 mycard-category">Desc.</div>
-                                  <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
-                              </div>
-                                <img class="mycard-img" src="{{ design.preview_image.url}}">
+                  
+                         {% elif design.order_stage == "Revisions requested"  %}
                          
-                                <div class="button-container">
-                                <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                                <a class="view-btn text-center" href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
-                                </div>
-                          </div>
-                          
-        {% else %}
-            <p>No completed designs available</p>
-        {% endif %}
-      {% endfor %}
-    {% else %}
-        <div class="col">
-            <p>No completed designs</p>
+                                <div class="mycard mb-4">
+                                  <div class="row">
+                                      <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-4 mycard-category">TYPE</div>
+                                      <div class="col-8 border-bottom">{{ design.type }}</div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-4 mycard-category">Desc.</div>
+                                      <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
+                                  </div>
+                                   
+                                   
+                                    <div class="button-container">
+                                    <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                    <a class="view-btn text-center" href="#/">Revisions requested</a>
+                                    </div>
+                              </div>
+                  
+    
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                           <p>No designs pending approval</p>
+    
+                {% endif %}
+                 
+                    </div>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                      <div class="col-12 mb-15">
+                        <h4>Approved Designs:</h4>
+                        {% if designs %}
+                            {% for design in designs %}
+                                {% if design.order_stage == "Design accepted"  %} 
+                                    <div class="mycard mb-4">
+                                        <div class="row">
+                                            <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4 mycard-category">TYPE</div>
+                                            <div class="col-8 border-bottom">{{ design.type }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4 mycard-category">Desc.</div>
+                                            <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
+                                        </div>
+                                       
+                                        <div class="button-container">
+                                            <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                            <a class="view-btn text-center" href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                <p>No completed designs available</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <div class="col">
+                                <p>No completed designs</p>
+                            </div>
+                        {% endif %}
+                </div>
+                  </div>
+                </div>
+            </div>
         </div>
-    {% endif %}
-</div>
-             </div>
-         </div>
     </div>
 </div>
 {% endblock content %} 
