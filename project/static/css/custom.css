@@ -14,6 +14,9 @@ body {
     background-color: #fff;
 }
 
+.row {
+  margin: 0;
+}
 h1, h2, h3, h4, h5 {
   font-family: 'Special Elite', sans-serif;
 }
@@ -289,6 +292,31 @@ img {
 		  from {transform: translateX(20%);}
 		  to {transform: translateX(0%);}
 		}
+
+/*.first-div, .second-div {*/
+/*  position: relative;*/
+/*}*/
+/*.operativeB {*/
+/*  position: absolute;*/
+/*  right: 0;*/
+/*  display: inline-block;*/
+/*  max-height: 100%;*/
+/*}*/
+
+/*.operativeA, .operativeB {*/
+/*  max-height: 100%;*/
+/*  position: absolute;*/
+/*  display: inline-block;*/
+/*}*/
+
+/*.operativeA {*/
+/*  left: 0;*/
+/*}*/
+
+/*.operativeB {*/
+/*  right: 0;*/
+/*}*/
+
 
 /*lion-code-begins*/
 /*.main-container {*/
