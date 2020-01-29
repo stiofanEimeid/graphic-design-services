@@ -5,7 +5,7 @@
 ![Django](https://img.shields.io/badge/django-2.2.6-092E20) 
 
 <div align="center">
- <a href="#/" target="_blank" rel="noopener"><img src="https://github.com/stiofanEimeid/graphic-design-services/blob/master/project/static/images/AODLogo.png" alt="Agents of Design Logo"/></a>
+ <a href="https://sb-graphic-design-services.herokuapp.com/" target="_blank" rel="noopener"><img src="https://github.com/stiofanEimeid/graphic-design-services/blob/master/project/static/images/AODLogo.png" alt="Agents of Design Logo"/></a>
  
  <h1 align="center">
  Agents of Design
