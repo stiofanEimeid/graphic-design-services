@@ -4,8 +4,6 @@ from .choices import *
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.files.storage import default_storage as storage
-from PIL import Image
-
 
 class Order(models.Model):
     type            = models.CharField(max_length=120, choices=ORDER_CHOICES, default='Logo')
@@ -34,19 +32,6 @@ class Design(models.Model):
 
     def __str__(self):
         return self.customer
-
-    # def save(self, *args, **kwargs):
-    #     super(Design, self).save(*args, **kwargs)
-    #     if self.preview_image:
-    #         image = Image.open(self.preview_image)
-    #         if image.height > 300 or image.width > 300:
-    #                 size = (300, 300)
-    #                 image = Image.open(self.image)
-    #                 image.thumbnail(size, Image.ANTIALIAS) 
-    #                 fh = storage.open(self.image.name, "w")
-    #                 format = 'png' 
-    #                 image.save(fh, format)
-    #                 fh.close()
 
 class Revision(models.Model):
 
