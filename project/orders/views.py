@@ -91,53 +91,50 @@ class RevisionDetailView(UserPassesTestMixin, DetailView):
 
 
 # Must make accessible to respective owners and admin only
-@login_required
 def submit_design(request, parameter):
-    def test_func(self):
-        return self.request.user.is_superuser
-    getOrder = Order.objects.get(pk=parameter)
-    if request.method == 'POST':
-
-        form = DesignSubmissionForm(request.POST, request.FILES)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.customer = getOrder.customer
-            # may not actually be necessary
-            instance.type = getOrder.type
-            instance.description = getOrder.description
-            instance.order_number = getOrder
-            instance.save()
-            Order.objects.filter(pk=parameter).update(open=False)
-            return redirect('order-list')
-    else:
-        form = DesignSubmissionForm()
-
-    return render(request, 'submit_design.html', {"order": getOrder, 'form': form})
+    if request.user.is_superuser:
+        getOrder = Order.objects.get(pk=parameter)
+        if request.method == 'POST':
+    
+            form = DesignSubmissionForm(request.POST, request.FILES)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.customer = getOrder.customer
+                # may not actually be necessary
+                instance.type = getOrder.type
+                instance.description = getOrder.description
+                instance.order_number = getOrder
+                instance.save()
+                Order.objects.filter(pk=parameter).update(open=False)
+                return redirect('order-list')
+        else:
+            form = DesignSubmissionForm()
+    
+        return render(request, 'submit_design.html', {"order": getOrder, 'form': form})
+    return render(request, '403.html', {})
 
 
 # Must make accessible to respective owners and admin only
-@login_required
 def submit_revision(request, parameter):
-    def test_func(self):
-        return self.request.user.is_superuser
-    getRevision = Revision.objects.get(pk=parameter)
-    getDesign = getRevision.design_id
-    if request.method == 'POST':
-
-        form = DesignUpdateForm(request.POST, request.FILES, instance=getDesign)
-        if form.is_valid():
-            form.save(commit=False)
-            # Revision.objects.filter(pk=parameter).update(open=False)
-            # Add revision.revisions to design array
-            Design.objects.filter(pk=getDesign).update(order_status="Design pending approval")
-            form.save()
-
-            return redirect('order-list')
-    else:
-        form = DesignUpdateForm()
-
-    return render(request, 'submit_revision.html', {'design': getDesign, 'revision': getRevision, 'form': form})
-
+    if request.user.is_superuser:
+        getRevision = Revision.objects.get(pk=parameter)
+        getDesign = getRevision.design_id
+        if request.method == 'POST':
+    
+            form = DesignUpdateForm(request.POST, request.FILES, instance=getDesign)
+            if form.is_valid():
+                form.save(commit=False)
+                # Revision.objects.filter(pk=parameter).update(open=False)
+                # Add revision.revisions to design array
+                Design.objects.filter(pk=getDesign).update(order_status="Design pending approval")
+                form.save()
+    
+                return redirect('order-list')
+        else:
+            form = DesignUpdateForm()
+    
+        return render(request, 'submit_revision.html', {'design': getDesign, 'revision': getRevision, 'form': form})
+    return render(request, '403.html', {})
 
 @login_required
 def request_changes(request, parameter):
