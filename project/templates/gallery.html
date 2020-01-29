@@ -4,6 +4,16 @@
 
 <div class="container">
   <h1 class="text-center pt-4">Gallery</h1>
+  <div class="grid-container">
+      {% for design in designs %}
+      
+      <div class="gallery-image">
+         <div class="design-details">
+  	 		<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
+  	 	</div>
+  	 	<img src="{% static 'images/skull.jpg' %}"></div>
+      {% endfor %}
+  </div>
   <h2>Illustrations</h2>
   <div class="row no-gutters mb-4">
 	{% for design in designs %}

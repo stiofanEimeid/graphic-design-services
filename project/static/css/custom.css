@@ -385,6 +385,15 @@ img {
       position: relative;
 }
 
+#price {
+  border: 2px solid #009933;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 /*button styles*/
 
 .submit-btn {
@@ -409,7 +418,6 @@ img {
     background-color: #fff;
     width: 100%;
     border: 2px solid #20A4F3;
-    margin: 10px;
     background: linear-gradient( to left,#fff 50%,    #20A4F3 50% );
 	  background-size: 200% 100%;
 	  background-position: right bottom;
