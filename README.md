@@ -100,10 +100,6 @@ The logo consists of two hands using fingerguns (index and middle finger extendi
 
 I used the fonts "Special Elite" and "Roboto". Special Elite is a typewriter font that also ties into the spy theme of the website, giving the user the impression they are reading the header of a special document or the like. Roboto was chosen to compliment the stylised "Special Elite" font. It is clear and easy to read and more approrpriate for users reading large blocks of text.
 
-#### Icons
-
-...
-
 #### Colours
 
 | Light Sky Blue | Mint Cream | Eerie Black | Light Carmine Pink | Hansa Yellow | Ube |

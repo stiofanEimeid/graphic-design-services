@@ -4,25 +4,18 @@
 
 <div class="container">
   <h1 class="text-center pt-4">Gallery</h1>
-  <div class="grid-container">
-      {% for design in designs %}
-      
-      <div class="gallery-image">
-         <div class="design-details">
-  	 		<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/skull.jpg' %}"></div>
-      {% endfor %}
-  </div>
+  <p>View a selection of illustrations, avatars and icons created by me for clients.
+  Click an individual image to view order details and accompanying testimonials where clients have made them available.</p>
+  
   <h2>Illustrations</h2>
   <div class="row no-gutters mb-4">
 	{% for design in designs %}
   <div class="col-md-4 col-lg-3">
-  	 <div class="image-details">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
   	 	</div>
-  	 	<img src="{% static 'images/skull.jpg' %}">
+  	 	<img src="{{ design.preview_image.url }}">
   	 </div>
   </div>
 	{% endfor %}
@@ -30,54 +23,92 @@
    
   <h2>Avatars</h2>
   <div class="row no-gutters mb-4">
-   <div class="col-md-4 col-lg-3">
-     <div class="image-details">
+    <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
   	 	<img src="{% static 'images/fingerGunA.png' %}">
-  	 	</div>
+  	 </div>
   </div>
-   <div class="col-md-4 col-lg-3">
-       <div class="image-details">
+  
+  <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
-  	 	<img src="{% static 'images/skull.jpg' %}">
+  	 	<img src="{% static 'images/fingerGunB.png' %}">
+  	 </div>
+  </div>
+  
+  <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
+  	 	<div class="design-details">
+  	 		<a href="#/">View Details</a>
   	 	</div>
-  </div class="image-details">
+  	 	<img src="{% static 'images/blacklion.png' %}">
+  	 </div>
+  </div>
+  
+  <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
+  	 	<div class="design-details">
+  	 		<a href="#/">View Details</a>
+  	 	</div>
+  	 	<img src="{% static 'images/blacklion.png' %}">
+  	 </div>
+  </div>
+  
     <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
-  	 	<img src="{% static 'images/twohands.png' %}">
+  	 	<img src="{% static 'images/theman.png' %}">
+  	 </div>
   </div>
+  
+    <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
+  	 	<div class="design-details">
+  	 		<a href="#/">View Details</a>
+  	 	</div>
+  	 	<img src="{% static 'images/thewoman.png' %}">
+  	 </div>
+  </div>
+
+
   </div>
   
   <h2>Icons</h2>
-    <div class="row no-gutters mb-4">
-   <div class="col-md-4 col-lg-3">
-     <div class="image-details">
+   <div class="row no-gutters mb-4">
+    <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
   	 	<img src="{% static 'images/fingerGunA.png' %}">
-  	 	</div>
-  </div>
-   <div class="col-md-4 col-lg-3">
+  	 </div>
+    </div>
+  
+  <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
-  	 	<img src="{% static 'images/skull.jpg' %}">
+  	 	<img src="{% static 'images/fingerGunB.png' %}">
+  	 </div>
   </div>
-    <div class="col-md-4 col-lg-3">
+  
+  <div class="col-md-4 col-lg-3">
+  	 <div class="gallery-image-container">
   	 	<div class="design-details">
   	 		<a href="#/">View Details</a>
   	 	</div>
   	 	<img src="{% static 'images/twohands.png' %}">
   </div>
-  </div>
   
+</div>
 
   
   

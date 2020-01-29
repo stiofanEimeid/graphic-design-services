@@ -212,12 +212,12 @@ footer {
   padding: 20px;
 }
 
-img {
-  max-width: 100%;
+/*img {*/
+/*  max-width: 100%;*/
   /*display: block;*/
   /*margin-left: auto;*/
   /*margin-right: auto;*/
-}
+/*}*/
 
 /*landingpage*/
 
@@ -234,6 +234,11 @@ img {
 			margin-left: 20%;
 			margin-top: calc((100vh - 140px - 60vw)/2);
 			z-index: 1;
+			
+		}
+		
+		.my-image > img {
+		   max-width: 100%;
 		}
 
 		.first-div {
@@ -461,11 +466,19 @@ img {
         background-position: left bottom;
         color: white;
     }
-.image-container {
+    
+
+.gallery-image-container {
   height: 200px;
-  /*width: 400px;*/
-  padding: 30px;
-  object-fit: cover;
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 2px solid #fff;
+}
+
+.gallery-image-container > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .design-details {
