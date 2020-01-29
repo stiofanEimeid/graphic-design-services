@@ -104,7 +104,7 @@ class TestUserRegistrationForm(TestCase):
     def test_profile_image_update(self):
         p_form = ProfileUpdateForm
         p_form.image = SimpleUploadedFile(
-            "test_image.jpg", b"file_content", content_type="image/jpeg")
+            "test_image.png", b"file_content", content_type="image/png")
         self.client.post(reverse("profile"), {"p_form": p_form})
         self.assertIsNotNone(ProfileUpdateForm)
 
