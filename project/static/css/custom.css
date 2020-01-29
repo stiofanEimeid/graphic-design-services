@@ -17,6 +17,10 @@ body {
 .row {
   margin: 0;
 }
+
+.col {
+  padding: 0;
+}
 h1, h2, h3, h4, h5 {
   font-family: 'Special Elite', sans-serif;
 }
@@ -481,9 +485,10 @@ footer {
   object-fit: contain;
 }
 
-.gallery-image {
+.gallery-image, .order-image {
   max-height: 100%;
   max-width: 100%;
+  background-color: #1a1a1a;
 }
 
 .design-details {
