@@ -481,6 +481,11 @@ footer {
   object-fit: contain;
 }
 
+.gallery-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .design-details {
     display: flex;
     align-items: center;
