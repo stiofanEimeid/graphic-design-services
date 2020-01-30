@@ -13,6 +13,7 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    """A view to allow users to make purchases"""
     if request.method == "POST":
         cd_form = CustomerDetailForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -35,7 +36,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
 
-                # Determine the nature of the order and save
+                """Determine the nature of the order and save"""
 
                 if request.session['my_basket']['revision'] is True:
                     Design.objects.filter(id=request.session['my_basket']['design_id']).update(order_stage='Revisions requested'),
@@ -59,6 +60,7 @@ def checkout(request):
                         time_created=timezone.now()
                         )
                     order.save()
+                    """The revision/design object is only saved if payment is successful"""
 
                 request.session['basket'] = {}
                 return redirect(reverse('homepage'))

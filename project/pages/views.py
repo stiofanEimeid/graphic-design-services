@@ -3,10 +3,11 @@ from orders.models import Design, Testimonial
 
 
 def home(request, *args, **kwargs):
+    """A view for rendering the homepage"""
     return render(request, "home.html", {})
 
-
 def gallery(request, *args, **kwargs):
+    """A view for rendering the gallery"""
     designs = Design.objects.filter(order_stage="Design accepted")
     context = {
         "designs": designs
@@ -15,6 +16,9 @@ def gallery(request, *args, **kwargs):
 
 
 def gallery_design_detail(request, parameter):
+    """A view for rendering individual gallery pages.
+       Check if a testimonial has been added by the
+       customer and render. Otherwise ignore."""
     try:
         testimonial = Testimonial.objects.get(design_id=parameter)
     except Testimonial.DoesNotExist:
@@ -27,12 +31,9 @@ def gallery_design_detail(request, parameter):
 
 
 def orders(request, *args, **kwargs):
-    # print(args, kwargs)
-    # print(request.user)
     return render(request, "orders.html", {})
 
 """Custom Handlers"""
-
 
 def handler403(request, exception, template_name="403.html"):
     response = render_to_response("403.html")

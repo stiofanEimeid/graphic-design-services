@@ -60,6 +60,8 @@ type_prices[3]=75;
  
 function getTypePrice()
 {  
+    /*The value of the option selected in the form is taken
+    and matched to the corresponding value in the list*/
     let typePrice=0;
     const selectedType = myForm.elements.type;
     for(let i = 0; i < selectedType.length; i++)

@@ -10,7 +10,6 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
             messages.success(request,
                              f'Your account has been created! You are now able to log in.')
             return redirect('login')
@@ -22,6 +21,7 @@ def register(request):
 @login_required
 def profile(request, *args, **kwargs):
     if request.method == 'POST':
+        """determine nature of the request and display the appropriate content"""
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
@@ -41,7 +41,8 @@ def profile(request, *args, **kwargs):
         'p_form': p_form,
         'orders': Order.objects.filter(customer=request.user),
         'designs': Design.objects.filter(customer=request.user),
+        """Add count of designs awaiting approval to template to
+        better allow the user to see when they are available"""
         'newdesigns': Design.objects.filter(customer=request.user, order_stage="Design pending approval").count()
-        # filter by username
     }
     return render(request, 'profile.html', context)
