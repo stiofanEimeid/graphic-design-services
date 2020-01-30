@@ -12,6 +12,7 @@ class Order(models.Model):
     customer        = models.ForeignKey(User, on_delete=models.CASCADE)
     price           = models.DecimalField(decimal_places=2, max_digits=1000)
     open            = models.BooleanField(default=True)
+    reference       = models.FileField(upload_to='references', blank=True, null=True)
 
     # def __str__(self):
     #     return self.type
