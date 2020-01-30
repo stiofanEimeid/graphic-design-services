@@ -5,7 +5,7 @@
 <div class="container">
     <div class="content-section">
         <div class="row">
-            <div class="col-md-5 profile-details"><img class="avatar" src="{{ user.profile.image.url }}"></div>
+            <div class="col-md-5 profile-details"><img class="avatar" src="{{ user.profile.image.url }}" alt="profile-image"></div>
             <div class="col-md-7 profile-details"></div>
         </div>
      <!--main container-->
@@ -17,7 +17,7 @@
                         <form method="POST" enctype="multipart/form-data">
                               {% csrf_token %}
                               <fieldset class="form-group">
-                                  <legend><h3>Profile Info</h3></legend>
+                                  <legend>Profile Info</legend>
                                   {{ u_form|crispy }}
                                   {{ p_form|crispy }}
                                   <div class="form-group text-center">
@@ -93,8 +93,8 @@
                                   
       
                                     <div class="button-container">
-                                    <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
-                                    <a href="{% url 'request-changes' parameter=design.id %}" class="view-brn">Request Revisions</a></a>
+                                    <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
+                                    <a href="{% url 'request-changes' parameter=design.id %}" class="view-btn">Request Revisions</a>
                                     </div>
                               </div>
                   
@@ -115,7 +115,7 @@
                                    
                                    
                                     <div class="button-container">
-                                    <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                    <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
                                     <a class="view-btn text-center" href="#/">Revisions requested</a>
                                     </div>
                               </div>
@@ -149,9 +149,8 @@
                                             <div class="col-4 mycard-category">Desc.</div>
                                             <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                                         </div>
-                                       
                                         <div class="button-container">
-                                            <a class="view-btn text-center"  href="{% url 'design-detail' parameter=design.id %}" class="card-link">View Design</a>
+                                            <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
                                             <a class="view-btn text-center" href="{% url 'testimonial' parameter=design.id %}">Write Testimonial</a>
                                         </div>
                                     </div>
