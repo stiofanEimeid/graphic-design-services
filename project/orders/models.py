@@ -22,7 +22,7 @@ class Order(models.Model):
 
 class Design(models.Model):
 
-    source_code     = models.FileField(upload_to='designs') 
+    sub_design      = models.FileField(upload_to='designs') 
     preview_image   = models.ImageField(upload_to='preview_images')
     customer        = models.CharField(max_length=120)
     type            = models.CharField(max_length=120)

@@ -226,7 +226,7 @@ footer {
 /*landingpage*/
 
 		.homepage-container {
-			height: calc(100vh - 140px);
+			height: calc(85vh - 70px);
 			margin-top: 70px;
 			background-color: #1a1a1a;
 			text-align: center;
@@ -348,8 +348,8 @@ footer {
 }
 
 .mouseContainer {
-  padding: 15px;
-  height: 70px;
+  padding: 20px;
+  height: 100px;
   text-align: center;
   background-color: #1a1a1a;
 }

@@ -24,7 +24,7 @@ class DesignSubmissionForm(forms.ModelForm):
     class Meta:
         model = Design
         fields = [
-            'source_code',
+            'sub_design',
             'preview_image',
             ]
             
@@ -33,7 +33,7 @@ class DesignUpdateForm(forms.ModelForm):
     class Meta:
         model = Design
         fields = [
-            'source_code',
+            'sub_design',
             'preview_image',
             ]
             

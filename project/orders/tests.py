@@ -190,7 +190,4 @@ class TestOrdersView(TestCase):
             })
             self.assertEqual(response.status_code, 200)
 
-## submit testimonial
-
-# gallery design detail
  
