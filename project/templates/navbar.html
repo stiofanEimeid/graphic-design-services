@@ -4,6 +4,7 @@
   </div>
   <div>
   <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+  <a class="nav-link" href="{% url 'homepage' %}#about">About</a>
   <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
   <a class="nav-link" href="{% url 'orders' %}">Order</a>
   {% if user.is_authenticated %}
