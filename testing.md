@@ -65,9 +65,38 @@ The application was tested on Edge, Firefox, Google Chrome, Opera and Safari.
 
 ## Bugs Discovered
 
-### Solved Bugs
-
 ### Unsolved Bugs
+
+In order to resize images users submitted as profile pictures, I included the following Pillow function found on a [Stackoverflow thread](https://stackoverflow.com/questions/14680323/django-getting-pil-image-save-method-to-work-with-amazon-s3boto-storage):
+
+```
+    # users/models.py
+
+    from PIL import Image
+
+    *******
+    
+    def save(self, *args, **kwargs):
+        """PIL interrupts save process to resize image"""  
+        super(Profile, self).save(*args, **kwargs)
+        if self.image:
+            image = Image.open(self.image)
+            if image.height > 300 or image.width > 300:
+                size = (300, 300)
+                image = Image.open(self.image)
+                image.thumbnail(size, Image.ANTIALIAS) 
+                fh = storage.open(self.image.name, "w")
+                format = 'png' 
+                image.save(fh, format)
+                fh.close()
+                super(Profile, self).save(*args, **kwargs)
+
+```
+
+Unfortunately, this led to a large of automated tests failing, with the error 'required parameter name not set'
+appearing in travis although not in testing locally. Until this issue is resolved, I have decided not to include the function. Furthermore,
+I understand that a lambda function may in fact be the more appropriate approach to take in light of the fact I am making use of Amazon's Web Services
+to serve images.
 
 [**Jump to top &uarr;**](#table-of-contents)
 
