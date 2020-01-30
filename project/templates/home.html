@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="main-container">
     <div class="homepage-container">	
 		<!--<div class="first-div">-->
 		    <!--<img class="operativeA" src="{% static 'images/thewoman.png' %}">-->
 		<!--</div>	-->
-		<div class="operativeA">
-		    <img src="{% static 'images/thewoman.png' %}">
-		</div>
-		<div class="my-image one">
-		    <img class="front" src="{% static 'images/fingerGunA.png' %}">
-		</div>			
-		<div class="my-image two">
-			<img class="front" src="{% static 'images/fingerGunB.png' %}">
-		</div>		
-		<div class="operativeB">
-		    <img src="{% static 'images/theman.png' %}">
-		</div>
+        <div class="hands-container">
+        	<div class="my-image one">
+        		   <img class="front" src="{% static 'images/fingerGunA.png' %}">
+        	</div>			
+        	<div class="my-image two">
+        		<img class="front" src="{% static 'images/fingerGunB.png' %}">
+        	</div>	
+        </div>
 		<div class="title-container">
-		    <h1 class="text-center">Agents of Design</h1>
-		    <h4 class="text-center">A graphic design outfit</h2>
+		    <h1>Agents of Design</h1>
+		    <!--<h4>A graphic design outfit</h4>-->
+		</div>
+		<div class="suitcase-container">
+		    <div class="my-image">
+		    	<img class="front" src="{% static 'images/suitcase.png' %}">
+		    </div>
 		</div>
 	</div>
-		<div class="mouseContainer">
+</div>	
+	<div class="mouseContainer">
 		    <div class="scroll-link">
 			<svg class="mouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet">
 				<g fill="none" fill-rule="evenodd">
@@ -32,55 +33,55 @@
 				</g>
 			</svg>
 		</div>
-		   
-		</div>	
-</div>
+	</div>
+
 <div class="container">
-    <div data-aos="fade-up">
-        <div class="row">
-            <div class="col introBlurb">
-                <h1>Agents of Design Welcomes You</h1>
-                <br>
-                <p class="mb-5">Agents of Design provides hand-drawn illustrations as well as icons and avatars. 
-                            You may view previous work in the <a href="{% url 'gallery' %}">gallery</a> and read the accompanying testimonials of satisfied clients.
-                </p>
-                <p class="mb-5">
-                    <a href="{% url 'register' %}">Register now</a> or <a href="{% url 'login' %}">login</a> to submit a <a href="{% url 'orders' %}">request</a> for your very own design. If you are unhappy with any aspect of your design, request a set of revisions for a small fee. 
-                </p>
-                <p class="mb-5">
-                    Once you are satisfied with your design, we can say, <u>'Mission Accomplished'</u>. 
-                </p>
-            </div>
-        </div>
-    </div>
-    <!--<div data-aos="fade-up" class="row introBlurb">-->
-    <!--    <div class="col-md-6 order-md-1">-->
-    <!--        <p>Agents of Design provides hand-drawn illustrations as well as icons and avatars. -->
-    <!--           You may view previous work in the <a href="{% url 'gallery' %}">gallery</a> and read the accompanying testimonials of satisfied clients.</p>-->
-    <!--    </div>-->
-    <!--    <div class="col-md-6 order-md-2">-->
-    <!--        <div class="box"><img src="{% static 'images/theman.png' %}"></div>-->
-            
-    <!--    </div>-->
-    <!--</div>-->
-    <!--  <div data-aos="fade-up" class="row introBlurb">-->
-    <!--    <div class="col-12">-->
-    <!--         <p>-->
+    <!--<div data-aos="fade-up">-->
+    <!--    <div class="row">-->
+    <!--        <div class="col introBlurb">-->
+    <!--            <h1>Agents of Design Welcomes You</h1>-->
+    <!--            <br>-->
+    <!--            <p class="mb-5">Agents of Design provides hand-drawn illustrations as well as icons and avatars. -->
+    <!--                        You may view previous work in the <a href="{% url 'gallery' %}">gallery</a> and read the accompanying testimonials of satisfied clients.-->
+    <!--            </p>-->
+    <!--            <p class="mb-5">-->
     <!--                <a href="{% url 'register' %}">Register now</a> or <a href="{% url 'login' %}">login</a> to submit a <a href="{% url 'orders' %}">request</a> for your very own design. If you are unhappy with any aspect of your design, request a set of revisions for a small fee. -->
     <!--            </p>-->
+    <!--            <p class="mb-5">-->
+    <!--                Once you are satisfied with your design, we can say, <u>'Mission Accomplished'</u>. -->
+    <!--            </p>-->
+    <!--        </div>-->
     <!--    </div>-->
     <!--</div>-->
-    <!--<div data-aos="fade-up" class="row introBlurb">-->
-    <!--    <div class="col-md-6 order-md-3">-->
-    <!--        <div class="box"><img src="{% static 'images/thewoman.png' %}"></div>-->
-    <!--    </div>-->
-    <!--    <div class="col-md-6 order-md-4">-->
-    <!--        <h4>02. CREATE</h4>-->
-    <!--        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis imperdiet massa tincidunt nunc pulvinar. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. </p>-->
-    <!--    </div>-->
-    <!--</div>-->
+    
+    <div data-aos="fade-up" class="row introBlurb mb-4">
+        <div class="col-md-6 order-md-1">
+            <p>Agents of Design provides hand-drawn illustrations as well as icons and avatars. 
+               You may view previous work in the <a href="{% url 'gallery' %}">gallery</a> and read the accompanying testimonials of satisfied clients.</p>
+        </div>
+        <div class="col-md-6 order-md-2">
+            <div class="box"><img class="front" src="{% static 'images/theman.png' %}"></div>
+            
+        </div>
+    </div>
+      <div data-aos="fade-up" class="row introBlurb mb-4">
+        <div class="col-12">
+             <p>
+                    <a href="{% url 'register' %}">Register now</a> or <a href="{% url 'login' %}">login</a> to submit a <a href="{% url 'orders' %}">request</a> for your very own design. If you are unhappy with any aspect of your design, request a set of revisions for a small fee. 
+                </p>
+        </div>
+    </div>
+    <div data-aos="fade-up" class="row introBlurb mb-4">
+        <div class="col-md-6 order-md-3">
+            <div class="box"><img class="front" src="{% static 'images/thewoman.png' %}"></div>
+        </div>
+        <div class="col-md-6 order-md-4">
+         
+            <p>Once you are satisfied with your design, we can say, <u>'Mission Accomplished'</p>
+        </div>
+    </div>
  
-    <div class="introBlurb">
+    <div class="introBlurb mb-4">
         <div class="row">
             <div class="col-4 offset-4"> <img class="logo" src="{% static 'images/AODLogo.png' %}"></div>
         </div>

@@ -226,35 +226,23 @@ footer {
 /*landingpage*/
 
 		.homepage-container {
+			position: relative;
 			height: calc(100vh - 140px);
 			margin-top: 70px;
 			background-color: #1a1a1a;
-			text-align: center;
-			width: 100%;
 
-		}
-		
-		.hands-container, .suitcase-container {
-		  position: relative;
-		  height: 35%;
-		  margin: 0 auto;
 		}
 			.my-image {
 			position: absolute;
-			height: 100%;
-			width: 100%;
-			/*height: 35% ;*/
-			/*width: 40%;*/
-			/*margin-left: calc((100vw - 35vw)/2);*/
-			/*margin-top: ;*/
-			/*z-index: 1;*/
+			width: 60%;
+			margin-left: 20%;
+			/*margin-top: calc((100vh - 140px - 60vw)/2);*/
+			z-index: 1;
 			
 		}
 		
 		.my-image > img {
 		   max-width: 100%;
-		   max-height: 100%;
-		   margin: 0 auto;
 		}
 
 		.first-div {
@@ -315,12 +303,12 @@ footer {
 		  to {transform: translateX(0%);}
 		}
 
-/*.operativeA, .operativeB {*/
-/*  height: calc(70vh - 140px);*/
-/*  position: absolute;*/
-/*  background-color: #993333;*/
-/*  display: none;*/
-/*}*/
+.operativeA, .operativeB {
+  height: calc(70vh - 140px);
+  position: absolute;
+  background-color: #993333;
+  display: none;
+}
 
 .operativeA {
   left: 50px;
@@ -338,9 +326,13 @@ footer {
 }
 
 .title-container {
-  height: 30%;
+  position: absolute;
+  /*bottom:  calc((100vh - 140px - 60vw)/4);*/
+  top: 60vw;
+  width: 100%;
   color: #fff;
-  padding: 20px;
+  z-index: 2;
+  color: #fff;
 }
 
 .logo {
@@ -348,7 +340,7 @@ footer {
 }
 
 .mouseContainer {
-  padding: 15px;
+  /*padding-top: 20px;*/
   height: 70px;
   text-align: center;
   background-color: #1a1a1a;
@@ -623,22 +615,22 @@ footer {
 
 	@media screen and (orientation: landscape) {
 			.my-image{
-		    /*width: 20%;*/
-		    /*margin-left: 40%;*/
+		    width: 30%;
+		    margin-left: 35%;
 		    /*margin-top: calc((100vh - 140px - 35vw)/2);*/
-		    /*padding: 20px;*/
+		    padding: 20px;
 		}
 
-			/*.first-div, .second-div {*/
-			/*	height: calc((100vh - 140px - 35vw)/2);*/
-			/*}*/
+			.first-div, .second-div {
+				height: calc((100vh - 140px - 35vw)/2);
+			}
 			
-			/*.title-container {*/
+			.title-container {
 			  /*bottom: calc((100vh - 140px - 35vw)/4);*/
-			/*  top: 20vw;*/
-			/*}*/
+			  top: 30vw;
+			}
 			
-			/*.operativeA, .operativeB {*/
-			/*  display: block;*/
-			/*}*/
+			.operativeA, .operativeB {
+			  display: block;
+			}
 		}

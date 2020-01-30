@@ -40,7 +40,8 @@ def profile(request, *args, **kwargs):
         'u_form': u_form,
         'p_form': p_form,
         'orders': Order.objects.filter(customer=request.user),
-        'designs': Design.objects.filter(customer=request.user)
+        'designs': Design.objects.filter(customer=request.user),
+        'newdesigns': Design.objects.filter(customer=request.user, order_stage="Design pending approval").count()
         # filter by username
     }
     return render(request, 'profile.html', context)
