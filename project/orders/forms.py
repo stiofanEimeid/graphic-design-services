@@ -16,7 +16,6 @@ class OrderForm(forms.ModelForm):
         fields = [
             'type',
             'description',
-            'reference',
             ]
             
 class DesignSubmissionForm(forms.ModelForm):

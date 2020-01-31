@@ -22,7 +22,7 @@ from users import views as user_views
 from orders import views as order_views
 from checkout.views import checkout
 from basket.views import view_basket
-from orders.views import Order, OrderDetailView, OrderListView, RevisionDetailView
+from orders.views import OrderDetailView, OrderListView, RevisionDetailView
 from django.conf import settings
 from django.conf.urls.static import static
 

@@ -106,7 +106,7 @@ def submit_revision(request, parameter):
             form = DesignUpdateForm(request.POST, request.FILES, instance=getDesign)
             if form.is_valid():
                 form.save(commit=False)
-                Design.objects.filter(pk=getDesign).update(order_status="Design pending approval")
+                Design.objects.filter(pk=parameter).update(order_stage="Design pending approval")
                 form.save()
                 return redirect('order-list')
         else:
@@ -137,7 +137,7 @@ def request_changes(request, parameter):
             'price': request.session['my_basket']['price']
         }
 
-        return render(request, 'checkout.html', context)
+        return render(request, 'basket.html', context)
 
     return render(request, 'request_changes.html', {"form": form,
                                                     'DesignNumber': parameter})
@@ -153,6 +153,7 @@ def design_detail(request, parameter):
 
     if request.method == 'POST':
         if request.POST.get('status') == 'accept':
+            """Update status of order"""
             Design.objects.filter(pk=parameter).update(order_stage="Design accepted")
         return redirect('profile')
 
@@ -169,8 +170,6 @@ def testimonial(request, parameter):
     form = TestimonialForm(request.POST or None)
     if form.is_valid():
         form.save(commit=False)
-        """ Must return instance as foreignkey """
-        form.design = parameter
         form.customer = request.user
         form.save()
 

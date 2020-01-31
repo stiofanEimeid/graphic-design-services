@@ -36,16 +36,17 @@ def profile(request, *args, **kwargs):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-
+        
     context = {
         'u_form': u_form,
         'p_form': p_form,
         'orders': Order.objects.filter(customer=request.user),
         'designs': Design.objects.filter(customer=request.user),
-        """Add count of designs awaiting approval to template to
-        better allow the user to see when they are available"""
         'newdesigns': Design.objects.filter(customer=request.user, order_stage="Design pending approval").count()
     }
+    
+    """Add count of designs awaiting approval to template to
+    better allow the user to see when they are available"""
     return render(request, 'profile.html', context)
 
 # CoreySchafer Code Ends

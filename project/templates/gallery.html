@@ -12,29 +12,67 @@
   </div>
   
   <div class="row no-gutters mb-4">
-	{% for design in designs %}
+	{% for illustration in illustrations %}
   <div class="col-md-4 col-lg-3">
   	 <div class="gallery-image-container">
   	 	<div class="design-details">
-  	 		<a href="{% url 'gallery_design_detail' parameter=design.id %}">View Details</a>
+  	 		<a href="{% url 'gallery_design_detail' parameter=illustration.id %}">View Details</a>
   	 	</div>
-  	 	<img src="{{ design.preview_image.url }}">
+  	 	<img src="{{ illustration.sub_design.url }}">
   	 </div>
   </div>
 	{% endfor %}
+	</div>
    
    <div class="row">
      <div class="col"><h4>Logos</h4></div>
    </div>
+    <div class="row no-gutters mb-4">
+  	{% for logo in logos %}
+      <div class="col-md-4 col-lg-3">
+      	 <div class="gallery-image-container">
+      	 	<div class="design-details">
+      	 		<a href="{% url 'gallery_design_detail' parameter=logo.id %}">View Details</a>
+      	 	</div>
+      	 	<img src="{{ logo.sub_design.url }}">
+      	 </div>
+      </div>
+  	{% endfor %}
+  	</div>
   
   <div class="row">
      <div class="col"><h4>Avatars</h4></div>
    </div>
+     <div class="row no-gutters mb-4">
+  	{% for avatar in avatars %}
+      <div class="col-md-4 col-lg-3">
+      	 <div class="gallery-image-container">
+      	 	<div class="design-details">
+      	 		<a href="{% url 'gallery_design_detail' parameter=avatar.id %}">View Details</a>
+      	 	</div>
+      	 	<img src="{{ avatar.sub_design.url }}">
+      	 </div>
+      </div>
+  	{% endfor %}
+  	</div>
   
   <div class="row">
      <div class="col"><h4>Icons</h4></div>
    </div>
+     <div class="row no-gutters mb-4">
+  	{% for icon in icons %}
+      <div class="col-md-4 col-lg-3">
+      	 <div class="gallery-image-container">
+      	 	<div class="design-details">
+      	 		<a href="{% url 'gallery_design_detail' parameter=icon.id %}">View Details</a>
+      	 	</div>
+      	 	<img src="{{ icon.sub_design.url }}">
+      	 </div>
+      </div>
+  	{% endfor %}
+  	</div>
   
+</div>
 </div>
 
 {% endblock %}

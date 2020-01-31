@@ -21,9 +21,11 @@
       <div class="col-md-4 mycard-category">Price</div>
       <div class="col-md-8"><p>{{ object.price }}</p></div>
     </div>
+    {% if object.open == True %}
     <div class="button-container text-center">
       <a class="view-btn" href="{% url 'submit-revision' parameter=object.id %}">Submit Revision</a>
     </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

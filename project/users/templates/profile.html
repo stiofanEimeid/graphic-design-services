@@ -42,9 +42,7 @@
                     <li class="nav-item">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
                             Inbox 
-                            {% if newdesigns != 0 %}
-                                {{ newdesigns }}
-                            {% endif %}
+                            {% if newdesigns > 0%}{{ newdesigns }}{% endif %}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -90,7 +88,7 @@
                        {% if design.order_stage == "Design pending approval"  %}
                              <div class="mycard mb-4">
                                   <div class="row">
-                                      <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                      <div class="col mycard-title">Order no. {{ design.order_number.id }}</div>
                                   </div>
                                   <div class="row">
                                       <div class="col-4 mycard-category">TYPE</div>
@@ -104,7 +102,7 @@
       
                                     <div class="button-container">
                                     <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
-                                    <a href="{% url 'request-changes' parameter=design.id %}" class="view-btn">Request Revisions</a>
+                                    <a class="view-btn text-center" href="{% url 'request-changes' parameter=design.id %}">Request Revisions</a>
                                     </div>
                               </div>
                   
@@ -112,7 +110,7 @@
                          
                                 <div class="mycard mb-4">
                                   <div class="row">
-                                      <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                      <div class="col mycard-title">Order no. {{ design.order_number.id }}</div>
                                   </div>
                                   <div class="row">
                                       <div class="col-4 mycard-category">TYPE</div>
@@ -149,7 +147,7 @@
                                 {% if design.order_stage == "Design accepted"  %} 
                                     <div class="mycard mb-4">
                                         <div class="row">
-                                            <div class="col mycard-title">Order no. {{ design.order_number }}</div>
+                                            <div class="col mycard-title">Order no. {{ design.order_number.id }}</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-4 mycard-category">TYPE</div>

@@ -21,8 +21,20 @@
                             <div class="col-md-8 border-bottom">{{ order.type }} by {{ order.customer }} </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 mycard-category">Desription.</div>
+                            <div class="col-md-4 mycard-category">Description</div>
                             <div class="col-md-8 border-bottom"><p>{{ order.description }}</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mycard-category">Status</div>
+                            <div class="col-md-8 border-bottom">
+                            <p>
+                                {% if order.open == True %}
+                                Open
+                                {% else %}
+                                Closed
+                                {% endif %}
+                            </p>
+                            </div>
                         </div>
                         <div class="button-container text-center">
                             <a class="view-btn text-center"  href="{% url 'order-detail' order.id %}">Go to order</a>
@@ -50,6 +62,18 @@
                         <div class="row">
                             <div class="col-md-4 mycard-category">Description.</div>
                             <div class="col-md-8 border-bottom"><p>{{ revision.description }}</p></div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-4 mycard-category">Status</div>
+                            <div class="col-md-8 border-bottom">
+                            <p>
+                                {% if revision.open == True %}
+                                Open
+                                {% else %}
+                                Closed
+                                {% endif %}
+                            </p>
+                            </div>
                         </div>
                             <div class="button-container text-center">
                             <a class="view-btn text-center" href="{% url 'revision-detail' revision.id %}">Go to Revision</a>

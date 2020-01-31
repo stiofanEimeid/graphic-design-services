@@ -12,7 +12,6 @@ class Order(models.Model):
     customer        = models.ForeignKey(User, on_delete=models.CASCADE)
     price           = models.DecimalField(decimal_places=2, max_digits=1000)
     open            = models.BooleanField(default=True)
-    reference       = models.FileField(upload_to='references', blank=True)
 
     # def __str__(self):
     #     return self.type
@@ -30,8 +29,8 @@ class Design(models.Model):
     order_stage     = models.CharField(max_length=120, choices=DESIGN_STAGES, default="Design pending approval")
     order_number    = models.ForeignKey(Order, on_delete=models.CASCADE) #from where and what happens when deleted?
 
-    def __str__(self):
-        return self.customer
+    # def __str__(self):
+    #     return self.customer
 
 class Revision(models.Model):
 
