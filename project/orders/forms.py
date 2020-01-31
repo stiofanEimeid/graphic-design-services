@@ -25,7 +25,6 @@ class DesignSubmissionForm(forms.ModelForm):
         model = Design
         fields = [
             'sub_design',
-            'preview_image',
             ]
             
 class DesignUpdateForm(forms.ModelForm):
@@ -34,7 +33,6 @@ class DesignUpdateForm(forms.ModelForm):
         model = Design
         fields = [
             'sub_design',
-            'preview_image',
             ]
             
 class DesignAcceptanceForm(forms.ModelForm):

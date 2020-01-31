@@ -316,22 +316,26 @@ Guidance on how to display multiple models in a list view was found in this [Sta
 
 ### Content
 
-The front page images including logo were designed and drawn by me.
+- The front page images including logo were designed and drawn by me.
+
+### Acknowledgements 
+
+- I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a Django authetification system of great help in this project.
+
+- I also found Free Code Camps videos particularly helpful for understanding how Django operates.
 
 ### Code
 
-I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a Django authetification system of great help in this project.
+- The solution to pushing a subdirectory to Heroku was found in this [Medium article](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f).
 
-I also found Free Code Camps videos particularly helpful for understanding how Django operates.
-### Acknowledgements
+- The code for displaying the currently selected page in my sidebar was found in this [Stackoverflow thread](https://stackoverflow.com/questions/26819675/navbar-highlight-for-current-page).
 
-The solution to pushing a subdirectory to Heroku was found in this [Medium article](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f).
+- The code for the django form dropdown menu was found in another [Stackoverflow thread](https://stackoverflow.com/questions/24403075/django-choicefield/24404791).
 
-The code for displaying the currently selected page in my sidebar was found in this [Stackoverflow thread](https://stackoverflow.com/questions/26819675/navbar-highlight-for-current-page).
+- Finally, the styles used for submit buttons was taken from this [codepen](https://codepen.io/grbav/pen/GZXgVj).
 
-The code for the django form dropdown menu was found in another [Stackoverflow thread](https://stackoverflow.com/questions/24403075/django-choicefield/24404791).
-
-Finally, the styles used for submit buttons was taken from this [codepen](https://codepen.io/grbav/pen/GZXgVj).
+- The SVG mouse found at the top of the site was initially found on page one, entry no. 3 of this [css animations page](https://www.creativebloq.com/inspiration/css-animation-examples)
+which displayed code this codepen: [SVG mouse](https://codepen.io/matchboxhero/pen/gGdJYo "SVG mouse"). Minor changes were made in relation to positioning on the page.
 
 ### Disclaimer 
 
