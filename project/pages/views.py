@@ -1,4 +1,5 @@
 from django.shortcuts import render, render_to_response
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from orders.models import Design, Testimonial
 
 
@@ -27,7 +28,9 @@ def gallery_design_detail(request, parameter):
        customer and render. Otherwise ignore."""
     try:
         testimonial = Testimonial.objects.get(design_id=parameter)
-    except Testimonial.DoesNotExist:
+    except MultipleObjectsReturned:
+        testimonial = Testimonial.objects.filter(design_id=parameter).last()
+    except ObjectDoesNotExist:
         testimonial = None
     context = {
         "design": Design.objects.get(pk=parameter),
