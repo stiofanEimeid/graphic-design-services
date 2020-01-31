@@ -82,14 +82,6 @@ class TestOrdersView(TestCase):
         self.user = test_user2
         self.client = Client()
         
-    # def test_order_create_view(self):
-    #     login = self.client.login(username='testuser2', password='kjsnlkblmbl')
-    #     session = self.client.session
-    #     session['basket'] = {}
-    #     session['basket']['type'] = "Logo"
-        
-    #     session.save()
-        
     def test_orders_view(self):
         page = self.client.get("/orders/")
         self.assertEqual(page.status_code, 200)
@@ -104,7 +96,7 @@ class TestOrdersView(TestCase):
         login = self.client.login(username='testadmin', password='784fhhv*90')
         user = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
         order = Order(
-            customer = user,
+            author = user,
             type = "Logo",
             description = 'This is a new feature description',
             price = "10")
@@ -116,7 +108,7 @@ class TestOrdersView(TestCase):
         login = self.client.login(username='testadmin', password='784fhhv*90')
         user = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
         order = Order(
-            customer = user,
+            author = user,
             type = "Logo",
             description = 'This is a new feature description',
             price = "10")
@@ -136,7 +128,7 @@ class TestOrdersView(TestCase):
             login = self.client.login(username='testadmin', password='784fhhv*90')
             user = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
             order = Order(
-                customer = user,
+                author = user,
                 type = "Logo",
                 description = 'This is a new feature description',
                 price = "10")
@@ -149,7 +141,7 @@ class TestOrdersView(TestCase):
                     )
             design.save()
             revision = Revision(
-                customer = user,
+                author = user,
                 type = "Logo",
                 revisions = 'This is a new feature description',
                 price = "10",
@@ -164,20 +156,20 @@ class TestOrdersView(TestCase):
             login = self.client.login(username='testadmin', password='784fhhv*90')
             user = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
             order = Order(
-                customer = user,
+                author = user,
                 type = "Logo",
                 description = 'This is a new feature description',
                 price = "10")
             order.save()
             design = Design(
-                    customer = user,
-                    type = "Logo",
-                    description = 'This is a new description',
-                    order_number = order
-                    )
+                author = user,
+                type = "Logo",
+                description = 'This is a new description',
+                order_number = order
+                )
             design.save()
             revision = Revision(
-                customer = user,
+                author = user,
                 type = "Logo",
                 revisions = 'This is a new feature description',
                 price = "10",
@@ -189,5 +181,3 @@ class TestOrdersView(TestCase):
                 'preview_image': SimpleUploadedFile("test_preview.jpg", b"file_content", content_type="image/jpeg"),
             })
             self.assertEqual(response.status_code, 200)
-
- 
