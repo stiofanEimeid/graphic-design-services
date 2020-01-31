@@ -43,12 +43,11 @@ The following validation services and linter were used to check the validity of 
 I manually tested the project's functionality by signing up as a user and requesting a number of designs, revisions, approving designs and
 writing testimonials.
 
-As a user, I tested to see whether I could change my username, password and image across a number of accounts. I also made sure I could not access
-admin specific features.
+As a user, I tested to see whether I could change my username, password and image across a number of accounts. I also made sure I could not access admin specific features. I reset my password successfully using the 'forgot password?' functionality.
 
-I also made sure that when a new revision was submitted or the customer requested changes, the status of the design object was changed and the corresponding
-status of the order or the revision form was updated. It was important to change the status of the forms in order to prevent potentially submitting designs for 
-closed requests by accident from the order list page.
+I also made sure that when a new revision was submitted or the customer requested changes, the status of the design object was changed and the corresponding status of the order or the revision form was updated. It was important to change the status of the forms in order to prevent potentially submitting designs for closed requests by accident from the order list page.
+
+Order forms, revision forms and testimonial forms could not be left blank and submitted. Nor could design and revision submission forms be submitted without uploading a file with respect to the admin..
 
 Finally, as an admin, I made sure I could access these admin-specific features including the order list and the ability to submit designs and revisions.
 

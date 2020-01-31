@@ -40,9 +40,9 @@ def profile(request, *args, **kwargs):
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        'orders': Order.objects.filter(customer=request.user),
-        'designs': Design.objects.filter(customer=request.user),
-        'newdesigns': Design.objects.filter(customer=request.user, order_stage="Design pending approval").count()
+        'orders': Order.objects.filter(author=request.user),
+        'designs': Design.objects.filter(author=request.user),
+        'newdesigns': Design.objects.filter(author=request.user, order_stage="Design pending approval").count()
     }
     
     """Add count of designs awaiting approval to template to
