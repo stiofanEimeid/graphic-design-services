@@ -25,6 +25,13 @@ h1, h2, h3, h4, h5 {
   font-family: 'Special Elite', sans-serif;
 }
 
+.alert-success {
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  top: 70px;
+}
+
 .myCon {
   position: relative;
 }
@@ -166,7 +173,7 @@ footer {
 }
 
 .nav-brand {
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-family: 'Special Elite', sans-serif;
   position: absolute;
   right: 0;

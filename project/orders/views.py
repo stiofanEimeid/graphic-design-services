@@ -16,8 +16,8 @@ def order_create_view(request, *args, **kwargs):
         """Create a dictionary 'basket' that stores order info"""
         my_basket = request.session.get('my_basket', {})
         request.session['my_basket'] = my_basket
-        request.session['my_basket']['type'] = request.POST.get('type')
-        request.session['my_basket']['description'] = request.POST.get('description')
+        request.session['my_basket']['type'] = form.cleaned_data.get('type')
+        request.session['my_basket']['description'] = form.cleaned_data.get('description')
         request.session['my_basket']['revision'] = False
 
         """Calculate cost of order"""
@@ -50,11 +50,6 @@ def order_create_view(request, *args, **kwargs):
     }
     return render(request, 'create_order.html',  context)
 
-# @staff_member_required
-# def order_list(request):
-#     orders = Order.objects.all()
-#     return render(request, 'orders/order_list.html', {"orders": orders})
-
 
 class OrderListView(UserPassesTestMixin, ListView):
     def test_func(self):
@@ -75,7 +70,6 @@ class OrderListView(UserPassesTestMixin, ListView):
         return Order.objects.order_by('-time_created')
 
 
-# Must make accessible to respective owners and admin only
 class OrderDetailView(UserPassesTestMixin, DetailView):
     def test_func(self):
         return self.request.user.is_superuser
@@ -90,7 +84,6 @@ class RevisionDetailView(UserPassesTestMixin, DetailView):
     template_name = "revision_detail.html"
 
 
-# Must make accessible to respective owners and admin only
 def submit_design(request, parameter):
     if request.user.is_superuser:
         getOrder = Order.objects.get(pk=parameter)
@@ -114,7 +107,6 @@ def submit_design(request, parameter):
     return render(request, '403.html', {})
 
 
-# Must make accessible to respective owners and admin only
 def submit_revision(request, parameter):
     if request.user.is_superuser:
         getRevision = Revision.objects.get(pk=parameter)
@@ -136,6 +128,7 @@ def submit_revision(request, parameter):
         return render(request, 'submit_revision.html', {'design': getDesign, 'revision': getRevision, 'form': form})
     return render(request, '403.html', {})
 
+
 @login_required
 def request_changes(request, parameter):
     form = RevisionsForm(request.POST or None)
@@ -147,7 +140,7 @@ def request_changes(request, parameter):
         my_basket = request.session.get('my_basket', {})
         request.session['my_basket'] = my_basket
         request.session['my_basket']['type'] = design.type
-        request.session['my_basket']['description'] = request.POST.get('revisions')
+        request.session['my_basket']['description'] = form.cleaned_data.get('revisions')
         request.session['my_basket']['price'] = int(order.price) * 0.15
         request.session['my_basket']['design_id'] = parameter
         request.session['my_basket']['revision'] = True

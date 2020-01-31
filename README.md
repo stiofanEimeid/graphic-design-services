@@ -306,29 +306,24 @@ Having followed these steps, your project should be ready to deploy.
 
 Installing psycopg2 with a virtual environment help found at [goshawknest](https://web.archive.org/web/20140615091953/http://goshawknest.wordpress.com/2011/02/16/how-to-install-psycopg2-under-virtualenv/)
 
-https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template
+Guidance on how to display multiple models in a list view was found in this [Stackoverflow thread](https://stackoverflow.com/questions/31133963/multiple-models-generic-listview-to-template).
 
 ### Content
 
-The Logo was designed and drawn by me...
-
-### Media
+The front page images including logo were designed and drawn by me.
 
 ### Code
 
-<!--Custom Cursor by Stefan Kaltenegger found at [codrops](https://tympanus.net/codrops/2019/01/31/custom-cursor-effects/)-->
-
+I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a django authetification system of great help in this project: 
 ### Acknowledgements
 
-Heroku fix: https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+The solution to pushing a subdirectory to Heroku was found in this [Medium article](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f).
 
-currently selected page in navbar: https://stackoverflow.com/questions/26819675/navbar-highlight-for-current-page
+The code for displaying the currently selected page in my sidebar was found in this [Stackoverflow thread](https://stackoverflow.com/questions/26819675/navbar-highlight-for-current-page).
 
-Preview order modal: https://stackoverflow.com/questions/23775272/bootstrap-modal-before-form-submit
+The code for the django form dropdown menu was found in another [Stackoverflow thread](https://stackoverflow.com/questions/24403075/django-choicefield/24404791).
 
-Django Form Dropdown Menu: https://stackoverflow.com/questions/24403075/django-choicefield/24404791
-
-Button style: https://codepen.io/grbav/pen/GZXgVj
+Finally, the styles used for submit buttons was taken from this [codepen](https://codepen.io/grbav/pen/GZXgVj).
 
 ### Disclaimer 
 
