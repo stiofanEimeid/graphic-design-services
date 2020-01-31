@@ -82,7 +82,7 @@ def submit_design(request, parameter):
             form = DesignSubmissionForm(request.POST, request.FILES)
             if form.is_valid():
                 instance = form.save(commit=False)
-                instance.customer = getOrder.customer
+                instance.author = getOrder.author
                 instance.type = getOrder.type
                 instance.description = getOrder.description
                 instance.order_number = getOrder
@@ -145,7 +145,7 @@ def request_changes(request, parameter):
 @login_required
 def design_detail(request, parameter):
     getDesign = Design.objects.get(pk=parameter)
-    designOwner = getDesign.customer
+    designOwner = getDesign.author
 
     if request.user.username != designOwner:
         raise PermissionDenied
@@ -171,7 +171,7 @@ def testimonial(request, parameter):
         testimonial = Testimonial(
                         design_id=Design.objects.get(id=parameter),
                         testimonial_text=form.cleaned_data.get("testimonial_text"),
-                        customer=request.user,
+                        author=request.user,
                         )
         testimonial.save()
 

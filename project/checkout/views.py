@@ -43,7 +43,7 @@ def checkout(request):
                     revision = Revision(
                         design_id=Design.objects.get(id=request.session['my_basket']['design_id']),
                         revisions=request.session['my_basket']['description'],
-                        customer=request.user,
+                        author=request.user,
                         price=request.session['my_basket']['price'],
                         type=request.session['my_basket']['type'],
                         time_created=timezone.now()
@@ -55,7 +55,7 @@ def checkout(request):
                     order = Order(
                         type=request.session['my_basket']['type'],
                         description=request.session['my_basket']['description'],
-                        customer=request.user,
+                        author=request.user,
                         price=request.session['my_basket']['price'],
                         time_created=timezone.now()
                         )
@@ -68,8 +68,7 @@ def checkout(request):
                 messages.error(request, "Unable to receive payment")
         else:
             print(payment_form.errors)
-            messages.error(request,
-                           "We were unable to take a payment with that card!")
+            messages.error(request, "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
         cd_form = CustomerDetailForm()
