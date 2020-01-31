@@ -31,14 +31,12 @@ h1, h2, h3, h4, h5 {
 .alert-success {
   z-index: 996;
   position: absolute;
-  width: 100%;
   top: 70px;
 }
 
 .alert {
   position: absolute;
   top: 70px;
-  width: 100%;
   z-index: 996;
   background-color: #fff;
 }
