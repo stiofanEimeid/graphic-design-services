@@ -189,6 +189,12 @@ I would like to implement a reward system for users who write testimonials for c
 
 This reward will take the form of a discount on the next purchase of a user who completes a testimonial on a purchased design. 
 
+I would like to include pagination on the profile page or incorporate ajax calls when a user's list of orders/designs becomes too long.
+
+Additionally, I would also like to give users the option of deleting their profile.
+
+Finally, I would like to incorporate the ability for users to download images directly by clicking on a button for the sake of convenience.
+
 ## Technologies Used
 
 ### Languages
@@ -314,7 +320,9 @@ The front page images including logo were designed and drawn by me.
 
 ### Code
 
-I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a django authetification system of great help in this project: 
+I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a Django authetification system of great help in this project.
+
+I also found Free Code Camps videos particularly helpful for understanding how Django operates.
 ### Acknowledgements
 
 The solution to pushing a subdirectory to Heroku was found in this [Medium article](https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f).
@@ -330,4 +338,3 @@ Finally, the styles used for submit buttons was taken from this [codepen](https:
 The contents of this website are for educational purposes only.
 
 [**Jump to top &uarr;**](#table-of-contents)
-

@@ -19,23 +19,14 @@
 
 ## Automated Testing
 
-Automated Tests run for Users, Orders and Pages Apps.
+### Unit Tests
 
-Coverage 
+Automated tests were run for Users, Orders and Pages Apps. The respective tests for each may be found in each apps directory. 
 
-Coverage Report...
-
-<details>
-<summary>**Click here** to view the Coverage Report</summary>
-
-| **Name** | **Stmts** | **Miss** | **Excluded** | **Cover** |
-| :--- | ---: | ---: | ---: | ---: |
-| *accounts/__ init __* | 0 | 0 | 0 | **100%** |
-| --- | --- | --- | --- | --- |
-| **TOTAL** | **N/A** | **N/A** | **N/A**  | **N/A** |
-
-</details>
-
+I used coverage py to ensure that I had written tests for most if not all of each app's functionality, beyond built in Django views.
+In order to test an app's coverage, I ran the command ```coverage run --source=<appname> manage.py test``` in the terminal. I then ran
+```coverage report``` to provide a table of the results of the tests in the terminal, and finally ```coverage html``` to create a page
+from which to view the results in the browser.
 
 ### Validation services
 The following validation services and linter were used to check the validity of the website code.
@@ -47,9 +38,14 @@ The following validation services and linter were used to check the validity of 
 
 ## Client Stories Testing
 
-### As a user I want to:
+I manually tested the project's functionality by signing up as a user and requesting a number of designs, revisions, approving designs and
+writing testimonials.
 
-### As an owner I want to:
+As a user, I tested to see whether I could change my username, password and image across a number of accounts. I also made sure I could not access
+admin specific features.
+
+Finally, as an admin, I made sure I could access these admin-specific features including the order list and the ability to submit designs and revisions.
+
 
 ## Manual Testing
 
