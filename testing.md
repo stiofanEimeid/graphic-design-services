@@ -46,6 +46,10 @@ writing testimonials.
 As a user, I tested to see whether I could change my username, password and image across a number of accounts. I also made sure I could not access
 admin specific features.
 
+I also made sure that when a new revision was submitted or the customer requested changes, the status of the design object was changed and the corresponding
+status of the order or the revision form was updated. It was important to change the status of the forms in order to prevent potentially submitting designs for 
+closed requests by accident from the order list page.
+
 Finally, as an admin, I made sure I could access these admin-specific features including the order list and the ability to submit designs and revisions.
 
 ## Manual Testing
