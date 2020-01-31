@@ -14,15 +14,18 @@ body {
   background-color: #fff;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Special Elite', sans-serif;
+}
+
+/*Bootstrap overrides*/
+
 .row {
   margin: 0;
 }
 
 .col, .col-12 {
   padding: 0;
-}
-h1, h2, h3, h4, h5 {
-  font-family: 'Special Elite', sans-serif;
 }
 
 .alert-success {
@@ -40,11 +43,14 @@ h1, h2, h3, h4, h5 {
   background-color: #fff;
 }
 
-.myCon {
-  position: relative;
-}
+/*containers*/
+
 .container {
   padding-top: 70px;
+}
+
+.myCon {
+  position: relative;
 }
 
 .content {
@@ -146,7 +152,7 @@ footer {
 .sidebar a {
   padding: 8px 8px 8px 35px;
   text-decoration: none;
-  font-size: 2.5em;
+  font-size: 1.25em;
   padding-bottom: 5px;
   display: block;
   transition: 0.3s;
@@ -305,15 +311,7 @@ footer {
   background-color: #1a1a1a;
 }
 
-.designDesc {
-  min-height: 250px;
-  margin-top: 30px;
-}
-
-.design-image>img {
-  height: 300px;
-  max-width: 100%;
-}
+/*Profile*/
 
 .profileBody {
   background-color: #fff;
@@ -339,6 +337,16 @@ footer {
   border-radius: 5px;
   padding: 2.5px;
   margin-bottom: 2.5px;
+}
+
+.designDesc {
+  min-height: 250px;
+  margin-top: 30px;
+}
+
+.design-image>img {
+  height: 300px;
+  max-width: 100%;
 }
 
 .avatar {
@@ -367,6 +375,8 @@ footer {
 .img-container {
       position: relative;
 }
+
+/*Form elements*/
 
 #price {
   border: 2px solid #009933;
@@ -445,6 +455,8 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
+/*Gallery styles*/
     
 .gallery-image-container {
   height: 200px;
@@ -569,13 +581,34 @@ footer {
   will-change: transform;
 }
 
+/*Media Queries*/
+
+@media screen and (max-height: 450px) {
+      .sidebar a {
+          font-size: 18px;
+      }
+}
+
  @media only screen and (min-width: 768px){
   .sidebar {
-    width: 65%;
+    width: 35%;
     
   }
   .avatar {
   	left: 10%;
   	margin-left: -20px;
   	}
+  	
+    
+    .sidebar a {
+        font-size: 2em;
+    }
+    
+    .sidebar .closebtn {
+        font-size: 30px;
+    }
 }
+
+
+  
+    
