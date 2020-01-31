@@ -108,6 +108,7 @@ def submit_revision(request, parameter):
                 form.save(commit=False)
                 Design.objects.filter(pk=parameter).update(order_stage="Design pending approval")
                 form.save()
+                Revision.objects.filter(pk=parameter).update(open=False)
                 return redirect('order-list')
         else:
             form = DesignUpdateForm()
