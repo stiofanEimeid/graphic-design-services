@@ -41,8 +41,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                            Inbox 
-                            {% if newdesigns > 0%}{{ newdesigns }}{% endif %}
+                            Inbox
+                            {% if newdesigns > 0 %}({{ newdesigns }}){% endif %}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -83,7 +83,6 @@
                 <h3>Designs</h3></div>
                 <div class="col-12 mb-5">
                 {% if designs %}
-                <p>Designs Pending Approval:</p>
                    {% for design in designs %}
                        {% if design.order_stage == "Design pending approval"  %}
                              <div class="mycard mb-4">
@@ -120,19 +119,13 @@
                                       <div class="col-4 mycard-category">Desc.</div>
                                       <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
                                   </div>
-                                   
-                                   
                                     <div class="button-container">
                                     <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
                                     <a class="view-btn text-center" href="#/">Revisions requested</a>
                                     </div>
                               </div>
-                  
-    
                         {% endif %}
                     {% endfor %}
-                {% else %}
-                           <p>No designs pending approval</p>
     
                 {% endif %}
                  
@@ -166,10 +159,6 @@
                                 <p>No completed designs available</p>
                                 {% endif %}
                             {% endfor %}
-                        {% else %}
-                            <div class="col">
-                                <p>No completed designs</p>
-                            </div>
                         {% endif %}
                 </div>
                   </div>

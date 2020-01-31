@@ -95,4 +95,6 @@ appearing in travis although not in testing locally. Until this issue is resolve
 I understand that a lambda function may in fact be the more appropriate approach to take in light of the fact I am making use of Amazon's Web Services
 to serve images.
 
+Secondly, when the order status of a design is updated after a revision is submitted, the status is not recognised in the for counter on the profile page
+that should increment now that the status has changed back to 'Design pending approval'.
 [**Jump to top &uarr;**](#table-of-contents)

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm, DesignSubmissionForm, DesignUpdateForm, RevisionsForm, DesignAcceptanceForm, TestimonialForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Order, Design, Revision
+from .models import Order, Design, Revision, Testimonial
 from django.core.exceptions import PermissionDenied
 
 from django.contrib.auth.decorators import login_required
@@ -79,12 +79,10 @@ def submit_design(request, parameter):
     if request.user.is_superuser:
         getOrder = Order.objects.get(pk=parameter)
         if request.method == 'POST':
-    
             form = DesignSubmissionForm(request.POST, request.FILES)
             if form.is_valid():
                 instance = form.save(commit=False)
                 instance.customer = getOrder.customer
-                # may not actually be necessary
                 instance.type = getOrder.type
                 instance.description = getOrder.description
                 instance.order_number = getOrder
@@ -170,9 +168,12 @@ def design_detail(request, parameter):
 def testimonial(request, parameter):
     form = TestimonialForm(request.POST or None)
     if form.is_valid():
-        form.save(commit=False)
-        form.customer = request.user
-        form.save()
+        testimonial = Testimonial(
+                        design_id=Design.objects.get(id=parameter),
+                        testimonial_text=form.cleaned_data.get("testimonial_text"),
+                        customer=request.user,
+                        )
+        testimonial.save()
 
         return redirect('profile')
     context = {
