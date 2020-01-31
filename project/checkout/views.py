@@ -62,7 +62,7 @@ def checkout(request):
                     order.save()
                     """The revision/design object is only saved if payment is successful"""
 
-                request.session['basket'] = {}
+                request.session['my_basket'] = {}
                 return redirect(reverse('homepage'))
             else:
                 messages.error(request, "Unable to receive payment")
