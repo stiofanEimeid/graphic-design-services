@@ -134,11 +134,11 @@ class TestOrdersView(TestCase):
                 price = "10")
             order.save()
             design = Design(
-                    customer = user,
-                    type = "Logo",
-                    description = 'This is a new description',
-                    order_number = order
-                    )
+                author = user,
+                type = "Logo",
+                description = 'This is a new description',
+                order_number = order
+                )
             design.save()
             revision = Revision(
                 author = user,
