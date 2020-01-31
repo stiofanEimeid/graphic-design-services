@@ -6,5 +6,4 @@ def view_basket(request):
     """A view that renders the content of the basket"""
     return render(request, "basket.html", {})
 
-    
 

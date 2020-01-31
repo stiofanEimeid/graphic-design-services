@@ -102,10 +102,10 @@ I used the fonts "Special Elite" and "Roboto". Special Elite is a typewriter fon
 
 #### Colours
 
-| Light Sky Blue | Mint Cream | Eerie Black | Light Carmine Pink | Hansa Yellow | Ube |
-| :---: | :---: | :---: |  :---: | :---: | :---: |
-| ![#1a1a1a](https://placehold.it/15/1a1a1a/1a1a1a) | ![#FFF](https://placehold.it/15/FFF/FFF) | ![#941C2F](https://placehold.it/15/941C2F/941C2F) | ![#EF626C](https://placehold.it/15/EF626C/EF626C) | ![#E9D758](https://placehold.it/15/E9D758/E9D758) | ![#8377D1](https://placehold.it/15/8377D1/8377D1) |
-| #1a1a1a | #FFF| #941C2F | #EF626C |#E9D758| #8377D1 |
+| Eerie Black | White | Jasmine Carmine | Columbia Blue |
+| :---: | :---: | :---: |  :---: | 
+| ![#1a1a1a](https://placehold.it/15/1a1a1a/1a1a1a) | ![#FFF](https://placehold.it/15/FFF/FFF) | ![#993333](https://placehold.it/15/993333/993333) | ![#C1CFDA](https://placehold.it/15/C1CFDA/C1CFDA)| 
+| #1a1a1a | #FFF| #99333 | #C1CFDA |
 
 ### Wireframes
 
