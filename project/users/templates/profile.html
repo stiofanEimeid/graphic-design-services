@@ -8,8 +8,8 @@
             <div class="col-md-5 profile-details"><img class="avatar" src="{{ user.profile.image.url }}" alt="profile-image"></div>
             <div class="col-md-7 profile-details">
                 <div class="row">
-                    <div class="col-12"><h4>Username: {{ request.user }}</h4></div>
-                    <div class="col-12"><h4>Date Joined: {{ request.user.date_joined }}</h4></div>
+                    <div class="col-12 border-bottom detail-bg">Username: {{ request.user }}</div>
+                    <div class="col-12 border-bottom detail-bg">Date Joined: {{ request.user.date_joined }}</div>
                 </div>
             </div>
         </div>
@@ -41,14 +41,14 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                            Designs submitted 
+                            Inbox 
                             {% if newdesigns != 0 %}
                                 {{ newdesigns }}
                             {% endif %}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Designs Approved</a>
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Approved</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">

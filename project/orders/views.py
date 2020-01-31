@@ -19,11 +19,8 @@ def order_create_view(request, *args, **kwargs):
         request.session['my_basket']['type'] = form.cleaned_data.get('type')
         request.session['my_basket']['description'] = form.cleaned_data.get('description')
         request.session['my_basket']['revision'] = False
-
         """Calculate cost of order"""
-
         selected_type = request.session['my_basket']['type']
-
         if selected_type == "Logo":
             request.session['my_basket']['price'] = 30
         elif selected_type == "Icon":
@@ -32,19 +29,13 @@ def order_create_view(request, *args, **kwargs):
             request.session['my_basket']['price'] = 15
         else:
             request.session['my_basket']['price'] = 50
-
-        # request.session.modified = True
         """add dictionary to session variable 'basket'"""
-        # request.session['basket'] = basket
-
         context = {
             'type': request.session['my_basket']['type'],
             'description': request.session['my_basket']['description'],
             'price': request.session['my_basket']['price']
         }
-
         return render(request, 'basket.html', context)
-
     context = {
         'form': form
     }
@@ -112,15 +103,11 @@ def submit_revision(request, parameter):
         getRevision = Revision.objects.get(pk=parameter)
         getDesign = getRevision.design_id
         if request.method == 'POST':
-    
             form = DesignUpdateForm(request.POST, request.FILES, instance=getDesign)
             if form.is_valid():
                 form.save(commit=False)
-                # Revision.objects.filter(pk=parameter).update(open=False)
-                # Add revision.revisions to design array
                 Design.objects.filter(pk=getDesign).update(order_status="Design pending approval")
                 form.save()
-    
                 return redirect('order-list')
         else:
             form = DesignUpdateForm()
@@ -135,7 +122,7 @@ def request_changes(request, parameter):
     if form.is_valid():
         """Create a dictionary 'basket' that stores order info"""
         design = Design.objects.get(pk=parameter)
-        # get parent
+        """ get 'parent' """
         order = Order.objects.get(pk=design.order_number.pk)
         my_basket = request.session.get('my_basket', {})
         request.session['my_basket'] = my_basket
@@ -144,7 +131,6 @@ def request_changes(request, parameter):
         request.session['my_basket']['price'] = int(order.price) * 0.15
         request.session['my_basket']['design_id'] = parameter
         request.session['my_basket']['revision'] = True
-
         context = {
             'type': request.session['my_basket']['type'],
             'description': request.session['my_basket']['description'],
@@ -159,9 +145,7 @@ def request_changes(request, parameter):
 
 @login_required
 def design_detail(request, parameter):
-    # getDesign = get_object_or_404(Design, pk=parameter, customer=request.user)
     getDesign = Design.objects.get(pk=parameter)
-    # designOwner = getattr(getDesign, 'customer')
     designOwner = getDesign.customer
 
     if request.user.username != designOwner:
@@ -185,7 +169,7 @@ def testimonial(request, parameter):
     form = TestimonialForm(request.POST or None)
     if form.is_valid():
         form.save(commit=False)
-        # Must return instance
+        """ Must return instance as foreignkey """
         form.design = parameter
         form.customer = request.user
         form.save()

@@ -28,6 +28,8 @@ In order to test an app's coverage, I ran the command ```coverage run --source=<
 ```coverage report``` to provide a table of the results of the tests in the terminal, and finally ```coverage html``` to create a page
 from which to view the results in the browser.
 
+I also employed the use of the Travis continuation service to ensure each build of the project tested successfully.
+
 ### Validation services
 The following validation services and linter were used to check the validity of the website code.
 - [W3C Markup Validation](https://validator.w3.org/) was used to validate HTML.
@@ -45,7 +47,6 @@ As a user, I tested to see whether I could change my username, password and imag
 admin specific features.
 
 Finally, as an admin, I made sure I could access these admin-specific features including the order list and the ability to submit designs and revisions.
-
 
 ## Manual Testing
 
@@ -95,5 +96,3 @@ I understand that a lambda function may in fact be the more appropriate approach
 to serve images.
 
 [**Jump to top &uarr;**](#table-of-contents)
-
-## Further Testing 

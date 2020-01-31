@@ -49,7 +49,6 @@ h1, h2, h3, h4, h5 {
 footer {
   flex-shrink: 0;
   background-color: #1a1a1a;
-
   color: #fff;
   text-align: center;
 }
@@ -298,10 +297,6 @@ footer {
   background-color: #1a1a1a;
 }
 
-.box {
-  background-color: #1a1a1a;
-}
-
 .designDesc {
   min-height: 250px;
   margin-top: 30px;
@@ -314,20 +309,28 @@ footer {
 
 .profileBody {
   background-color: #fff;
+  padding: 10px;
 }
 .content-section {
   position: relative;
 	margin: 120px 0 60px 0;
-	/*background-color: #20A4F3;*/
 	background-color: #C1CFDA;
 	padding: 10px;
 	color: #1a1a1a;
 }
 
 .profile-details {
+  font-size: 1.25rem;
   height: 120px;
-  background-color: #fff;
+  background-color: #C1CFDA;
   padding: 10px;
+}
+
+.detail-bg {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2.5px;
+  margin-bottom: 2.5px;
 }
 
 .avatar {
@@ -341,6 +344,16 @@ footer {
 	background: #990033;
 	border: 10px solid #C1CFDA;
 	border-radius: 50%;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #1a1a1a;
+}
+
+.nav-item a:link, .nav-item a:visited,
+.nav-item a:hover, .nav-item:active {
+  text-decoration: none;
+  color: #1a1a1a;
 }
 
 .img-container {

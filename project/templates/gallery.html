@@ -7,8 +7,10 @@
   <h1 class="text-center pt-4">Gallery</h1>
   <p>View a selection of illustrations, avatars and icons created by me for clients.
   Click an individual image to view order details and accompanying testimonials where clients have made them available.</p>
+  <div class="row">
+    <div class="col"><h4>Illustrations</h4></div>
+  </div>
   
-  <h2>Illustrations</h2>
   <div class="row no-gutters mb-4">
 	{% for design in designs %}
   <div class="col-md-4 col-lg-3">
@@ -20,103 +22,19 @@
   	 </div>
   </div>
 	{% endfor %}
-</div>
    
-  <h2>Avatars</h2>
-  <div class="row no-gutters mb-4">
-    <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/fingerGunA.png' %}">
-  	 </div>
-  </div>
+   <div class="row">
+     <div class="col"><h4>Logos</h4></div>
+   </div>
   
-  <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/fingerGunB.png' %}">
-  	 </div>
-  </div>
+  <div class="row">
+     <div class="col"><h4>Avatars</h4></div>
+   </div>
   
-  <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/blacklion.png' %}">
-  	 </div>
-  </div>
-  
-  <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/blacklion.png' %}">
-  	 </div>
-  </div>
-  
-    <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/theman.png' %}">
-  	 </div>
-  </div>
-  
-    <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/thewoman.png' %}">
-  	 </div>
-  </div>
-
-
-  </div>
-  
-  <h2>Icons</h2>
-   <div class="row no-gutters mb-4">
-    <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/fingerGunA.png' %}">
-  	 </div>
-    </div>
-  
-  <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/fingerGunB.png' %}">
-  	 </div>
-  </div>
-  
-  <div class="col-md-4 col-lg-3">
-  	 <div class="gallery-image-container">
-  	 	<div class="design-details">
-  	 		<a href="#/">View Details</a>
-  	 	</div>
-  	 	<img src="{% static 'images/twohands.png' %}">
-  </div>
+  <div class="row">
+     <div class="col"><h4>Icons</h4></div>
+   </div>
   
 </div>
-
-  
-  
-</div>
-  
-
-
-
 
 {% endblock %}
