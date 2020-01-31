@@ -25,13 +25,13 @@ def order_create_view(request, *args, **kwargs):
         selected_type = request.session['my_basket']['type']
 
         if selected_type == "Logo":
-            request.session['my_basket']['price'] = 20
+            request.session['my_basket']['price'] = 30
         elif selected_type == "Icon":
-            request.session['my_basket']['price'] = 25
-        elif selected_type == "Poster":
-            request.session['my_basket']['price'] = 35
+            request.session['my_basket']['price'] = 5
+        elif selected_type == "Avatar":
+            request.session['my_basket']['price'] = 15
         else:
-            request.session['my_basket']['price'] = 89
+            request.session['my_basket']['price'] = 50
 
         # request.session.modified = True
         """add dictionary to session variable 'basket'"""

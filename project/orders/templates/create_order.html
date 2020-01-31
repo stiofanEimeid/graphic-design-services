@@ -4,6 +4,8 @@
 {% block content %}
 <div class="container">
     <h1 class="text-center pt-4">New Order</h1>
+    <p class="text-muted">Note: It is advisable but not absolutely required
+    to include an image for the artist to determine how the final</p>
     <form id="formfield" method="POST">{% csrf_token %}
         {{ form|crispy }}
         <div id="price">Make a selection to get a quote.</div>

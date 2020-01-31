@@ -53,10 +53,10 @@ $(document).ready(function(){
 const myForm = document.querySelector("#formfield");
 
 const type_prices = [];
-type_prices[0]=20;
-type_prices[1]=25;
-type_prices[2]=35;
-type_prices[3]=75;
+type_prices[0]=30;
+type_prices[1]=5;
+type_prices[2]=15;
+type_prices[3]=50;
  
 function getTypePrice()
 {  

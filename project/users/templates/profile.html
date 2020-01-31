@@ -6,7 +6,12 @@
     <div class="content-section">
         <div class="row">
             <div class="col-md-5 profile-details"><img class="avatar" src="{{ user.profile.image.url }}" alt="profile-image"></div>
-            <div class="col-md-7 profile-details"></div>
+            <div class="col-md-7 profile-details">
+                <div class="row">
+                    <div class="col-12"><h4>Username: {{ request.user }}</h4></div>
+                    <div class="col-12"><h4>Date Joined: {{ request.user.date_joined }}</h4></div>
+                </div>
+            </div>
         </div>
      <!--main container-->
         <div class="row profileBody">
