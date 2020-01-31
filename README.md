@@ -224,6 +224,8 @@ Information on the testing process may be found in the [testing.md file](https:/
 
 - [Bootstrap](https://www.bootstrapcdn.com/)
     - The project uses **Bootstrap** to simplify the structure of the website and make the website responsive.
+- [AOS](https://michalsnik.github.io/aos/)
+    - AOS(Animate On Scroll) used to animate div on homepage.
 
 
 ## Deployment
