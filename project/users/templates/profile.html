@@ -52,7 +52,6 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="col-12">
-                            <h3>My Orders</h3>
                             {% if orders %}
                                 {% for order in orders %}
                                 <div class="mycard mb-4">
@@ -79,29 +78,27 @@
                         </div>
                   </div>
                   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                     <div class="col-12">
-                <h3>Designs</h3></div>
-                <div class="col-12 mb-5">
-                {% if designs %}
-                   {% for design in designs %}
-                       {% if design.order_stage == "Design pending approval"  %}
-                             <div class="mycard mb-4">
-                                  <div class="row">
-                                      <div class="col mycard-title">Order no. {{ design.order_number.id }}</div>
+                    <div class="col-12 mb-5">
+                    {% if designs %}
+                       {% for design in designs %}
+                           {% if design.order_stage == "Design pending approval"  %}
+                                 <div class="mycard mb-4">
+                                      <div class="row">
+                                          <div class="col mycard-title">Order no. {{ design.order_number.id }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-4 mycard-category">TYPE</div>
+                                          <div class="col-8 border-bottom">{{ design.type }}</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-4 mycard-category">Desc.</div>
+                                          <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
+                                      </div>
+                                        <div class="button-container">
+                                        <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
+                                        <a class="view-btn text-center" href="{% url 'request-changes' parameter=design.id %}">Request Revisions</a>
+                                        </div>
                                   </div>
-                                  <div class="row">
-                                      <div class="col-4 mycard-category">TYPE</div>
-                                      <div class="col-8 border-bottom">{{ design.type }}</div>
-                                  </div>
-                                  <div class="row">
-                                      <div class="col-4 mycard-category">Desc.</div>
-                                      <div class="col-8 border-bottom"><p>{{ design.description }}</p></div>
-                                  </div>
-                                    <div class="button-container">
-                                    <a class="view-btn text-center card-link"  href="{% url 'design-detail' parameter=design.id %}">View Design</a>
-                                    <a class="view-btn text-center" href="{% url 'request-changes' parameter=design.id %}">Request Revisions</a>
-                                    </div>
-                              </div>
                   
                          {% elif design.order_stage == "Revisions requested"  %}
                          
@@ -124,15 +121,11 @@
                               </div>
                         {% endif %}
                     {% endfor %}
-    
-                {% endif %}
-                 
+                    {% endif %}
                     </div>
                   </div>
-                  
                   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                      <div class="col-12 mb-15">
-                        <h4>Approved Designs:</h4>
+                    <div class="col-12 mb-15">
                         {% if designs %}
                             {% for design in designs %}
                                 {% if design.order_stage == "Design accepted"  %} 
