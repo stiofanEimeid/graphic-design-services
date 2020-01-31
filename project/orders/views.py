@@ -99,12 +99,12 @@ def submit_design(request, parameter):
 def submit_revision(request, parameter):
     if request.user.is_superuser:
         getRevision = Revision.objects.get(pk=parameter)
-        getDesign = getRevision.design_id
+        getDesign = Design.objects.get(pk=getRevision.design_id.pk)
         if request.method == 'POST':
             form = DesignUpdateForm(request.POST, request.FILES, instance=getDesign)
             if form.is_valid():
                 form.save(commit=False)
-                Design.objects.filter(pk=parameter).update(order_stage="Design pending approval")
+                getDesign.order_stage="Design pending approval"
                 form.save()
                 Revision.objects.filter(pk=parameter).update(open=False)
                 return redirect('order-list')
@@ -158,7 +158,7 @@ def design_detail(request, parameter):
 
     context = {
         'design': getDesign,
-        'designrevisions': Revision.objects.filter(pk=getDesign.id).order_by(
+        'designrevisions': Revision.objects.filter(design_id=getDesign).order_by(
                                                     '-time_created'),
     }
     return render(request, 'design_detail.html', context)

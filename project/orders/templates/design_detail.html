@@ -34,13 +34,15 @@
                 <h2>Revisions to Design</h2>
                 {% for revision in designrevisions %}
                 <div class="col-12">
-                    {{ revision.revisions }} 
+                    <ul>
+                        <li>{{ revision.revisions }} </li>
+                    </ul>
                 </div>
                 {% endfor %}
             </div>
             {% endif %}
     
-            {% if design.order_stage != "Design accepted" %}
+            {% if design.order_stage == "Design pending approval" %}
             <form method="POST">
                 {% csrf_token %}
                     <div class="form-group text-center">
