@@ -318,7 +318,7 @@ Guidance on how to display multiple models in a list view was found in this [Sta
 
 ### Content
 
-- The front page images including logo were designed and drawn by me.
+- All images on the site including the logo were created by me.
 
 ### Acknowledgements 
 
