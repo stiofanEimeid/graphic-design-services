@@ -324,7 +324,7 @@ Guidance on how to display multiple models in a list view was found in this [Sta
 
 - I found [Corey Schafer's videos](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) on setting up a Django authetification system of great help in this project.
 
-- I also found Free Code Camps videos particularly helpful for understanding how Django operates.
+- I also found [Free Code Camp's videos](https://www.youtube.com/watch?v=F5mRW0jo-U4&t=640s) particularly helpful for understanding how Django works.
 
 ### Code
 
